@@ -148,4 +148,4 @@ The following costs will grow with the number of syscall drivers in use:
 * `alarm::WAKER`: 8 bytes (+8)
 * `alarm::CUR_TIME`: 8 bytes (+8)
 
-Total: 33 bytes per syscall driver.
+Total: 16 bytes per syscall driver (rough average).
