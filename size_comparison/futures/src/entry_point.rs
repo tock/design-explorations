@@ -117,13 +117,12 @@ unsafe extern "C" fn rust_start() -> () {
         static data_flash_start: EmptySymbol;
 
         static data_ram_start: EmptySymbol;
-        static bss_start: EmptySymbol;
     }
 
     // Initialize .data and .bss
     copy_nonoverlapping(data_flash_start.as_ptr_u8(),
         data_ram_start.as_mut_u8(), rt_header.data_size);
-    core::ptr::write_bytes(bss_start.as_mut_u8(), 0, rt_header.bss_size);
+    core::ptr::write_bytes(rt_header.bss_start, 0, rt_header.bss_size);
 
     extern "C" {
         // This function is created internally by `rustc`. It calls the
@@ -138,6 +137,7 @@ unsafe extern "C" fn rust_start() -> () {
 #[repr(C)]
 struct RtHeader {
     data_size: usize,
+    bss_start: *mut u8,
     bss_size: usize,
 }
 

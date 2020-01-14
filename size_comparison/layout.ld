@@ -39,6 +39,7 @@ SECTIONS {
     .rt_header : {
         rt_header = .;
         LONG(SIZEOF(.data));       /* Size of .data section */
+        LONG(ADDR(.bss));          /* Address of .bss in RAM */
         LONG(SIZEOF(.bss));        /* Size of .bss section */
     } > FLASH
 
@@ -86,10 +87,10 @@ SECTIONS {
      * the RAM region.
      */
     .bss ALIGN(4) (NOLOAD) : {
-        bss_start = .;
         *(.bss)
-        heap_start = .;  /* Used by the entry point */
     } > RAM
+
+    heap_start = ADDR(.bss) + SIZEOF(.bss);  /* Used by the entry point */
 
     /* Discard unwinding tables */
     /DISCARD/ : {
