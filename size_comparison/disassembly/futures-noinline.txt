@@ -1,0 +1,508 @@
+
+target/thumbv7m-none-eabi/release/futures-noinline:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+0007604c <start>:
+   7604c:	f1af 0004 	sub.w	r0, pc, #4
+   76050:	490a      	ldr	r1, [pc, #40]	; (7607c <start+0x30>)
+   76052:	4288      	cmp	r0, r1
+   76054:	d007      	beq.n	76066 <start+0x1a>
+   76056:	f240 0008 	movw	r0, #8
+   7605a:	f240 0101 	movw	r1, #1
+   7605e:	f240 0202 	movw	r2, #2
+   76062:	df02      	svc	2
+   76064:	e007      	b.n	76076 <start+0x2a>
+   76066:	f240 0000 	movw	r0, #0
+   7606a:	4905      	ldr	r1, [pc, #20]	; (76080 <start+0x34>)
+   7606c:	df04      	svc	4
+   7606e:	f8df d014 	ldr.w	sp, [pc, #20]	; 76084 <start+0x38>
+   76072:	f000 f8f9 	bl	76268 <rust_start>
+   76076:	df00      	svc	0
+   76078:	e7fd      	b.n	76076 <start+0x2a>
+   7607a:	defe      	udf	#254	; 0xfe
+   7607c:	0007604c 	.word	0x0007604c
+   76080:	00014870 	.word	0x00014870
+   76084:	00014800 	.word	0x00014800
+
+00076088 <_ZN16futures_noinline5alarm9interrupt17h8bce86d5168ccbd6E>:
+   76088:	b510      	push	{r4, lr}
+   7608a:	4c0b      	ldr	r4, [pc, #44]	; (760b8 <_ZN16futures_noinline5alarm9interrupt17h8bce86d5168ccbd6E+0x30>)
+   7608c:	e9d4 1204 	ldrd	r1, r2, [r4, #16]
+   76090:	6860      	ldr	r0, [r4, #4]
+   76092:	1840      	adds	r0, r0, r1
+   76094:	f142 0100 	adc.w	r1, r2, #0
+   76098:	e9c4 0104 	strd	r0, r1, [r4, #16]
+   7609c:	f000 f80e 	bl	760bc <_ZN16futures_noinline5alarm9set_delay17h340e174de5bd79bcE>
+   760a0:	e9d4 0102 	ldrd	r0, r1, [r4, #8]
+   760a4:	2200      	movs	r2, #0
+   760a6:	e9c4 2202 	strd	r2, r2, [r4, #8]
+   760aa:	b119      	cbz	r1, 760b4 <_ZN16futures_noinline5alarm9interrupt17h8bce86d5168ccbd6E+0x2c>
+   760ac:	6849      	ldr	r1, [r1, #4]
+   760ae:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+   760b2:	4708      	bx	r1
+   760b4:	bd10      	pop	{r4, pc}
+   760b6:	bf00      	nop
+   760b8:	00014850 	.word	0x00014850
+
+000760bc <_ZN16futures_noinline5alarm9set_delay17h340e174de5bd79bcE>:
+   760bc:	b5b0      	push	{r4, r5, r7, lr}
+   760be:	4d0b      	ldr	r5, [pc, #44]	; (760ec <_ZN16futures_noinline5alarm9set_delay17h340e174de5bd79bcE+0x30>)
+   760c0:	2000      	movs	r0, #0
+   760c2:	2102      	movs	r1, #2
+   760c4:	2200      	movs	r2, #0
+   760c6:	2300      	movs	r3, #0
+   760c8:	df02      	svc	2
+   760ca:	2300      	movs	r3, #0
+   760cc:	6869      	ldr	r1, [r5, #4]
+   760ce:	180c      	adds	r4, r1, r0
+   760d0:	2000      	movs	r0, #0
+   760d2:	2104      	movs	r1, #4
+   760d4:	4622      	mov	r2, r4
+   760d6:	df02      	svc	2
+   760d8:	2102      	movs	r1, #2
+   760da:	2000      	movs	r0, #0
+   760dc:	2200      	movs	r2, #0
+   760de:	2300      	movs	r3, #0
+   760e0:	df02      	svc	2
+   760e2:	6869      	ldr	r1, [r5, #4]
+   760e4:	1a20      	subs	r0, r4, r0
+   760e6:	4288      	cmp	r0, r1
+   760e8:	d8ea      	bhi.n	760c0 <_ZN16futures_noinline5alarm9set_delay17h340e174de5bd79bcE+0x4>
+   760ea:	bdb0      	pop	{r4, r5, r7, pc}
+   760ec:	00014850 	.word	0x00014850
+
+000760f0 <_ZN16futures_noinline3app11waker_clone17h66fffe2429001c8eE>:
+   760f0:	4901      	ldr	r1, [pc, #4]	; (760f8 <_ZN16futures_noinline3app11waker_clone17h66fffe2429001c8eE+0x8>)
+   760f2:	3130      	adds	r1, #48	; 0x30
+   760f4:	4770      	bx	lr
+   760f6:	bf00      	nop
+   760f8:	00014800 	.word	0x00014800
+
+000760fc <_ZN16futures_noinline3app10waker_wake17h352068bfcfe8e5c0E>:
+   760fc:	2101      	movs	r1, #1
+   760fe:	4a05      	ldr	r2, [pc, #20]	; (76114 <_ZN16futures_noinline3app10waker_wake17h352068bfcfe8e5c0E+0x18>)
+   76100:	7001      	strb	r1, [r0, #0]
+   76102:	2300      	movs	r3, #0
+   76104:	e9d2 0110 	ldrd	r0, r1, [r2, #64]	; 0x40
+   76108:	e9c2 3310 	strd	r3, r3, [r2, #64]	; 0x40
+   7610c:	b109      	cbz	r1, 76112 <_ZN16futures_noinline3app10waker_wake17h352068bfcfe8e5c0E+0x16>
+   7610e:	6849      	ldr	r1, [r1, #4]
+   76110:	4708      	bx	r1
+   76112:	4770      	bx	lr
+   76114:	00014800 	.word	0x00014800
+
+00076118 <_ZN16futures_noinline3app10waker_drop17h113221a55c00055cE>:
+   76118:	4770      	bx	lr
+
+0007611a <_ZN16futures_noinline3app9AppFuture11alarm_fired17hb9b6fe7e67bc38a4E>:
+   7611a:	b510      	push	{r4, lr}
+   7611c:	4604      	mov	r4, r0
+   7611e:	2004      	movs	r0, #4
+   76120:	2106      	movs	r1, #6
+   76122:	2201      	movs	r2, #1
+   76124:	2300      	movs	r3, #0
+   76126:	df02      	svc	2
+   76128:	2801      	cmp	r0, #1
+   7612a:	d00d      	beq.n	76148 <_ZN16futures_noinline3app9AppFuture11alarm_fired17hb9b6fe7e67bc38a4E+0x2e>
+   7612c:	7a60      	ldrb	r0, [r4, #9]
+   7612e:	2200      	movs	r2, #0
+   76130:	2300      	movs	r3, #0
+   76132:	f080 0101 	eor.w	r1, r0, #1
+   76136:	7261      	strb	r1, [r4, #9]
+   76138:	2800      	cmp	r0, #0
+   7613a:	f04f 0103 	mov.w	r1, #3
+   7613e:	f04f 0004 	mov.w	r0, #4
+   76142:	bf08      	it	eq
+   76144:	2102      	moveq	r1, #2
+   76146:	df02      	svc	2
+   76148:	bd10      	pop	{r4, pc}
+
+0007614a <_ZN16futures_noinline3app9AppFuture12button_event17h91c8d7d8a4c7d3f4E>:
+   7614a:	b5b0      	push	{r4, r5, r7, lr}
+   7614c:	4604      	mov	r4, r0
+   7614e:	2004      	movs	r0, #4
+   76150:	2106      	movs	r1, #6
+   76152:	2201      	movs	r2, #1
+   76154:	2300      	movs	r3, #0
+   76156:	df02      	svc	2
+   76158:	2801      	cmp	r0, #1
+   7615a:	d106      	bne.n	7616a <_ZN16futures_noinline3app9AppFuture12button_event17h91c8d7d8a4c7d3f4E+0x20>
+   7615c:	2500      	movs	r5, #0
+   7615e:	2004      	movs	r0, #4
+   76160:	2103      	movs	r1, #3
+   76162:	2200      	movs	r2, #0
+   76164:	2300      	movs	r3, #0
+   76166:	df02      	svc	2
+   76168:	e005      	b.n	76176 <_ZN16futures_noinline3app9AppFuture12button_event17h91c8d7d8a4c7d3f4E+0x2c>
+   7616a:	2004      	movs	r0, #4
+   7616c:	2102      	movs	r1, #2
+   7616e:	2200      	movs	r2, #0
+   76170:	2300      	movs	r3, #0
+   76172:	df02      	svc	2
+   76174:	2501      	movs	r5, #1
+   76176:	7265      	strb	r5, [r4, #9]
+   76178:	bdb0      	pop	{r4, r5, r7, pc}
+   7617a:	d4d4      	bmi.n	76126 <_ZN16futures_noinline3app9AppFuture11alarm_fired17hb9b6fe7e67bc38a4E+0xc>
+
+0007617c <_ZN81_$LT$futures_noinline..app..AppFuture$u20$as$u20$core..future..future..Future$GT$4poll17h00c3ba6137230f49E>:
+   7617c:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   76180:	6809      	ldr	r1, [r1, #0]
+   76182:	4604      	mov	r4, r0
+   76184:	e9d1 0100 	ldrd	r0, r1, [r1]
+   76188:	6809      	ldr	r1, [r1, #0]
+   7618a:	4788      	blx	r1
+   7618c:	4e34      	ldr	r6, [pc, #208]	; (76260 <_ZN81_$LT$futures_noinline..app..AppFuture$u20$as$u20$core..future..future..Future$GT$4poll17h00c3ba6137230f49E+0xe4>)
+   7618e:	4602      	mov	r2, r0
+   76190:	e9d6 0310 	ldrd	r0, r3, [r6, #64]	; 0x40
+   76194:	e9c6 2110 	strd	r2, r1, [r6, #64]	; 0x40
+   76198:	b10b      	cbz	r3, 7619e <_ZN81_$LT$futures_noinline..app..AppFuture$u20$as$u20$core..future..future..Future$GT$4poll17h00c3ba6137230f49E+0x22>
+   7619a:	68d9      	ldr	r1, [r3, #12]
+   7619c:	4788      	blx	r1
+   7619e:	f896 0048 	ldrb.w	r0, [r6, #72]	; 0x48
+   761a2:	2700      	movs	r7, #0
+   761a4:	f886 7048 	strb.w	r7, [r6, #72]	; 0x48
+   761a8:	07c0      	lsls	r0, r0, #31
+   761aa:	d028      	beq.n	761fe <_ZN81_$LT$futures_noinline..app..AppFuture$u20$as$u20$core..future..future..Future$GT$4poll17h00c3ba6137230f49E+0x82>
+   761ac:	4d2d      	ldr	r5, [pc, #180]	; (76264 <_ZN81_$LT$futures_noinline..app..AppFuture$u20$as$u20$core..future..future..Future$GT$4poll17h00c3ba6137230f49E+0xe8>)
+   761ae:	e9d4 0100 	ldrd	r0, r1, [r4]
+   761b2:	e9d5 2304 	ldrd	r2, r3, [r5, #16]
+   761b6:	1a10      	subs	r0, r2, r0
+   761b8:	eb73 0001 	sbcs.w	r0, r3, r1
+   761bc:	d210      	bcs.n	761e0 <_ZN81_$LT$futures_noinline..app..AppFuture$u20$as$u20$core..future..future..Future$GT$4poll17h00c3ba6137230f49E+0x64>
+   761be:	f106 0848 	add.w	r8, r6, #72	; 0x48
+   761c2:	6b31      	ldr	r1, [r6, #48]	; 0x30
+   761c4:	4640      	mov	r0, r8
+   761c6:	4788      	blx	r1
+   761c8:	4602      	mov	r2, r0
+   761ca:	e9d5 0302 	ldrd	r0, r3, [r5, #8]
+   761ce:	e9c5 2102 	strd	r2, r1, [r5, #8]
+   761d2:	b10b      	cbz	r3, 761d8 <_ZN81_$LT$futures_noinline..app..AppFuture$u20$as$u20$core..future..future..Future$GT$4poll17h00c3ba6137230f49E+0x5c>
+   761d4:	68d9      	ldr	r1, [r3, #12]
+   761d6:	4788      	blx	r1
+   761d8:	6bf1      	ldr	r1, [r6, #60]	; 0x3c
+   761da:	4640      	mov	r0, r8
+   761dc:	4788      	blx	r1
+   761de:	e00e      	b.n	761fe <_ZN81_$LT$futures_noinline..app..AppFuture$u20$as$u20$core..future..future..Future$GT$4poll17h00c3ba6137230f49E+0x82>
+   761e0:	6bf1      	ldr	r1, [r6, #60]	; 0x3c
+   761e2:	f106 0048 	add.w	r0, r6, #72	; 0x48
+   761e6:	4788      	blx	r1
+   761e8:	4620      	mov	r0, r4
+   761ea:	f7ff ff96 	bl	7611a <_ZN16futures_noinline3app9AppFuture11alarm_fired17hb9b6fe7e67bc38a4E>
+   761ee:	6868      	ldr	r0, [r5, #4]
+   761f0:	e9d5 1204 	ldrd	r1, r2, [r5, #16]
+   761f4:	1840      	adds	r0, r0, r1
+   761f6:	f142 0100 	adc.w	r1, r2, #0
+   761fa:	e9c4 0100 	strd	r0, r1, [r4]
+   761fe:	f896 0049 	ldrb.w	r0, [r6, #73]	; 0x49
+   76202:	f886 7049 	strb.w	r7, [r6, #73]	; 0x49
+   76206:	07c0      	lsls	r0, r0, #31
+   76208:	d015      	beq.n	76236 <_ZN81_$LT$futures_noinline..app..AppFuture$u20$as$u20$core..future..future..Future$GT$4poll17h00c3ba6137230f49E+0xba>
+   7620a:	4d16      	ldr	r5, [pc, #88]	; (76264 <_ZN81_$LT$futures_noinline..app..AppFuture$u20$as$u20$core..future..future..Future$GT$4poll17h00c3ba6137230f49E+0xe8>)
+   7620c:	7828      	ldrb	r0, [r5, #0]
+   7620e:	2800      	cmp	r0, #0
+   76210:	bf18      	it	ne
+   76212:	2001      	movne	r0, #1
+   76214:	7a21      	ldrb	r1, [r4, #8]
+   76216:	fab1 f181 	clz	r1, r1
+   7621a:	0949      	lsrs	r1, r1, #5
+   7621c:	4288      	cmp	r0, r1
+   7621e:	d00c      	beq.n	7623a <_ZN81_$LT$futures_noinline..app..AppFuture$u20$as$u20$core..future..future..Future$GT$4poll17h00c3ba6137230f49E+0xbe>
+   76220:	6bf1      	ldr	r1, [r6, #60]	; 0x3c
+   76222:	f106 0049 	add.w	r0, r6, #73	; 0x49
+   76226:	4788      	blx	r1
+   76228:	4620      	mov	r0, r4
+   7622a:	f7ff ff8e 	bl	7614a <_ZN16futures_noinline3app9AppFuture12button_event17h91c8d7d8a4c7d3f4E>
+   7622e:	7828      	ldrb	r0, [r5, #0]
+   76230:	f080 0001 	eor.w	r0, r0, #1
+   76234:	7220      	strb	r0, [r4, #8]
+   76236:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+   7623a:	f106 0449 	add.w	r4, r6, #73	; 0x49
+   7623e:	6b31      	ldr	r1, [r6, #48]	; 0x30
+   76240:	4620      	mov	r0, r4
+   76242:	4788      	blx	r1
+   76244:	4602      	mov	r2, r0
+   76246:	e9d5 0306 	ldrd	r0, r3, [r5, #24]
+   7624a:	e9c5 2106 	strd	r2, r1, [r5, #24]
+   7624e:	b10b      	cbz	r3, 76254 <_ZN81_$LT$futures_noinline..app..AppFuture$u20$as$u20$core..future..future..Future$GT$4poll17h00c3ba6137230f49E+0xd8>
+   76250:	68d9      	ldr	r1, [r3, #12]
+   76252:	4788      	blx	r1
+   76254:	6bf1      	ldr	r1, [r6, #60]	; 0x3c
+   76256:	4620      	mov	r0, r4
+   76258:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
+   7625c:	4708      	bx	r1
+   7625e:	bf00      	nop
+   76260:	00014800 	.word	0x00014800
+   76264:	00014850 	.word	0x00014850
+
+00076268 <rust_start>:
+   76268:	4c06      	ldr	r4, [pc, #24]	; (76284 <rust_start+0x1c>)
+   7626a:	4807      	ldr	r0, [pc, #28]	; (76288 <rust_start+0x20>)
+   7626c:	4907      	ldr	r1, [pc, #28]	; (7628c <rust_start+0x24>)
+   7626e:	6822      	ldr	r2, [r4, #0]
+   76270:	f000 f8aa 	bl	763c8 <__aeabi_memcpy>
+   76274:	e9d4 0101 	ldrd	r0, r1, [r4, #4]
+   76278:	f000 f904 	bl	76484 <__aeabi_memclr>
+   7627c:	f000 f84e 	bl	7631c <main>
+   76280:	defe      	udf	#254	; 0xfe
+   76282:	bf00      	nop
+   76284:	00076040 	.word	0x00076040
+   76288:	00014800 	.word	0x00014800
+   7628c:	0007648c 	.word	0x0007648c
+
+00076290 <_ZN16futures_noinline4gpio9interrupt17h3991a24ceca62dabE>:
+   76290:	4a06      	ldr	r2, [pc, #24]	; (762ac <_ZN16futures_noinline4gpio9interrupt17h3991a24ceca62dabE+0x1c>)
+   76292:	2900      	cmp	r1, #0
+   76294:	bf18      	it	ne
+   76296:	2101      	movne	r1, #1
+   76298:	2300      	movs	r3, #0
+   7629a:	7011      	strb	r1, [r2, #0]
+   7629c:	e9d2 0106 	ldrd	r0, r1, [r2, #24]
+   762a0:	e9c2 3306 	strd	r3, r3, [r2, #24]
+   762a4:	b109      	cbz	r1, 762aa <_ZN16futures_noinline4gpio9interrupt17h3991a24ceca62dabE+0x1a>
+   762a6:	6849      	ldr	r1, [r1, #4]
+   762a8:	4708      	bx	r1
+   762aa:	4770      	bx	lr
+   762ac:	00014850 	.word	0x00014850
+
+000762b0 <_ZN16futures_noinline4task13Task$LT$F$GT$11poll_future17h2989245896eabd9bE>:
+   762b0:	e92d 47ff 	stmdb	sp!, {r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, lr}
+   762b4:	4604      	mov	r4, r0
+   762b6:	6800      	ldr	r0, [r0, #0]
+   762b8:	b120      	cbz	r0, 762c4 <_ZN16futures_noinline4task13Task$LT$F$GT$11poll_future17h2989245896eabd9bE+0x14>
+   762ba:	2001      	movs	r0, #1
+   762bc:	f884 0028 	strb.w	r0, [r4, #40]	; 0x28
+   762c0:	e8bd 87ff 	ldmia.w	sp!, {r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, pc}
+   762c4:	f04f 30ff 	mov.w	r0, #4294967295	; 0xffffffff
+   762c8:	4627      	mov	r7, r4
+   762ca:	f847 0b18 	str.w	r0, [r7], #24
+   762ce:	f104 0508 	add.w	r5, r4, #8
+   762d2:	f04f 0800 	mov.w	r8, #0
+   762d6:	f10d 0904 	add.w	r9, sp, #4
+   762da:	f10d 0a0c 	add.w	sl, sp, #12
+   762de:	7c20      	ldrb	r0, [r4, #16]
+   762e0:	2802      	cmp	r0, #2
+   762e2:	d010      	beq.n	76306 <_ZN16futures_noinline4task13Task$LT$F$GT$11poll_future17h2989245896eabd9bE+0x56>
+   762e4:	a801      	add	r0, sp, #4
+   762e6:	f884 8028 	strb.w	r8, [r4, #40]	; 0x28
+   762ea:	e880 0290 	stmia.w	r0, {r4, r7, r9}
+   762ee:	4628      	mov	r0, r5
+   762f0:	4651      	mov	r1, sl
+   762f2:	f7ff ff43 	bl	7617c <_ZN81_$LT$futures_noinline..app..AppFuture$u20$as$u20$core..future..future..Future$GT$4poll17h00c3ba6137230f49E>
+   762f6:	e9dd 0101 	ldrd	r0, r1, [sp, #4]
+   762fa:	68c9      	ldr	r1, [r1, #12]
+   762fc:	f894 6028 	ldrb.w	r6, [r4, #40]	; 0x28
+   76300:	4788      	blx	r1
+   76302:	2e00      	cmp	r6, #0
+   76304:	d1eb      	bne.n	762de <_ZN16futures_noinline4task13Task$LT$F$GT$11poll_future17h2989245896eabd9bE+0x2e>
+   76306:	6820      	ldr	r0, [r4, #0]
+   76308:	3001      	adds	r0, #1
+   7630a:	6020      	str	r0, [r4, #0]
+   7630c:	e8bd 87ff 	ldmia.w	sp!, {r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, pc}
+
+00076310 <_ZN16futures_noinline4task13Task$LT$F$GT$11waker_clone17h86d1ea48c8a1cc24E>:
+   76310:	f100 0118 	add.w	r1, r0, #24
+   76314:	4770      	bx	lr
+
+00076316 <_ZN16futures_noinline4task13Task$LT$F$GT$10waker_wake17he4dc8ab4d029d375E>:
+   76316:	f7ff bfcb 	b.w	762b0 <_ZN16futures_noinline4task13Task$LT$F$GT$11poll_future17h2989245896eabd9bE>
+
+0007631a <_ZN16futures_noinline4task10waker_drop17h36e2c808f8e07ba6E>:
+   7631a:	4770      	bx	lr
+
+0007631c <main>:
+   7631c:	b082      	sub	sp, #8
+   7631e:	2000      	movs	r0, #0
+   76320:	2101      	movs	r1, #1
+   76322:	4d25      	ldr	r5, [pc, #148]	; (763b8 <main+0x9c>)
+   76324:	2200      	movs	r2, #0
+   76326:	2300      	movs	r3, #0
+   76328:	df02      	svc	2
+   7632a:	2105      	movs	r1, #5
+   7632c:	fbb0 f0f1 	udiv	r0, r0, r1
+   76330:	2600      	movs	r6, #0
+   76332:	6068      	str	r0, [r5, #4]
+   76334:	2000      	movs	r0, #0
+   76336:	4a21      	ldr	r2, [pc, #132]	; (763bc <main+0xa0>)
+   76338:	2100      	movs	r1, #0
+   7633a:	2301      	movs	r3, #1
+   7633c:	df01      	svc	1
+   7633e:	f7ff febd 	bl	760bc <_ZN16futures_noinline5alarm9set_delay17h340e174de5bd79bcE>
+   76342:	2004      	movs	r0, #4
+   76344:	2101      	movs	r1, #1
+   76346:	2200      	movs	r2, #0
+   76348:	2300      	movs	r3, #0
+   7634a:	df02      	svc	2
+   7634c:	2105      	movs	r1, #5
+   7634e:	2201      	movs	r2, #1
+   76350:	2004      	movs	r0, #4
+   76352:	2300      	movs	r3, #0
+   76354:	df02      	svc	2
+   76356:	4a1a      	ldr	r2, [pc, #104]	; (763c0 <main+0xa4>)
+   76358:	2100      	movs	r1, #0
+   7635a:	2004      	movs	r0, #4
+   7635c:	2301      	movs	r3, #1
+   7635e:	df01      	svc	1
+   76360:	2107      	movs	r1, #7
+   76362:	2201      	movs	r2, #1
+   76364:	2004      	movs	r0, #4
+   76366:	2300      	movs	r3, #0
+   76368:	df02      	svc	2
+   7636a:	4c16      	ldr	r4, [pc, #88]	; (763c4 <main+0xa8>)
+   7636c:	2103      	movs	r1, #3
+   7636e:	2004      	movs	r0, #4
+   76370:	2200      	movs	r2, #0
+   76372:	2300      	movs	r3, #0
+   76374:	df02      	svc	2
+   76376:	6820      	ldr	r0, [r4, #0]
+   76378:	b9e0      	cbnz	r0, 763b4 <main+0x98>
+   7637a:	f04f 30ff 	mov.w	r0, #4294967295	; 0xffffffff
+   7637e:	7466      	strb	r6, [r4, #17]
+   76380:	6020      	str	r0, [r4, #0]
+   76382:	f8dd 0002 	ldr.w	r0, [sp, #2]
+   76386:	f8c4 0012 	str.w	r0, [r4, #18]
+   7638a:	f8bd 0006 	ldrh.w	r0, [sp, #6]
+   7638e:	82e0      	strh	r0, [r4, #22]
+   76390:	6868      	ldr	r0, [r5, #4]
+   76392:	e9d5 1204 	ldrd	r1, r2, [r5, #16]
+   76396:	1840      	adds	r0, r0, r1
+   76398:	7829      	ldrb	r1, [r5, #0]
+   7639a:	f081 0101 	eor.w	r1, r1, #1
+   7639e:	7421      	strb	r1, [r4, #16]
+   763a0:	f142 0100 	adc.w	r1, r2, #0
+   763a4:	e9c4 0102 	strd	r0, r1, [r4, #8]
+   763a8:	4620      	mov	r0, r4
+   763aa:	f7ff ff81 	bl	762b0 <_ZN16futures_noinline4task13Task$LT$F$GT$11poll_future17h2989245896eabd9bE>
+   763ae:	6820      	ldr	r0, [r4, #0]
+   763b0:	3001      	adds	r0, #1
+   763b2:	6020      	str	r0, [r4, #0]
+   763b4:	df00      	svc	0
+   763b6:	e7fd      	b.n	763b4 <main+0x98>
+   763b8:	00014850 	.word	0x00014850
+   763bc:	00076089 	.word	0x00076089
+   763c0:	00076291 	.word	0x00076291
+   763c4:	00014800 	.word	0x00014800
+
+000763c8 <__aeabi_memcpy>:
+   763c8:	b5f0      	push	{r4, r5, r6, r7, lr}
+   763ca:	b382      	cbz	r2, 7642e <__aeabi_memcpy+0x66>
+   763cc:	1e53      	subs	r3, r2, #1
+   763ce:	f002 0c03 	and.w	ip, r2, #3
+   763d2:	2b03      	cmp	r3, #3
+   763d4:	d204      	bcs.n	763e0 <__aeabi_memcpy+0x18>
+   763d6:	2200      	movs	r2, #0
+   763d8:	f1bc 0f00 	cmp.w	ip, #0
+   763dc:	d119      	bne.n	76412 <__aeabi_memcpy+0x4a>
+   763de:	e026      	b.n	7642e <__aeabi_memcpy+0x66>
+   763e0:	ebac 0e02 	sub.w	lr, ip, r2
+   763e4:	1c4b      	adds	r3, r1, #1
+   763e6:	1c44      	adds	r4, r0, #1
+   763e8:	f06f 0203 	mvn.w	r2, #3
+   763ec:	189e      	adds	r6, r3, r2
+   763ee:	18a5      	adds	r5, r4, r2
+   763f0:	3204      	adds	r2, #4
+   763f2:	78f7      	ldrb	r7, [r6, #3]
+   763f4:	70ef      	strb	r7, [r5, #3]
+   763f6:	7937      	ldrb	r7, [r6, #4]
+   763f8:	712f      	strb	r7, [r5, #4]
+   763fa:	7977      	ldrb	r7, [r6, #5]
+   763fc:	716f      	strb	r7, [r5, #5]
+   763fe:	79b6      	ldrb	r6, [r6, #6]
+   76400:	71ae      	strb	r6, [r5, #6]
+   76402:	eb0e 0502 	add.w	r5, lr, r2
+   76406:	3504      	adds	r5, #4
+   76408:	d1f0      	bne.n	763ec <__aeabi_memcpy+0x24>
+   7640a:	3204      	adds	r2, #4
+   7640c:	f1bc 0f00 	cmp.w	ip, #0
+   76410:	d00d      	beq.n	7642e <__aeabi_memcpy+0x66>
+   76412:	5c8b      	ldrb	r3, [r1, r2]
+   76414:	f1bc 0f01 	cmp.w	ip, #1
+   76418:	5483      	strb	r3, [r0, r2]
+   7641a:	d008      	beq.n	7642e <__aeabi_memcpy+0x66>
+   7641c:	1c53      	adds	r3, r2, #1
+   7641e:	f1bc 0f02 	cmp.w	ip, #2
+   76422:	5ccf      	ldrb	r7, [r1, r3]
+   76424:	54c7      	strb	r7, [r0, r3]
+   76426:	d002      	beq.n	7642e <__aeabi_memcpy+0x66>
+   76428:	3202      	adds	r2, #2
+   7642a:	5c89      	ldrb	r1, [r1, r2]
+   7642c:	5481      	strb	r1, [r0, r2]
+   7642e:	bdf0      	pop	{r4, r5, r6, r7, pc}
+
+00076430 <__aeabi_memset>:
+   76430:	b510      	push	{r4, lr}
+   76432:	2900      	cmp	r1, #0
+   76434:	bf08      	it	eq
+   76436:	bd10      	popeq	{r4, pc}
+   76438:	1e4b      	subs	r3, r1, #1
+   7643a:	f001 0c03 	and.w	ip, r1, #3
+   7643e:	2b03      	cmp	r3, #3
+   76440:	d201      	bcs.n	76446 <__aeabi_memset+0x16>
+   76442:	2100      	movs	r1, #0
+   76444:	e00f      	b.n	76466 <__aeabi_memset+0x36>
+   76446:	ebac 0e01 	sub.w	lr, ip, r1
+   7644a:	1c41      	adds	r1, r0, #1
+   7644c:	f06f 0303 	mvn.w	r3, #3
+   76450:	18cc      	adds	r4, r1, r3
+   76452:	3304      	adds	r3, #4
+   76454:	71a2      	strb	r2, [r4, #6]
+   76456:	7162      	strb	r2, [r4, #5]
+   76458:	7122      	strb	r2, [r4, #4]
+   7645a:	70e2      	strb	r2, [r4, #3]
+   7645c:	eb0e 0403 	add.w	r4, lr, r3
+   76460:	3404      	adds	r4, #4
+   76462:	d1f5      	bne.n	76450 <__aeabi_memset+0x20>
+   76464:	1d19      	adds	r1, r3, #4
+   76466:	f1bc 0f00 	cmp.w	ip, #0
+   7646a:	bf1c      	itt	ne
+   7646c:	5442      	strbne	r2, [r0, r1]
+   7646e:	f1bc 0f01 	cmpne.w	ip, #1
+   76472:	d100      	bne.n	76476 <__aeabi_memset+0x46>
+   76474:	bd10      	pop	{r4, pc}
+   76476:	4408      	add	r0, r1
+   76478:	f1bc 0f02 	cmp.w	ip, #2
+   7647c:	7042      	strb	r2, [r0, #1]
+   7647e:	bf18      	it	ne
+   76480:	7082      	strbne	r2, [r0, #2]
+   76482:	bd10      	pop	{r4, pc}
+
+00076484 <__aeabi_memclr>:
+   76484:	2200      	movs	r2, #0
+   76486:	f7ff bfd3 	b.w	76430 <__aeabi_memset>
+
+Disassembly of section .data:
+
+00014800 <data_ram_start>:
+	...
+   14810:	00000002 	.word	0x00000002
+   14814:	00000000 	.word	0x00000000
+   14818:	00076311 	.word	0x00076311
+   1481c:	00076317 	.word	0x00076317
+   14820:	00076317 	.word	0x00076317
+   14824:	0007631b 	.word	0x0007631b
+	...
+   14830:	000760f1 	.word	0x000760f1
+   14834:	000760fd 	.word	0x000760fd
+   14838:	000760fd 	.word	0x000760fd
+   1483c:	00076119 	.word	0x00076119
+	...
+   14848:	00000101 	.word	0x00000101
+   1484c:	00000000 	.word	0x00000000
+
+Disassembly of section .bss:
+
+00014850 <_ZN16futures_noinline4gpio12BUTTON_VALUE17hf8024b57d71bad15E.0.0>:
+   14850:	00000000                                ....
+
+00014854 <_ZN16futures_noinline5alarm6PERIOD17h9e47aae0263fb30cE>:
+   14854:	00000000                                ....
+
+00014858 <_ZN16futures_noinline5alarm5WAKER17h35497dceab443b7bE>:
+	...
+
+00014860 <_ZN16futures_noinline5alarm8CUR_TIME17hdbaf12a0f2ced94eE>:
+	...
+
+00014868 <_ZN16futures_noinline4gpio5WAKER17h768812a44c1349ffE>:
+	...

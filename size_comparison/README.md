@@ -1,5 +1,7 @@
 # Futures versus no-Futures Size Comparison
 
+Original author: Johnathan Van Why
+
 I spent some time investigating how to implement futures in `libtock-rs`. During
 that investigation, I got the impression that futures have quite a bit of
 overhead. This comparison exists in order to objectively evaluate whether my
@@ -26,7 +28,7 @@ Here are the sizes of each relevant section in the app, in bytes:
 
 `.text` is 79% larger in the futures-based app than in the no-futures app.
 
-### Analysis
+### Disassembly Analysis
 
 I've included a disassembly of each app in `disassembly/`.
 
@@ -90,12 +92,60 @@ The following symbols were added to support futures:
 * `alarm::WAKER`: 8 bytes (+8)
 * `alarm::PERIOD`: 4 bytes (+4)
 * `alarm::CUR_TIME`: 8 bytes (+8)
-* `alarm::WAKER`: 8 bytes (+8)
-* `alarm::CUR_TIME`: 8 bytes (+8)
-* `gpio::WAKER`: 8 bytes (+8)
 
 These symbols make up the glue that routes Tock's signals to the appropriate
 code in the application. This is all virtualization logic, but is almost
 certainly larger than the virtualization logic that the Tock kernel uses. Note
 that `task::Task::poll_future` inlined `app::AppFuture::poll`, and as such is
 not entirely a fixed cost.
+
+### Growth/Scalability Analysis
+
+This example is fairly small, and may not be representative of the impact of
+futures on larger Tock apps. In order to predict the impact of futures on larger
+Tock apps, we can group the above symbols based on how they are affected by app
+complexity.
+
+Unfortunately, one of the largest changes, `task::Task::poll_future`, contains a
+mix of code that can be a fixed cost (executor logic), code that grows with the
+number of combinators, and code that grows with app complexity. In order to
+analyze it, I added `#[inline(never)]` in a few key places; this version of the
+app is in `futures-noinline/`. Preventing inlining added 68 bytes to the size of
+`.text`, but allows for a better scalability analysis.
+
+#### Fixed Costs
+
+The following should not grow with app complexity:
+
+* `task::waker_drop`: 2 bytes (+2)
+* `task::Task::poll_future`: 96 bytes
+
+Total: 98 bytes.
+
+Note that in the current implementation, `task::Task::poll_future` is
+monomorphized per task. However, it can be refactored to avoid the
+monomorphization.
+
+#### Per-Combinator Costs
+
+The following costs will grow with the number of future combinators used:
+
+* `app::APP`: 2 to 80 bytes (+78)
+* `app::waker_drop`: 2 bytes (+2)
+* `app::waker_wake`: 28 bytes (+2)
+* `app::waker_clone`: 12 bytes (+12)
+* `<app::AppFuture as Future>::poll`: 236 bytes (+236)
+
+Total: 330 bytes per combinator.
+
+#### Per-Driver Costs
+
+The following costs will grow with the number of syscall drivers in use:
+
+* `alarm::interrupt`: 44 to 52 bytes (+8)
+* `gpio::BUTTON_VALUE`: 1 bytes (+1)
+* `gpio::WAKER`: 8 bytes (+8)
+* `alarm::WAKER`: 8 bytes (+8)
+* `alarm::CUR_TIME`: 8 bytes (+8)
+
+Total: 33 bytes per syscall driver.
