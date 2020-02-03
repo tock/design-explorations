@@ -1,97 +1,94 @@
-$ arm-none-eabi-objdump -d -j .text -j .rodata -j .data -j .bss target/thumbv7m-none-eabi/release/no_futures
 
 target/thumbv7m-none-eabi/release/no_futures:     file format elf32-littlearm
 
 
 Disassembly of section .text:
 
-00076048 <start>:
-   76048:	f1af 0004 	sub.w	r0, pc, #4
-   7604c:	490a      	ldr	r1, [pc, #40]	; (76078 <start+0x30>)
-   7604e:	4288      	cmp	r0, r1
-   76050:	d007      	beq.n	76062 <start+0x1a>
-   76052:	f240 0008 	movw	r0, #8
-   76056:	f240 0101 	movw	r1, #1
-   7605a:	f240 0202 	movw	r2, #2
-   7605e:	df02      	svc	2
-   76060:	e007      	b.n	76072 <start+0x2a>
-   76062:	f240 0000 	movw	r0, #0
-   76066:	4905      	ldr	r1, [pc, #20]	; (7607c <start+0x34>)
-   76068:	df04      	svc	4
-   7606a:	f8df d014 	ldr.w	sp, [pc, #20]	; 76080 <start+0x38>
-   7606e:	f000 f83b 	bl	760e8 <rust_start>
-   76072:	df00      	svc	0
-   76074:	e7fd      	b.n	76072 <start+0x2a>
-   76076:	defe      	udf	#254	; 0xfe
-   76078:	00076048 	.word	0x00076048
-   7607c:	00014800 	.word	0x00014800
-   76080:	00014800 	.word	0x00014800
+0007604c <start>:
+   7604c:	f1af 0004 	sub.w	r0, pc, #4
+   76050:	490a      	ldr	r1, [pc, #40]	; (7607c <start+0x30>)
+   76052:	4288      	cmp	r0, r1
+   76054:	d007      	beq.n	76066 <start+0x1a>
+   76056:	f240 0008 	movw	r0, #8
+   7605a:	f240 0101 	movw	r1, #1
+   7605e:	f240 0202 	movw	r2, #2
+   76062:	df02      	svc	2
+   76064:	e007      	b.n	76076 <start+0x2a>
+   76066:	f240 0000 	movw	r0, #0
+   7606a:	4905      	ldr	r1, [pc, #20]	; (76080 <start+0x34>)
+   7606c:	df04      	svc	4
+   7606e:	f8df d014 	ldr.w	sp, [pc, #20]	; 76084 <start+0x38>
+   76072:	f000 f83b 	bl	760ec <rust_start>
+   76076:	df00      	svc	0
+   76078:	e7fd      	b.n	76076 <start+0x2a>
+   7607a:	defe      	udf	#254	; 0xfe
+   7607c:	0007604c 	.word	0x0007604c
+   76080:	00014808 	.word	0x00014808
+   76084:	00014800 	.word	0x00014800
 
-00076084 <_ZN10no_futures5alarm9set_delay17heaa211f271bc77c3E>:
-   76084:	b5b0      	push	{r4, r5, r7, lr}
-   76086:	480c      	ldr	r0, [pc, #48]	; (760b8 <_ZN10no_futures5alarm9set_delay17heaa211f271bc77c3E+0x34>)
-   76088:	2105      	movs	r1, #5
-   7608a:	6840      	ldr	r0, [r0, #4]
-   7608c:	fbb0 f5f1 	udiv	r5, r0, r1
-   76090:	2000      	movs	r0, #0
-   76092:	2102      	movs	r1, #2
-   76094:	2200      	movs	r2, #0
-   76096:	2300      	movs	r3, #0
-   76098:	df02      	svc	2
-   7609a:	1944      	adds	r4, r0, r5
-   7609c:	2104      	movs	r1, #4
-   7609e:	2000      	movs	r0, #0
-   760a0:	2300      	movs	r3, #0
-   760a2:	4622      	mov	r2, r4
-   760a4:	df02      	svc	2
-   760a6:	2102      	movs	r1, #2
-   760a8:	2000      	movs	r0, #0
-   760aa:	2200      	movs	r2, #0
-   760ac:	2300      	movs	r3, #0
-   760ae:	df02      	svc	2
-   760b0:	1a20      	subs	r0, r4, r0
-   760b2:	42a8      	cmp	r0, r5
-   760b4:	d8ec      	bhi.n	76090 <_ZN10no_futures5alarm9set_delay17heaa211f271bc77c3E+0xc>
-   760b6:	bdb0      	pop	{r4, r5, r7, pc}
-   760b8:	00014800 	.word	0x00014800
+00076088 <_ZN10no_futures5alarm9set_delay17heaa211f271bc77c3E>:
+   76088:	b5b0      	push	{r4, r5, r7, lr}
+   7608a:	480c      	ldr	r0, [pc, #48]	; (760bc <_ZN10no_futures5alarm9set_delay17heaa211f271bc77c3E+0x34>)
+   7608c:	2105      	movs	r1, #5
+   7608e:	6840      	ldr	r0, [r0, #4]
+   76090:	fbb0 f5f1 	udiv	r5, r0, r1
+   76094:	2000      	movs	r0, #0
+   76096:	2102      	movs	r1, #2
+   76098:	2200      	movs	r2, #0
+   7609a:	2300      	movs	r3, #0
+   7609c:	df02      	svc	2
+   7609e:	1944      	adds	r4, r0, r5
+   760a0:	2104      	movs	r1, #4
+   760a2:	2000      	movs	r0, #0
+   760a4:	2300      	movs	r3, #0
+   760a6:	4622      	mov	r2, r4
+   760a8:	df02      	svc	2
+   760aa:	2102      	movs	r1, #2
+   760ac:	2000      	movs	r0, #0
+   760ae:	2200      	movs	r2, #0
+   760b0:	2300      	movs	r3, #0
+   760b2:	df02      	svc	2
+   760b4:	1a20      	subs	r0, r4, r0
+   760b6:	42a8      	cmp	r0, r5
+   760b8:	d8ec      	bhi.n	76094 <_ZN10no_futures5alarm9set_delay17heaa211f271bc77c3E+0xc>
+   760ba:	bdb0      	pop	{r4, r5, r7, pc}
+   760bc:	00014800 	.word	0x00014800
 
-000760bc <_ZN10no_futures5alarm9interrupt17hc7d1a385a8f707f9E>:
-   760bc:	b580      	push	{r7, lr}
-   760be:	f7ff ffe1 	bl	76084 <_ZN10no_futures5alarm9set_delay17heaa211f271bc77c3E>
-   760c2:	4808      	ldr	r0, [pc, #32]	; (760e4 <_ZN10no_futures5alarm9interrupt17hc7d1a385a8f707f9E+0x28>)
-   760c4:	7801      	ldrb	r1, [r0, #0]
-   760c6:	b101      	cbz	r1, 760ca <_ZN10no_futures5alarm9interrupt17hc7d1a385a8f707f9E+0xe>
-   760c8:	bd80      	pop	{r7, pc}
-   760ca:	7842      	ldrb	r2, [r0, #1]
-   760cc:	2300      	movs	r3, #0
-   760ce:	f082 0101 	eor.w	r1, r2, #1
-   760d2:	7041      	strb	r1, [r0, #1]
-   760d4:	2103      	movs	r1, #3
-   760d6:	2004      	movs	r0, #4
-   760d8:	2a00      	cmp	r2, #0
-   760da:	bf08      	it	eq
-   760dc:	2102      	moveq	r1, #2
-   760de:	2200      	movs	r2, #0
-   760e0:	df02      	svc	2
-   760e2:	bd80      	pop	{r7, pc}
-   760e4:	00014800 	.word	0x00014800
+000760c0 <_ZN10no_futures5alarm9interrupt17hc7d1a385a8f707f9E>:
+   760c0:	b580      	push	{r7, lr}
+   760c2:	f7ff ffe1 	bl	76088 <_ZN10no_futures5alarm9set_delay17heaa211f271bc77c3E>
+   760c6:	4808      	ldr	r0, [pc, #32]	; (760e8 <_ZN10no_futures5alarm9interrupt17hc7d1a385a8f707f9E+0x28>)
+   760c8:	7801      	ldrb	r1, [r0, #0]
+   760ca:	b101      	cbz	r1, 760ce <_ZN10no_futures5alarm9interrupt17hc7d1a385a8f707f9E+0xe>
+   760cc:	bd80      	pop	{r7, pc}
+   760ce:	7842      	ldrb	r2, [r0, #1]
+   760d0:	2300      	movs	r3, #0
+   760d2:	f082 0101 	eor.w	r1, r2, #1
+   760d6:	7041      	strb	r1, [r0, #1]
+   760d8:	2103      	movs	r1, #3
+   760da:	2004      	movs	r0, #4
+   760dc:	2a00      	cmp	r2, #0
+   760de:	bf08      	it	eq
+   760e0:	2102      	moveq	r1, #2
+   760e2:	2200      	movs	r2, #0
+   760e4:	df02      	svc	2
+   760e6:	bd80      	pop	{r7, pc}
+   760e8:	00014800 	.word	0x00014800
 
-000760e8 <rust_start>:
-   760e8:	4c06      	ldr	r4, [pc, #24]	; (76104 <rust_start+0x1c>)
-   760ea:	4807      	ldr	r0, [pc, #28]	; (76108 <rust_start+0x20>)
-   760ec:	4907      	ldr	r1, [pc, #28]	; (7610c <rust_start+0x24>)
-   760ee:	6822      	ldr	r2, [r4, #0]
-   760f0:	f000 f866 	bl	761c0 <__aeabi_memcpy>
-   760f4:	6861      	ldr	r1, [r4, #4]
-   760f6:	4806      	ldr	r0, [pc, #24]	; (76110 <rust_start+0x28>)
-   760f8:	f000 f8c0 	bl	7627c <__aeabi_memclr>
-   760fc:	f000 f826 	bl	7614c <main>
-   76100:	defe      	udf	#254	; 0xfe
-   76102:	bf00      	nop
-   76104:	00076040 	.word	0x00076040
-   76108:	00014800 	.word	0x00014800
-   7610c:	00076284 	.word	0x00076284
-   76110:	00014800 	.word	0x00014800
+000760ec <rust_start>:
+   760ec:	4c06      	ldr	r4, [pc, #24]	; (76108 <rust_start+0x1c>)
+   760ee:	4807      	ldr	r0, [pc, #28]	; (7610c <rust_start+0x20>)
+   760f0:	4907      	ldr	r1, [pc, #28]	; (76110 <rust_start+0x24>)
+   760f2:	6822      	ldr	r2, [r4, #0]
+   760f4:	f000 f864 	bl	761c0 <__aeabi_memcpy>
+   760f8:	e9d4 0101 	ldrd	r0, r1, [r4, #4]
+   760fc:	f000 f8be 	bl	7627c <__aeabi_memclr>
+   76100:	f000 f824 	bl	7614c <main>
+   76104:	defe      	udf	#254	; 0xfe
+   76106:	bf00      	nop
+   76108:	00076040 	.word	0x00076040
+   7610c:	00014800 	.word	0x00014800
+   76110:	00076284 	.word	0x00076284
 
 00076114 <_ZN10no_futures4gpio9interrupt17hfb9f728664c9a0aaE>:
    76114:	b5b0      	push	{r4, r5, r7, lr}
@@ -168,12 +165,12 @@ Disassembly of section .text:
    761a2:	fab0 f080 	clz	r0, r0
    761a6:	0940      	lsrs	r0, r0, #5
    761a8:	7020      	strb	r0, [r4, #0]
-   761aa:	f7ff ff6b 	bl	76084 <_ZN10no_futures5alarm9set_delay17heaa211f271bc77c3E>
+   761aa:	f7ff ff6d 	bl	76088 <_ZN10no_futures5alarm9set_delay17heaa211f271bc77c3E>
    761ae:	df00      	svc	0
    761b0:	e7fd      	b.n	761ae <main+0x62>
    761b2:	bf00      	nop
    761b4:	00014800 	.word	0x00014800
-   761b8:	000760bd 	.word	0x000760bd
+   761b8:	000760c1 	.word	0x000760c1
    761bc:	00076115 	.word	0x00076115
 
 000761c0 <__aeabi_memcpy>:
@@ -265,7 +262,7 @@ Disassembly of section .text:
 
 Disassembly of section .bss:
 
-00014800 <bss_start>:
+00014800 <_ZN10no_futures3app3APP17h3c1a979c9ee54937E.0.0>:
 	...
 
 00014801 <_ZN10no_futures3app3APP17h3c1a979c9ee54937E.0.1>:

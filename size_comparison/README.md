@@ -21,16 +21,17 @@ Here are the sizes of each relevant section in the app, in bytes:
 
 | Section   | No Futures | Futures |
 | --------- | ---------- | ------- |
-| `.text`   | 570        | 1022    |
+| `.text`   | 566        | 1018    |
 | `.rodata` | 0          | 0       |
 | `.data`   | 0          | 80      |
 | `.bss`    | 8          | 32      |
 
-`.text` is 79% larger in the futures-based app than in the no-futures app.
+`.text` is 80% larger in the futures-based app than in the no-futures app.
 
 ### Disassembly Analysis
 
-I've included a disassembly of each app in `disassembly/`.
+I've included a disassembly of each app in `disassembly/`. The apps were built
+at commit c38bf5dc47d4854eab8f735cb3295172185e7a6f.
 
 #### Unchanged symbols
 The following symbols remained the same size between the apps:
@@ -38,7 +39,7 @@ The following symbols remained the same size between the apps:
 * `__aeabi_memclr`: 6 bytes
 * `__aeabi_memcpy`: 104 bytes
 * `__aeabi_memset`: 84 bytes
-* `rust_start`: 44 bytes
+* `rust_start`: 40 bytes
 * `start`: 60 bytes
 
 This isn't surprising: `start` and `rust_start` are part of the entry point,
