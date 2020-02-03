@@ -1,0 +1,476 @@
+
+target/thumbv7m-none-eabi/release/futures:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+0007604c <start>:
+   7604c:	f1af 0004 	sub.w	r0, pc, #4
+   76050:	490a      	ldr	r1, [pc, #40]	; (7607c <start+0x30>)
+   76052:	4288      	cmp	r0, r1
+   76054:	d007      	beq.n	76066 <start+0x1a>
+   76056:	f240 0008 	movw	r0, #8
+   7605a:	f240 0101 	movw	r1, #1
+   7605e:	f240 0202 	movw	r2, #2
+   76062:	df02      	svc	2
+   76064:	e007      	b.n	76076 <start+0x2a>
+   76066:	f240 0000 	movw	r0, #0
+   7606a:	4905      	ldr	r1, [pc, #20]	; (76080 <start+0x34>)
+   7606c:	df04      	svc	4
+   7606e:	f8df d014 	ldr.w	sp, [pc, #20]	; 76084 <start+0x38>
+   76072:	f000 f853 	bl	7611c <rust_start>
+   76076:	df00      	svc	0
+   76078:	e7fd      	b.n	76076 <start+0x2a>
+   7607a:	defe      	udf	#254	; 0xfe
+   7607c:	0007604c 	.word	0x0007604c
+   76080:	00014870 	.word	0x00014870
+   76084:	00014800 	.word	0x00014800
+
+00076088 <_ZN7futures5alarm9interrupt17hb2e78e9b2fd94380E>:
+   76088:	b510      	push	{r4, lr}
+   7608a:	4c0b      	ldr	r4, [pc, #44]	; (760b8 <_ZN7futures5alarm9interrupt17hb2e78e9b2fd94380E+0x30>)
+   7608c:	e9d4 1204 	ldrd	r1, r2, [r4, #16]
+   76090:	6860      	ldr	r0, [r4, #4]
+   76092:	1840      	adds	r0, r0, r1
+   76094:	f142 0100 	adc.w	r1, r2, #0
+   76098:	e9c4 0104 	strd	r0, r1, [r4, #16]
+   7609c:	f000 f80e 	bl	760bc <_ZN7futures5alarm9set_delay17h41190a9e7429b3b1E>
+   760a0:	e9d4 0102 	ldrd	r0, r1, [r4, #8]
+   760a4:	2200      	movs	r2, #0
+   760a6:	e9c4 2202 	strd	r2, r2, [r4, #8]
+   760aa:	b119      	cbz	r1, 760b4 <_ZN7futures5alarm9interrupt17hb2e78e9b2fd94380E+0x2c>
+   760ac:	6849      	ldr	r1, [r1, #4]
+   760ae:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+   760b2:	4708      	bx	r1
+   760b4:	bd10      	pop	{r4, pc}
+   760b6:	bf00      	nop
+   760b8:	00014850 	.word	0x00014850
+
+000760bc <_ZN7futures5alarm9set_delay17h41190a9e7429b3b1E>:
+   760bc:	b5b0      	push	{r4, r5, r7, lr}
+   760be:	4d0b      	ldr	r5, [pc, #44]	; (760ec <_ZN7futures5alarm9set_delay17h41190a9e7429b3b1E+0x30>)
+   760c0:	2000      	movs	r0, #0
+   760c2:	2102      	movs	r1, #2
+   760c4:	2200      	movs	r2, #0
+   760c6:	2300      	movs	r3, #0
+   760c8:	df02      	svc	2
+   760ca:	2300      	movs	r3, #0
+   760cc:	6869      	ldr	r1, [r5, #4]
+   760ce:	180c      	adds	r4, r1, r0
+   760d0:	2000      	movs	r0, #0
+   760d2:	2104      	movs	r1, #4
+   760d4:	4622      	mov	r2, r4
+   760d6:	df02      	svc	2
+   760d8:	2102      	movs	r1, #2
+   760da:	2000      	movs	r0, #0
+   760dc:	2200      	movs	r2, #0
+   760de:	2300      	movs	r3, #0
+   760e0:	df02      	svc	2
+   760e2:	6869      	ldr	r1, [r5, #4]
+   760e4:	1a20      	subs	r0, r4, r0
+   760e6:	4288      	cmp	r0, r1
+   760e8:	d8ea      	bhi.n	760c0 <_ZN7futures5alarm9set_delay17h41190a9e7429b3b1E+0x4>
+   760ea:	bdb0      	pop	{r4, r5, r7, pc}
+   760ec:	00014850 	.word	0x00014850
+
+000760f0 <_ZN7futures3app11waker_clone17h29471b9e20f69372E>:
+   760f0:	4901      	ldr	r1, [pc, #4]	; (760f8 <_ZN7futures3app11waker_clone17h29471b9e20f69372E+0x8>)
+   760f2:	3130      	adds	r1, #48	; 0x30
+   760f4:	4770      	bx	lr
+   760f6:	bf00      	nop
+   760f8:	00014800 	.word	0x00014800
+
+000760fc <_ZN7futures3app10waker_wake17h6e5f0f03a59d416fE>:
+   760fc:	2101      	movs	r1, #1
+   760fe:	4a05      	ldr	r2, [pc, #20]	; (76114 <_ZN7futures3app10waker_wake17h6e5f0f03a59d416fE+0x18>)
+   76100:	7001      	strb	r1, [r0, #0]
+   76102:	2300      	movs	r3, #0
+   76104:	e9d2 0110 	ldrd	r0, r1, [r2, #64]	; 0x40
+   76108:	e9c2 3310 	strd	r3, r3, [r2, #64]	; 0x40
+   7610c:	b109      	cbz	r1, 76112 <_ZN7futures3app10waker_wake17h6e5f0f03a59d416fE+0x16>
+   7610e:	6849      	ldr	r1, [r1, #4]
+   76110:	4708      	bx	r1
+   76112:	4770      	bx	lr
+   76114:	00014800 	.word	0x00014800
+
+00076118 <_ZN7futures3app10waker_drop17h45bb04e47b0e5d2eE>:
+   76118:	4770      	bx	lr
+   7611a:	d4d4      	bmi.n	760c6 <_ZN7futures5alarm9set_delay17h41190a9e7429b3b1E+0xa>
+
+0007611c <rust_start>:
+   7611c:	4c06      	ldr	r4, [pc, #24]	; (76138 <rust_start+0x1c>)
+   7611e:	4807      	ldr	r0, [pc, #28]	; (7613c <rust_start+0x20>)
+   76120:	4907      	ldr	r1, [pc, #28]	; (76140 <rust_start+0x24>)
+   76122:	6822      	ldr	r2, [r4, #0]
+   76124:	f000 f92e 	bl	76384 <__aeabi_memcpy>
+   76128:	e9d4 0101 	ldrd	r0, r1, [r4, #4]
+   7612c:	f000 f988 	bl	76440 <__aeabi_memclr>
+   76130:	f000 f8d2 	bl	762d8 <main>
+   76134:	defe      	udf	#254	; 0xfe
+   76136:	bf00      	nop
+   76138:	00076040 	.word	0x00076040
+   7613c:	00014800 	.word	0x00014800
+   76140:	00076448 	.word	0x00076448
+
+00076144 <_ZN7futures4gpio9interrupt17h026643f9f9e86228E>:
+   76144:	4a06      	ldr	r2, [pc, #24]	; (76160 <_ZN7futures4gpio9interrupt17h026643f9f9e86228E+0x1c>)
+   76146:	2900      	cmp	r1, #0
+   76148:	bf18      	it	ne
+   7614a:	2101      	movne	r1, #1
+   7614c:	2300      	movs	r3, #0
+   7614e:	7011      	strb	r1, [r2, #0]
+   76150:	e9d2 0106 	ldrd	r0, r1, [r2, #24]
+   76154:	e9c2 3306 	strd	r3, r3, [r2, #24]
+   76158:	b109      	cbz	r1, 7615e <_ZN7futures4gpio9interrupt17h026643f9f9e86228E+0x1a>
+   7615a:	6849      	ldr	r1, [r1, #4]
+   7615c:	4708      	bx	r1
+   7615e:	4770      	bx	lr
+   76160:	00014850 	.word	0x00014850
+
+00076164 <_ZN7futures4task13Task$LT$F$GT$11poll_future17h9a95d66d59dd61d6E>:
+   76164:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   76168:	4604      	mov	r4, r0
+   7616a:	6800      	ldr	r0, [r0, #0]
+   7616c:	b120      	cbz	r0, 76178 <_ZN7futures4task13Task$LT$F$GT$11poll_future17h9a95d66d59dd61d6E+0x14>
+   7616e:	2001      	movs	r0, #1
+   76170:	f884 0028 	strb.w	r0, [r4, #40]	; 0x28
+   76174:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+   76178:	4f52      	ldr	r7, [pc, #328]	; (762c4 <_ZN7futures4task13Task$LT$F$GT$11poll_future17h9a95d66d59dd61d6E+0x160>)
+   7617a:	f04f 30ff 	mov.w	r0, #4294967295	; 0xffffffff
+   7617e:	f8df 8148 	ldr.w	r8, [pc, #328]	; 762c8 <_ZN7futures4task13Task$LT$F$GT$11poll_future17h9a95d66d59dd61d6E+0x164>
+   76182:	2600      	movs	r6, #0
+   76184:	6020      	str	r0, [r4, #0]
+   76186:	7c20      	ldrb	r0, [r4, #16]
+   76188:	2802      	cmp	r0, #2
+   7618a:	f000 8096 	beq.w	762ba <_ZN7futures4task13Task$LT$F$GT$11poll_future17h9a95d66d59dd61d6E+0x156>
+   7618e:	f884 6028 	strb.w	r6, [r4, #40]	; 0x28
+   76192:	4620      	mov	r0, r4
+   76194:	69a1      	ldr	r1, [r4, #24]
+   76196:	4788      	blx	r1
+   76198:	4602      	mov	r2, r0
+   7619a:	e9d7 0310 	ldrd	r0, r3, [r7, #64]	; 0x40
+   7619e:	e9c7 2110 	strd	r2, r1, [r7, #64]	; 0x40
+   761a2:	b10b      	cbz	r3, 761a8 <_ZN7futures4task13Task$LT$F$GT$11poll_future17h9a95d66d59dd61d6E+0x44>
+   761a4:	68d9      	ldr	r1, [r3, #12]
+   761a6:	4788      	blx	r1
+   761a8:	f897 0048 	ldrb.w	r0, [r7, #72]	; 0x48
+   761ac:	f887 6048 	strb.w	r6, [r7, #72]	; 0x48
+   761b0:	07c0      	lsls	r0, r0, #31
+   761b2:	d03a      	beq.n	7622a <_ZN7futures4task13Task$LT$F$GT$11poll_future17h9a95d66d59dd61d6E+0xc6>
+   761b4:	e9d4 0102 	ldrd	r0, r1, [r4, #8]
+   761b8:	e9d8 2304 	ldrd	r2, r3, [r8, #16]
+   761bc:	1a10      	subs	r0, r2, r0
+   761be:	eb73 0001 	sbcs.w	r0, r3, r1
+   761c2:	d210      	bcs.n	761e6 <_ZN7futures4task13Task$LT$F$GT$11poll_future17h9a95d66d59dd61d6E+0x82>
+   761c4:	f107 0548 	add.w	r5, r7, #72	; 0x48
+   761c8:	6b39      	ldr	r1, [r7, #48]	; 0x30
+   761ca:	4628      	mov	r0, r5
+   761cc:	4788      	blx	r1
+   761ce:	4602      	mov	r2, r0
+   761d0:	e9d8 0302 	ldrd	r0, r3, [r8, #8]
+   761d4:	e9c8 2102 	strd	r2, r1, [r8, #8]
+   761d8:	b10b      	cbz	r3, 761de <_ZN7futures4task13Task$LT$F$GT$11poll_future17h9a95d66d59dd61d6E+0x7a>
+   761da:	68d9      	ldr	r1, [r3, #12]
+   761dc:	4788      	blx	r1
+   761de:	6bf9      	ldr	r1, [r7, #60]	; 0x3c
+   761e0:	4628      	mov	r0, r5
+   761e2:	4788      	blx	r1
+   761e4:	e021      	b.n	7622a <_ZN7futures4task13Task$LT$F$GT$11poll_future17h9a95d66d59dd61d6E+0xc6>
+   761e6:	6bf9      	ldr	r1, [r7, #60]	; 0x3c
+   761e8:	f107 0048 	add.w	r0, r7, #72	; 0x48
+   761ec:	4788      	blx	r1
+   761ee:	2004      	movs	r0, #4
+   761f0:	2106      	movs	r1, #6
+   761f2:	2201      	movs	r2, #1
+   761f4:	2300      	movs	r3, #0
+   761f6:	df02      	svc	2
+   761f8:	2801      	cmp	r0, #1
+   761fa:	d00d      	beq.n	76218 <_ZN7futures4task13Task$LT$F$GT$11poll_future17h9a95d66d59dd61d6E+0xb4>
+   761fc:	7c60      	ldrb	r0, [r4, #17]
+   761fe:	2200      	movs	r2, #0
+   76200:	2300      	movs	r3, #0
+   76202:	f080 0101 	eor.w	r1, r0, #1
+   76206:	7461      	strb	r1, [r4, #17]
+   76208:	2800      	cmp	r0, #0
+   7620a:	f04f 0103 	mov.w	r1, #3
+   7620e:	f04f 0004 	mov.w	r0, #4
+   76212:	bf08      	it	eq
+   76214:	2102      	moveq	r1, #2
+   76216:	df02      	svc	2
+   76218:	f8d8 0004 	ldr.w	r0, [r8, #4]
+   7621c:	e9d8 1204 	ldrd	r1, r2, [r8, #16]
+   76220:	1840      	adds	r0, r0, r1
+   76222:	f142 0100 	adc.w	r1, r2, #0
+   76226:	e9c4 0102 	strd	r0, r1, [r4, #8]
+   7622a:	f897 0049 	ldrb.w	r0, [r7, #73]	; 0x49
+   7622e:	f887 6049 	strb.w	r6, [r7, #73]	; 0x49
+   76232:	07c0      	lsls	r0, r0, #31
+   76234:	d039      	beq.n	762aa <_ZN7futures4task13Task$LT$F$GT$11poll_future17h9a95d66d59dd61d6E+0x146>
+   76236:	f898 0000 	ldrb.w	r0, [r8]
+   7623a:	2800      	cmp	r0, #0
+   7623c:	bf18      	it	ne
+   7623e:	2001      	movne	r0, #1
+   76240:	7c21      	ldrb	r1, [r4, #16]
+   76242:	fab1 f181 	clz	r1, r1
+   76246:	0949      	lsrs	r1, r1, #5
+   76248:	4288      	cmp	r0, r1
+   7624a:	d011      	beq.n	76270 <_ZN7futures4task13Task$LT$F$GT$11poll_future17h9a95d66d59dd61d6E+0x10c>
+   7624c:	6bf9      	ldr	r1, [r7, #60]	; 0x3c
+   7624e:	f107 0049 	add.w	r0, r7, #73	; 0x49
+   76252:	4788      	blx	r1
+   76254:	2004      	movs	r0, #4
+   76256:	2106      	movs	r1, #6
+   76258:	2201      	movs	r2, #1
+   7625a:	2300      	movs	r3, #0
+   7625c:	df02      	svc	2
+   7625e:	2801      	cmp	r0, #1
+   76260:	d117      	bne.n	76292 <_ZN7futures4task13Task$LT$F$GT$11poll_future17h9a95d66d59dd61d6E+0x12e>
+   76262:	2500      	movs	r5, #0
+   76264:	2004      	movs	r0, #4
+   76266:	2103      	movs	r1, #3
+   76268:	2200      	movs	r2, #0
+   7626a:	2300      	movs	r3, #0
+   7626c:	df02      	svc	2
+   7626e:	e016      	b.n	7629e <_ZN7futures4task13Task$LT$F$GT$11poll_future17h9a95d66d59dd61d6E+0x13a>
+   76270:	f107 0549 	add.w	r5, r7, #73	; 0x49
+   76274:	6b39      	ldr	r1, [r7, #48]	; 0x30
+   76276:	4628      	mov	r0, r5
+   76278:	4788      	blx	r1
+   7627a:	4602      	mov	r2, r0
+   7627c:	e9d8 0306 	ldrd	r0, r3, [r8, #24]
+   76280:	e9c8 2106 	strd	r2, r1, [r8, #24]
+   76284:	b10b      	cbz	r3, 7628a <_ZN7futures4task13Task$LT$F$GT$11poll_future17h9a95d66d59dd61d6E+0x126>
+   76286:	68d9      	ldr	r1, [r3, #12]
+   76288:	4788      	blx	r1
+   7628a:	6bf9      	ldr	r1, [r7, #60]	; 0x3c
+   7628c:	4628      	mov	r0, r5
+   7628e:	4788      	blx	r1
+   76290:	e00b      	b.n	762aa <_ZN7futures4task13Task$LT$F$GT$11poll_future17h9a95d66d59dd61d6E+0x146>
+   76292:	2004      	movs	r0, #4
+   76294:	2102      	movs	r1, #2
+   76296:	2200      	movs	r2, #0
+   76298:	2300      	movs	r3, #0
+   7629a:	df02      	svc	2
+   7629c:	2501      	movs	r5, #1
+   7629e:	7465      	strb	r5, [r4, #17]
+   762a0:	f898 0000 	ldrb.w	r0, [r8]
+   762a4:	f080 0001 	eor.w	r0, r0, #1
+   762a8:	7420      	strb	r0, [r4, #16]
+   762aa:	6a61      	ldr	r1, [r4, #36]	; 0x24
+   762ac:	4620      	mov	r0, r4
+   762ae:	f894 5028 	ldrb.w	r5, [r4, #40]	; 0x28
+   762b2:	4788      	blx	r1
+   762b4:	2d00      	cmp	r5, #0
+   762b6:	f47f af66 	bne.w	76186 <_ZN7futures4task13Task$LT$F$GT$11poll_future17h9a95d66d59dd61d6E+0x22>
+   762ba:	6820      	ldr	r0, [r4, #0]
+   762bc:	3001      	adds	r0, #1
+   762be:	6020      	str	r0, [r4, #0]
+   762c0:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+   762c4:	00014800 	.word	0x00014800
+   762c8:	00014850 	.word	0x00014850
+
+000762cc <_ZN7futures4task13Task$LT$F$GT$11waker_clone17h732ec8dbf812a7b2E>:
+   762cc:	f100 0118 	add.w	r1, r0, #24
+   762d0:	4770      	bx	lr
+
+000762d2 <_ZN7futures4task13Task$LT$F$GT$10waker_wake17hf49e74be41968673E>:
+   762d2:	f7ff bf47 	b.w	76164 <_ZN7futures4task13Task$LT$F$GT$11poll_future17h9a95d66d59dd61d6E>
+
+000762d6 <_ZN7futures4task10waker_drop17h6ce182c1666a44dcE>:
+   762d6:	4770      	bx	lr
+
+000762d8 <main>:
+   762d8:	b082      	sub	sp, #8
+   762da:	2000      	movs	r0, #0
+   762dc:	2101      	movs	r1, #1
+   762de:	4d25      	ldr	r5, [pc, #148]	; (76374 <main+0x9c>)
+   762e0:	2200      	movs	r2, #0
+   762e2:	2300      	movs	r3, #0
+   762e4:	df02      	svc	2
+   762e6:	2105      	movs	r1, #5
+   762e8:	fbb0 f0f1 	udiv	r0, r0, r1
+   762ec:	2600      	movs	r6, #0
+   762ee:	6068      	str	r0, [r5, #4]
+   762f0:	2000      	movs	r0, #0
+   762f2:	4a21      	ldr	r2, [pc, #132]	; (76378 <main+0xa0>)
+   762f4:	2100      	movs	r1, #0
+   762f6:	2301      	movs	r3, #1
+   762f8:	df01      	svc	1
+   762fa:	f7ff fedf 	bl	760bc <_ZN7futures5alarm9set_delay17h41190a9e7429b3b1E>
+   762fe:	2004      	movs	r0, #4
+   76300:	2101      	movs	r1, #1
+   76302:	2200      	movs	r2, #0
+   76304:	2300      	movs	r3, #0
+   76306:	df02      	svc	2
+   76308:	2105      	movs	r1, #5
+   7630a:	2201      	movs	r2, #1
+   7630c:	2004      	movs	r0, #4
+   7630e:	2300      	movs	r3, #0
+   76310:	df02      	svc	2
+   76312:	4a1a      	ldr	r2, [pc, #104]	; (7637c <main+0xa4>)
+   76314:	2100      	movs	r1, #0
+   76316:	2004      	movs	r0, #4
+   76318:	2301      	movs	r3, #1
+   7631a:	df01      	svc	1
+   7631c:	2107      	movs	r1, #7
+   7631e:	2201      	movs	r2, #1
+   76320:	2004      	movs	r0, #4
+   76322:	2300      	movs	r3, #0
+   76324:	df02      	svc	2
+   76326:	4c16      	ldr	r4, [pc, #88]	; (76380 <main+0xa8>)
+   76328:	2103      	movs	r1, #3
+   7632a:	2004      	movs	r0, #4
+   7632c:	2200      	movs	r2, #0
+   7632e:	2300      	movs	r3, #0
+   76330:	df02      	svc	2
+   76332:	6820      	ldr	r0, [r4, #0]
+   76334:	b9e0      	cbnz	r0, 76370 <main+0x98>
+   76336:	f04f 30ff 	mov.w	r0, #4294967295	; 0xffffffff
+   7633a:	7466      	strb	r6, [r4, #17]
+   7633c:	6020      	str	r0, [r4, #0]
+   7633e:	f8dd 0002 	ldr.w	r0, [sp, #2]
+   76342:	f8c4 0012 	str.w	r0, [r4, #18]
+   76346:	f8bd 0006 	ldrh.w	r0, [sp, #6]
+   7634a:	82e0      	strh	r0, [r4, #22]
+   7634c:	6868      	ldr	r0, [r5, #4]
+   7634e:	e9d5 1204 	ldrd	r1, r2, [r5, #16]
+   76352:	1840      	adds	r0, r0, r1
+   76354:	7829      	ldrb	r1, [r5, #0]
+   76356:	f081 0101 	eor.w	r1, r1, #1
+   7635a:	7421      	strb	r1, [r4, #16]
+   7635c:	f142 0100 	adc.w	r1, r2, #0
+   76360:	e9c4 0102 	strd	r0, r1, [r4, #8]
+   76364:	4620      	mov	r0, r4
+   76366:	f7ff fefd 	bl	76164 <_ZN7futures4task13Task$LT$F$GT$11poll_future17h9a95d66d59dd61d6E>
+   7636a:	6820      	ldr	r0, [r4, #0]
+   7636c:	3001      	adds	r0, #1
+   7636e:	6020      	str	r0, [r4, #0]
+   76370:	df00      	svc	0
+   76372:	e7fd      	b.n	76370 <main+0x98>
+   76374:	00014850 	.word	0x00014850
+   76378:	00076089 	.word	0x00076089
+   7637c:	00076145 	.word	0x00076145
+   76380:	00014800 	.word	0x00014800
+
+00076384 <__aeabi_memcpy>:
+   76384:	b5f0      	push	{r4, r5, r6, r7, lr}
+   76386:	b382      	cbz	r2, 763ea <__aeabi_memcpy+0x66>
+   76388:	1e53      	subs	r3, r2, #1
+   7638a:	f002 0c03 	and.w	ip, r2, #3
+   7638e:	2b03      	cmp	r3, #3
+   76390:	d204      	bcs.n	7639c <__aeabi_memcpy+0x18>
+   76392:	2200      	movs	r2, #0
+   76394:	f1bc 0f00 	cmp.w	ip, #0
+   76398:	d119      	bne.n	763ce <__aeabi_memcpy+0x4a>
+   7639a:	e026      	b.n	763ea <__aeabi_memcpy+0x66>
+   7639c:	ebac 0e02 	sub.w	lr, ip, r2
+   763a0:	1c4b      	adds	r3, r1, #1
+   763a2:	1c44      	adds	r4, r0, #1
+   763a4:	f06f 0203 	mvn.w	r2, #3
+   763a8:	189e      	adds	r6, r3, r2
+   763aa:	18a5      	adds	r5, r4, r2
+   763ac:	3204      	adds	r2, #4
+   763ae:	78f7      	ldrb	r7, [r6, #3]
+   763b0:	70ef      	strb	r7, [r5, #3]
+   763b2:	7937      	ldrb	r7, [r6, #4]
+   763b4:	712f      	strb	r7, [r5, #4]
+   763b6:	7977      	ldrb	r7, [r6, #5]
+   763b8:	716f      	strb	r7, [r5, #5]
+   763ba:	79b6      	ldrb	r6, [r6, #6]
+   763bc:	71ae      	strb	r6, [r5, #6]
+   763be:	eb0e 0502 	add.w	r5, lr, r2
+   763c2:	3504      	adds	r5, #4
+   763c4:	d1f0      	bne.n	763a8 <__aeabi_memcpy+0x24>
+   763c6:	3204      	adds	r2, #4
+   763c8:	f1bc 0f00 	cmp.w	ip, #0
+   763cc:	d00d      	beq.n	763ea <__aeabi_memcpy+0x66>
+   763ce:	5c8b      	ldrb	r3, [r1, r2]
+   763d0:	f1bc 0f01 	cmp.w	ip, #1
+   763d4:	5483      	strb	r3, [r0, r2]
+   763d6:	d008      	beq.n	763ea <__aeabi_memcpy+0x66>
+   763d8:	1c53      	adds	r3, r2, #1
+   763da:	f1bc 0f02 	cmp.w	ip, #2
+   763de:	5ccf      	ldrb	r7, [r1, r3]
+   763e0:	54c7      	strb	r7, [r0, r3]
+   763e2:	d002      	beq.n	763ea <__aeabi_memcpy+0x66>
+   763e4:	3202      	adds	r2, #2
+   763e6:	5c89      	ldrb	r1, [r1, r2]
+   763e8:	5481      	strb	r1, [r0, r2]
+   763ea:	bdf0      	pop	{r4, r5, r6, r7, pc}
+
+000763ec <__aeabi_memset>:
+   763ec:	b510      	push	{r4, lr}
+   763ee:	2900      	cmp	r1, #0
+   763f0:	bf08      	it	eq
+   763f2:	bd10      	popeq	{r4, pc}
+   763f4:	1e4b      	subs	r3, r1, #1
+   763f6:	f001 0c03 	and.w	ip, r1, #3
+   763fa:	2b03      	cmp	r3, #3
+   763fc:	d201      	bcs.n	76402 <__aeabi_memset+0x16>
+   763fe:	2100      	movs	r1, #0
+   76400:	e00f      	b.n	76422 <__aeabi_memset+0x36>
+   76402:	ebac 0e01 	sub.w	lr, ip, r1
+   76406:	1c41      	adds	r1, r0, #1
+   76408:	f06f 0303 	mvn.w	r3, #3
+   7640c:	18cc      	adds	r4, r1, r3
+   7640e:	3304      	adds	r3, #4
+   76410:	71a2      	strb	r2, [r4, #6]
+   76412:	7162      	strb	r2, [r4, #5]
+   76414:	7122      	strb	r2, [r4, #4]
+   76416:	70e2      	strb	r2, [r4, #3]
+   76418:	eb0e 0403 	add.w	r4, lr, r3
+   7641c:	3404      	adds	r4, #4
+   7641e:	d1f5      	bne.n	7640c <__aeabi_memset+0x20>
+   76420:	1d19      	adds	r1, r3, #4
+   76422:	f1bc 0f00 	cmp.w	ip, #0
+   76426:	bf1c      	itt	ne
+   76428:	5442      	strbne	r2, [r0, r1]
+   7642a:	f1bc 0f01 	cmpne.w	ip, #1
+   7642e:	d100      	bne.n	76432 <__aeabi_memset+0x46>
+   76430:	bd10      	pop	{r4, pc}
+   76432:	4408      	add	r0, r1
+   76434:	f1bc 0f02 	cmp.w	ip, #2
+   76438:	7042      	strb	r2, [r0, #1]
+   7643a:	bf18      	it	ne
+   7643c:	7082      	strbne	r2, [r0, #2]
+   7643e:	bd10      	pop	{r4, pc}
+
+00076440 <__aeabi_memclr>:
+   76440:	2200      	movs	r2, #0
+   76442:	f7ff bfd3 	b.w	763ec <__aeabi_memset>
+
+Disassembly of section .data:
+
+00014800 <data_ram_start>:
+	...
+   14810:	00000002 	.word	0x00000002
+   14814:	00000000 	.word	0x00000000
+   14818:	000762cd 	.word	0x000762cd
+   1481c:	000762d3 	.word	0x000762d3
+   14820:	000762d3 	.word	0x000762d3
+   14824:	000762d7 	.word	0x000762d7
+	...
+   14830:	000760f1 	.word	0x000760f1
+   14834:	000760fd 	.word	0x000760fd
+   14838:	000760fd 	.word	0x000760fd
+   1483c:	00076119 	.word	0x00076119
+	...
+   14848:	00000101 	.word	0x00000101
+   1484c:	00000000 	.word	0x00000000
+
+Disassembly of section .bss:
+
+00014850 <_ZN7futures4gpio12BUTTON_VALUE17hae851f6e9a585450E.0.0>:
+   14850:	00000000                                ....
+
+00014854 <_ZN7futures5alarm6PERIOD17hf9a89ddd2e82519aE>:
+   14854:	00000000                                ....
+
+00014858 <_ZN7futures5alarm5WAKER17hf34c74fb830e6642E>:
+	...
+
+00014860 <_ZN7futures5alarm8CUR_TIME17hc380096d7490bad6E>:
+	...
+
+00014868 <_ZN7futures4gpio5WAKER17hd137f6a60fbe4795E>:
+	...

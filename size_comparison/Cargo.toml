@@ -1,0 +1,12 @@
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "z"
+panic = "abort"
+
+[workspace]
+members = [
+	"futures",
+	"futures-noinline",
+	"no_futures",
+]

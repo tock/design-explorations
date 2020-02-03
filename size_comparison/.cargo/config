@@ -1,0 +1,8 @@
+[build]
+target = "thumbv7m-none-eabi"
+
+[target.thumbv7m-none-eabi]
+linker = "rust-lld"
+rustflags = ["-C", "link-arg=-T./layout.ld",
+             "-C", "relocation-model=static",
+             "-C", "linker-flavor=ld.lld"]
