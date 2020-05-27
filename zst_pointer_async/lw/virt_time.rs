@@ -1,4 +1,4 @@
-use crate::lw::async_util::{Client, DynClient, Forwarder, TockStatic};
+use crate::lw::async_util::{AsyncClientPtr, Client, DynClient, TockStatic};
 use crate::lw::sync_cell::SyncCell;
 use crate::lw::time::{AlarmClock, AlarmFired, Clock, InPast};
 
@@ -52,13 +52,13 @@ impl AlarmClock for MuxClient {
     }
 }
 
-pub static CLOCK: TockStatic<Clock<MuxForwarder>> = TockStatic::new(Clock::new(MuxForwarder));
+pub static CLOCK: TockStatic<Clock<MuxClientPtr>> = TockStatic::new(Clock::new(MuxClientPtr));
 
 #[derive(Clone, Copy)]
-pub struct MuxForwarder;
+pub struct MuxClientPtr;
 
-impl Forwarder<AlarmFired> for MuxForwarder {
-    fn invoke_callback(self, _response: AlarmFired) {
+impl AsyncClientPtr<AlarmFired> for MuxClientPtr {
+    fn callback(self, _output: AlarmFired) {
         loop {
             let time = CLOCK.get_time();
             let mut cur_muxclient = MUX.head.get();

@@ -13,10 +13,10 @@
 // wraparound, but the numbers returned by the kernel would match the second
 // sequence. Therefore, we need all queued alarm callbacks to run less than
 // 2^32 - UPDATE_PERIOD ticks after the alarm fires. We don't have a way to make
-// that happen (as Tock is not a RTOS) so we simply hope such a large delay
+// that happen (as Tock is not an RTOS) so we simply hope such a large delay
 // never happens.
 
-use crate::lw::async_util::Forwarder;
+use crate::lw::async_util::AsyncClientPtr;
 use crate::syscalls::{command, subscribe_ptr};
 
 const DRIVER_NUM: usize = 0;
@@ -25,7 +25,7 @@ const SET_ALARM: usize = 4;
 const ALARM_FIRED: usize = 0;
 const UPDATE_PERIOD: u32 = 1_000_000_000;
 
-pub struct Clock<F: Forwarder<AlarmFired>> {
+pub struct Clock<C: AsyncClientPtr<AlarmFired>> {
     // The time at which the client wants to be alerted.
     client_setpoint: core::cell::Cell<u64>,
 
@@ -33,7 +33,7 @@ pub struct Clock<F: Forwarder<AlarmFired>> {
     // kernel counter value at that time.
     last_callback: core::cell::Cell<u64>,
 
-    forwarder: F,
+    client_ptr: C,
 }
 
 pub trait AlarmClock {
@@ -42,12 +42,12 @@ pub trait AlarmClock {
     fn set_alarm(&self, time: u64) -> Result<(), InPast>;
 }
 
-impl<F: Forwarder<AlarmFired>> Clock<F> {
-    pub const fn new(forwarder: F) -> Clock<F> {
+impl<C: AsyncClientPtr<AlarmFired>> Clock<C> {
+    pub const fn new(client_ptr: C) -> Clock<C> {
         Clock {
             client_setpoint: core::cell::Cell::new(0),
             last_callback: core::cell::Cell::new(0),
-            forwarder
+            client_ptr
         }
     }
 
@@ -65,7 +65,7 @@ impl<F: Forwarder<AlarmFired>> Clock<F> {
     }
 }
 
-impl<F: Forwarder<AlarmFired>> AlarmClock for Clock<F> {
+impl<C: AsyncClientPtr<AlarmFired>> AlarmClock for Clock<C> {
     fn get_time(&self) -> u64 {
         calc_new_unwrapped(
             self.last_callback.get(),
@@ -106,16 +106,16 @@ fn calc_new_unwrapped(unwrapped: u64, ticks: u32) -> u64 {
 // We don't use crate::syscalls::subscribe as that requires a unique reference
 // and we need subscribe to work with a shared reference. This is the callback
 // we use instead.
-unsafe extern fn callback<F: Forwarder<AlarmFired>>(_: usize, expired: usize, _: usize, clock: usize) {
+unsafe extern fn callback<C: AsyncClientPtr<AlarmFired>>(_: usize, expired: usize, _: usize, clock: usize) {
     use core::cmp::min;
-    let clock = &*(clock as *const Clock<F>);
+    let clock = &*(clock as *const Clock<C>);
     clock.last_callback.set(calc_new_unwrapped(clock.last_callback.get(), expired as u32));
     loop {
         let tgt = min(clock.client_setpoint.get(), clock.last_callback.get() + UPDATE_PERIOD as u64);
         command(DRIVER_NUM, SET_ALARM, tgt as usize, 0);
         if clock.get_time() >= clock.client_setpoint.get() {
             clock.client_setpoint.set(u64::max_value());
-            clock.forwarder.invoke_callback(AlarmFired);
+            clock.client_ptr.callback(AlarmFired);
             continue;
         }
         break;

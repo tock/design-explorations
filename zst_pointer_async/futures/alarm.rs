@@ -41,10 +41,10 @@ impl<C: AlarmClock> core::future::Future for AlarmFuture<C> {
 }
 
 #[derive(Clone, Copy)]
-pub struct FutureForwarder;
+pub struct FutureClientPtr;
 
-impl crate::lw::async_util::Forwarder<AlarmFired> for FutureForwarder {
-    fn invoke_callback(self, _: AlarmFired) {
+impl crate::lw::async_util::AsyncClientPtr<AlarmFired> for FutureClientPtr {
+    fn callback(self, _: AlarmFired) {
         // No-op. The setpoint has already been reset, and the futures that
         // expired will poll CLOCK to determine that they have expired.
         // TODO: This should store a Waker and poll it instead of assuming

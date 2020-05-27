@@ -7,7 +7,7 @@
 
 use core::cell::Cell;
 use core::ptr::null_mut;
-use crate::lw::async_util::Forwarder;
+use crate::lw::async_util::AsyncClientPtr;
 use crate::syscalls::{allow_ptr, command, subscribe_ptr};
 
 const BUFFER_NUM: usize = 0;
@@ -18,7 +18,7 @@ const GET_BYTES_DONE: usize = 0;
 pub type Buffer = &'static mut [u8];
 
 /// The RNG driver itself.
-pub struct Rng<F: Forwarder<Option<Buffer>>> {
+pub struct Rng<C: AsyncClientPtr<Option<Buffer>>> {
     // The buffer corresponding to an ongoing fetch. buffer_data is null if
     // there is no ongoing fetch. Stored as a raw pointer and length to avoid
     // the undefined behavior that would result from holding a &[u8] pointing to
@@ -26,12 +26,12 @@ pub struct Rng<F: Forwarder<Option<Buffer>>> {
     buffer_data: Cell<*mut u8>,
     buffer_len: Cell<usize>,
 
-    forwarder: F,
+    client_ptr: C,
 }
 
-impl<F: Forwarder<Option<Buffer>>> Rng<F> {
-    pub const fn new(forwarder: F) -> Rng<F> {
-        Rng { buffer_data: Cell::new(null_mut()), buffer_len: Cell::new(0), forwarder }
+impl<C: AsyncClientPtr<Option<Buffer>>> Rng<C> {
+    pub const fn new(client_ptr: C) -> Rng<C> {
+        Rng { buffer_data: Cell::new(null_mut()), buffer_len: Cell::new(0), client_ptr }
     }
 
     pub fn fetch(&'static self, buffer: Buffer) -> Result<(), (FetchError, Option<Buffer>)> {
@@ -72,15 +72,15 @@ pub enum FetchError {
 // We don't use crate::syscalls::subscribe as that requires a unique reference
 // and we need subscribe to work with a shared reference. This is the callback
 // we use instead.
-unsafe extern fn callback<F: Forwarder<Option<Buffer>>>(_: usize, _: usize, _: usize, rng: usize) {
-    let rng = &*(rng as *const Rng<F>);
+unsafe extern fn callback<C: AsyncClientPtr<Option<Buffer>>>(_: usize, _: usize, _: usize, rng: usize) {
+    let rng = &*(rng as *const Rng<C>);
     if allow_ptr(DRIVER_NUM, BUFFER_NUM, null_mut(), 0) != 0 {
         // Failed to un-allow the buffer. We leave the buffer values set in Rng,
         // which puts it into a "poisoned" state where it will return BUSY
         // forever.
-        rng.forwarder.invoke_callback(None);
+        rng.client_ptr.callback(None);
     }
-    rng.forwarder.invoke_callback(Some(
+    rng.client_ptr.callback(Some(
         core::slice::from_raw_parts_mut(rng.buffer_data.replace(null_mut()), rng.buffer_len.get())
     ));
 }

@@ -59,11 +59,11 @@ The design is based on the Tock kernel's asynchronous constructs, and keeps two
 of its major concepts:
 
 1. **A static graph of interacting state machines:** The Tock kernel has a
-   statically-specified graph of objects that interact with each other. It is
-   uncommon to use dynamic handles (which is the norm when using futures), which
-   minimizes overhead. It is normal for objects' interfaces to represent state
-   machines, and for their clients to rely on that state machine's behavior to
-   minimize the amount of duplicate state kept in RAM.
+   statically-specified graph of objects (as in OOP) that interact with each
+   other. It is uncommon to use dynamic handles (which is the norm when using
+   futures), which minimizes overhead. It is normal for objects' interfaces to
+   represent state machines, and for their clients to rely on that state
+   machine's behavior to minimize the amount of duplicate state kept in RAM.
 1. **Split-phase calls:** If object `A` wants to invoke an asynchronous
    operation implemented by object `B`, `A` calls a method on `B` to start the
    operation, which returns without blocking, then `B` calls `A` back when the
@@ -113,7 +113,8 @@ implemented with `&dyn` references, which has the following costs:
    destructor).
 1. Prevents those calls from being inlined. LLVM has devirtualization to
    alleviate this but it is not very effective in practice (in part because it
-   operates on bitcode types rather than Rust types).
+   operates on bitcode types rather than Rust types). See also
+   https://github.com/rust-lang/rust/issues/45774
 
 In the proposed design, `Bar` does not store a reference to a `Foo`, it stores a
 type that can forward calls to the `Foo`. That type is injected as a dependency

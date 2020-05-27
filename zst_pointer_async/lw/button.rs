@@ -4,10 +4,10 @@
 
 // TODO: Drivers that expose a mix of a synchronous and an asynchronous API are
 // somewhat painful to use purely synchronously, because they still demand a
-// forwarder even if one is not necessary. The "generic arguments only on the
-// impl" approach probably handles this better.
+// AsyncClientPtr even if one is not necessary. The "generic arguments only on
+// the impl" approach probably handles this better.
 
-use crate::lw::async_util::Forwarder;
+use crate::lw::async_util::AsyncClientPtr;
 use crate::returncode_subset;
 use crate::syscalls::{command, subscribe_ptr};
 
@@ -24,13 +24,13 @@ pub struct Event {
     pub new_value: bool,
 }
 
-pub struct Driver<F: Forwarder<Event>> {
-    forwarder: F,
+pub struct Driver<C: AsyncClientPtr<Event>> {
+    client_ptr: C,
 }
 
-impl<F: Forwarder<Event>> Driver<F> {
-    pub const fn new(forwarder: F) -> Driver<F> {
-        Driver { forwarder }
+impl<C: AsyncClientPtr<Event>> Driver<C> {
+    pub const fn new(client_ptr: C) -> Driver<C> {
+        Driver { client_ptr }
     }
 
     // TODO: Result<usize, CountError> takes 2 words but there's less than 1
@@ -93,8 +93,8 @@ returncode_subset![ pub enum GetStateError { ENODEVICE } ];
 // We don't use crate::syscalls::subscribe as that requires a unique reference
 // and we need subscribe to work with a shared reference. This is the callback
 // we use instead.
-unsafe extern fn callback<F: Forwarder<Event>>(index: usize, pressed: usize, _: usize, driver: usize) {
-    let driver = &*(driver as *const Driver<F>);
+unsafe extern fn callback<C: AsyncClientPtr<Event>>(index: usize, pressed: usize, _: usize, driver: usize) {
+    let driver = &*(driver as *const Driver<C>);
     // Convert `pressed` into a bool for use in the Event. Security note:
     // although `pressed` should always be 0 or 1, applications do not trust
     // capsules (such as the Button driver), so we must not invoke UB if
@@ -105,5 +105,5 @@ unsafe extern fn callback<F: Forwarder<Event>>(index: usize, pressed: usize, _: 
         1 => true,
         _ => return,
     };
-    driver.forwarder.invoke_callback(Event { index, new_value });
+    driver.client_ptr.callback(Event { index, new_value });
 }

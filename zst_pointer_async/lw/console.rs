@@ -1,7 +1,7 @@
 /// Console driver. Only supports writing to the console.
 
 use core::ptr::null_mut;
-use crate::lw::async_util::Forwarder;
+use crate::lw::async_util::AsyncClientPtr;
 use crate::returncode_subset;
 use crate::syscalls::{allow_ptr, command, subscribe_ptr};
 
@@ -17,19 +17,19 @@ pub type Buffer = &'static mut [u8];
 
 // TODO: Evaluate the distinctions between ENODEVICE, ENOMEM, and FAIL.
 
-pub struct Console<F: Forwarder<Option<Buffer>>> {
+pub struct Console<C: AsyncClientPtr<Option<Buffer>>> {
     buffer_data: core::cell::Cell<*mut u8>,
     buffer_len: core::cell::Cell<usize>,
 
-    forwarder: F,
+    client_ptr: C,
 }
 
-impl<F: Forwarder<Option<Buffer>>> Console<F> {
-    pub const fn new(forwarder: F) -> Console<F> {
+impl<C: AsyncClientPtr<Option<Buffer>>> Console<C> {
+    pub const fn new(client_ptr: C) -> Console<C> {
         Console {
             buffer_data: core::cell::Cell::new(core::ptr::null_mut()),
             buffer_len: core::cell::Cell::new(0),
-            forwarder
+            client_ptr
         }
     }
 
@@ -61,16 +61,16 @@ impl<F: Forwarder<Option<Buffer>>> Console<F> {
 
 returncode_subset![ pub enum WriteError { FAIL, EBUSY, ENODEVICE, ENOMEM } ];
 
-unsafe extern fn callback<F: Forwarder<Option<Buffer>>>(_bytes_written: usize, _: usize, _: usize, console: usize) {
-    let console = &*(console as *const Console<F>);
+unsafe extern fn callback<C: AsyncClientPtr<Option<Buffer>>>(_bytes_written: usize, _: usize, _: usize, console: usize) {
+    let console = &*(console as *const Console<C>);
 
     if allow_ptr(DRIVER_NUM, WRITE_BUFFER, null_mut(), 0) != 0 {
         // Failed to un-allow the buffer. We leave the buffer values set in
         // Console, which puts it into a "poisoned" state where it will return
         // BUSY forever.
-        console.forwarder.invoke_callback(None);
+        console.client_ptr.callback(None);
     }
-    console.forwarder.invoke_callback(Some(
+    console.client_ptr.callback(Some(
         core::slice::from_raw_parts_mut(console.buffer_data.replace(null_mut()), console.buffer_len.get())
     ));
 }

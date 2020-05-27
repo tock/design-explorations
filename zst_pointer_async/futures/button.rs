@@ -9,7 +9,7 @@
 use core::cell::Cell;
 use core::convert::TryFrom;
 use core::task::{Context, Poll};
-use crate::lw::async_util::{Forwarder, TockStatic};
+use crate::lw::async_util::{AsyncClientPtr, TockStatic};
 use crate::lw::button::{Driver, Event, GetStateError};
 use crate::returncode_subset;
 
@@ -78,17 +78,17 @@ impl core::future::Future for ButtonFuture {
 }
 
 static BUTTON_LIST: TockStatic<Cell<Option<&'static Button>>> = TockStatic::new(Cell::new(None));
-static DRIVER: Driver<FutureForwarder> = Driver::new(FutureForwarder);
+static DRIVER: Driver<FutureClientPtr> = Driver::new(FutureClientPtr);
 
 #[derive(Clone, Copy)]
-struct FutureForwarder;
+struct FutureClientPtr;
 
-impl Forwarder<Event> for FutureForwarder {
-    fn invoke_callback(self, response: Event) {
+impl AsyncClientPtr<Event> for FutureClientPtr {
+    fn callback(self, output: Event) {
         let mut opt_button: Option<&'static Button> = BUTTON_LIST.get();
         while let Some(button) = opt_button {
             if let ButtonState::WaitingFor(event) = button.state.get() {
-                if event != response { break; }
+                if event != output { break; }
                 button.state.set(ButtonState::Fired);
             }
             opt_button = button.next.get();

@@ -3,7 +3,7 @@
 use core::cell::Cell;
 use core::pin::Pin;
 use core::task::{Context, Poll};
-use crate::lw::async_util::{Forwarder, TockStatic};
+use crate::lw::async_util::{AsyncClientPtr, TockStatic};
 use crate::lw::rng::{Buffer, FetchError, Rng};
 
 pub struct RngFuture {
@@ -90,15 +90,15 @@ impl core::default::Default for State {
     }
 }
 
-static RNG: TockStatic<Rng<RngForwarder>> = TockStatic::new(Rng::new(RngForwarder));
+static RNG: TockStatic<Rng<RngClientPtr>> = TockStatic::new(Rng::new(RngClientPtr));
 static STATE: TockStatic<Cell<State>> = TockStatic::new(Cell::new(State::Idle));
 
 #[derive(Clone, Copy)]
-struct RngForwarder;
+struct RngClientPtr;
 
-impl Forwarder<Option<Buffer>> for RngForwarder {
-    fn invoke_callback(self, response: Option<Buffer>) {
-        if let Some(buffer) = response {
+impl AsyncClientPtr<Option<Buffer>> for RngClientPtr {
+    fn callback(self, output: Option<Buffer>) {
+        if let Some(buffer) = output {
             STATE.set(State::Done(buffer));
         } else {
             STATE.set(State::LostBuffer);
