@@ -69,8 +69,8 @@ of its major concepts:
    operation, which returns without blocking, then `B` calls `A` back when the
    operation is finished.
 
-For example, in the Tock kernel, a connection between an object `Bar` and an
-interface it depends on `Foo` would look like:
+For example, in the Tock kernel, if object `Bar` depends on the `Foo` API's
+`foo` method, that dependency would look like:
 
 ```
 // The API Bar depends on.
@@ -98,7 +98,22 @@ struct Bar<F: Foo> {
     client: &dyn BarClient,  // 2 words
 }
 
-impl<F: Foo> FooClient for Bar<F> { ... }
+impl<F: Foo> FooClient for Bar<F> {
+    fn foo_done(&self) {
+        // Bar updates its state machine now that Foo is done, and possibly
+        // triggers new events based upon that state (e.g. by starting another
+        // operation on foo or a new operation on another object).
+    }
+}
+
+// The board's reset handler (essentially the kernel's main()):
+fn reset_handler() {
+    ...
+    let foo = FooImpl::new();
+    let bar = Bar::<FooImpl>::new();
+    foo.set_client(&bar);
+    ...
+}
 ```
 
 The Tock kernel's implementation has unnecessary overhead. Objects in the Tock
@@ -123,9 +138,11 @@ dependency injection:
 
 ```
 // FooPtr is implemented by a type that knows how to find an implementation of
-// `Foo`.
+// `Foo`. It is a smart pointer that forwards Foo's API over to the real Foo.
+// FooPtr requires Foo to be Copy so that it can pass self by value, which makes
+// zero-sized FooPtr implementations free (no code size or runtime overhead for
+// the abstraction).
 trait FooPtr: Copy {
-    // If FooPtr is zero-sized, then the `self` argument has no cost.
     fn foo(self);
 }
 
