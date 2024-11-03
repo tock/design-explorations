@@ -5,19 +5,18 @@ ABI](https://github.com/tock/tock/blob/master/doc/reference/trd104-syscalls.md)
 has only been defined for 32-bit non-CHERI platforms. This has allowed Tock to
 use `u32`, `usize`, and pointers relatively interchangeably in its syscall ABI.
 However, there is now interest in porting Tock to CHERI platforms, both 32-bit
-and 64-bit. Suddenly, `u32`, `usize`, and pointers can be different sizes (in
+and 64-bit. Suddenly, `u32`, `usize`, and `*mut ()` can be different sizes (in
 64-bit CHERI, they are three distinct sizes!), so we can no longer treat them as
 equivalent.
 
 At a higher level, Tock frequently relies on syscall drivers and userspace
-libraries to cast types for transfer across the syscall interface. The
-temperature capsule [uses an unsigned upcall argument to send an `i32` to
+libraries to cast types for transfer across the syscall interface. For example,
+the temperature capsule [uses an unsigned upcall argument to send an `i32` to
 userspace](https://github.com/tock/tock/blob/772ed33c594cb3fcd7590444a6b45aaca1172b68/capsules/extra/src/temperature.rs#L131),
 the buttons capsule [uses SuccessWithU32 to return a boolean
 value](https://github.com/tock/tock/blob/772ed33c594cb3fcd7590444a6b45aaca1172b68/doc/syscalls/00003_buttons.md#command-number-3),
-the console driver [passes an error code in an integer argument of
-upcalls](https://github.com/tock/tock/blob/772ed33c594cb3fcd7590444a6b45aaca1172b68/doc/syscalls/00001_console.md#subscribe-number-2),
-and it is easy to find many other examples of manual casts in syscall drivers.
+and the console driver [passes an error code in an integer argument of
+upcalls](https://github.com/tock/tock/blob/772ed33c594cb3fcd7590444a6b45aaca1172b68/doc/syscalls/00001_console.md#subscribe-number-2).
 
 This document explores the possibility of providing a more type-safe syscall API
 by proposing a type-safe syscall ABI and examining its pros and cons.
@@ -39,13 +38,12 @@ that probably make sense in a syscall interface:
 There are a couple other types that we probably want to consider as well:
 
 * Tock's `ErrorCode`, as it is extremely common.
-* A CHERI capability (which is not necessarily a pointer and not necessarily
-  tagged 1).
+* A non-pointer CHERI capability.
 * A Register type that represents *any* possible register value. This is a
   future-compatibility safeguard: if we ever need a type that is not in our
-  fixed list, we can call it an ArbitraryRegister and make things work (albeit
-  with less type safety). It also allows us to embed ArbitraryData (which will
-  be defined later) inside ArbitraryData, which is used by Yield.
+  fixed list, we can call it a Register and make things work (albeit with less
+  type safety). It also allows us to embed ArbitraryData (which will be defined
+  later) inside ArbitraryData, which is used by Yield.
 
 ### Reducing the number of types
 
@@ -76,7 +74,7 @@ This leaves us with:
 * Upcall function pointer
 * Narrow pointer (`*const T` or `*mut T` where `T: Sized`)
 * `ErrorCode`
-* CHERI capability
+* Non-pointer CHERI capability
 
 ## Type descriptors
 
@@ -84,25 +82,25 @@ When a process wants to send data to the kernel, the process needs a way to tell
 the kernel the sent data's type (and vice versa when the kernel sends data to
 the process). To do this, we need a way to serialize information about a a list
 of types. To start, lets assign numbers to each type (DNE means this type
-doesn't exist yet). 
+doesn't exist yet):
 
-| ID       | Rust Type                 | C Type                    |
-| -------- | ------------------------- | ------------------------- |
-| `0b0001` | `ErrorCode`               | Error code (DNE)          |
-| `0b0010` | `u32`                     | `uint32_t`                |
-| `0b0011` | `i32`                     | `int32_t`                 |
-| `0b0100` | `usize`                   | `size_t`                  |
-| `0b0101` | `isize`                   | `ptrdiff_t`               |
-| `0b0110` | `u64`                     | `uint64_t`                |
-| `0b0111` | `i64`                     | `int64_t`                 |
-| `0b1000` | `f32`                     | `float`                   |
-| `0b1001` | `f64`                     | `double`                  |
-| `0b1010` | `bool`                    | `bool`                    |
-| `0b1011` | Upcall fn pointer         | Upcall fn pointer         |
-| `0b1100` | `*mut T` where `T: Sized` | `T*`                      |
-| `0b1101` | CHERI capability (DNE)    | CHERI capability (DNE)    |
-| `0b1110` | *Reserved for future use* | *Reserved for future use* |
-| `0b1111` | Register                  | Register (DNE)            |
+| ID       | Rust Type                          | C Type                             |
+| -------- | -------------------------          | ---------------------------------- |
+| `0b0001` | `ErrorCode`                        | Error code (DNE)                   |
+| `0b0010` | `u32`                              | `uint32_t`                         |
+| `0b0011` | `i32`                              | `int32_t`                          |
+| `0b0100` | `usize`                            | `size_t`                           |
+| `0b0101` | `isize`                            | `ptrdiff_t`                        |
+| `0b0110` | `u64`                              | `uint64_t`                         |
+| `0b0111` | `i64`                              | `int64_t`                          |
+| `0b1000` | `f32`                              | `float`                            |
+| `0b1001` | `f64`                              | `double`                           |
+| `0b1010` | `bool`                             | `bool`                             |
+| `0b1011` | Upcall fn pointer                  | Upcall fn pointer                  |
+| `0b1100` | `*mut T` where `T: Sized`          | `T*`                               |
+| `0b1101` | Non-pointer CHERI capability (DNE) | Non-pointer CHERI capability (DNE) |
+| `0b1110` | *Reserved for future use*          | *Reserved for future use*          |
+| `0b1111` | Register                           | Register (DNE)                     |
 
 We can describe a list of N types as a 4N bit integer by embedding the Nth type
 ID in the Nth nibble of the integer. So:
@@ -117,11 +115,11 @@ ID in the Nth nibble of the integer. So:
 For example, the type `(bool, u32, *mut T)` would be described by
 `0b110000101010`, expanded here:
 
-| Bits | Value  | Type           |
-| ---- | ------ | -------------- |
-| 0-3  | 0b1010 | `bool`         |
-| 4-7  | 0b0010 | `u32`          |
-| 8-11 | 0b1100 | Narrow pointer |
+| Bits | Value    | Type           |
+| ---- | -------- | -------------- |
+| 0-3  | `0b1010` | `bool`         |
+| 4-7  | `0b0010` | `u32`          |
+| 8-11 | `0b1100` | Narrow pointer |
 
 Note that if this type descriptor were stored in a larger type (such as a
 `u32`), you can determine that it is a list of three types because `0b0000` is
@@ -307,11 +305,11 @@ Arguments:
 | -------- | --------------------------- | --------------- |
 | a1       | Driver number               | `u32`           |
 | a2       | Command number              | `u32`           |
-| a3-a14   | Instance-specific arguments | `ArbitraryData` |
+| a3-...   | Instance-specific arguments | `ArbitraryData` |
 
 The return variants are specific to the Command instance, but MUST fit into an
-`ArbitraryData(15)`. This guarantees that Command will clobber no more than 15
-registers.
+`ArbitraryData(15)`. This guarantees that Command's return value will clobber no
+more than 15 registers.
 
 ### Allows
 
@@ -363,7 +361,7 @@ Operations:
 | 10  | Set the start of the process stack                 | `usize`  | `()`     | `ErrorCode` |
 | 11  | Set the start of the process heap                  | `usize`  | `()`     | `ErrorCode` |
 
-Note: there are several places where pointer versus usize can be bikeshed; also
+Note: there are several places where pointer versus usize can be bikeshed. Also,
 I did not fully adapt this for CHERI.
 
 ### Exit
@@ -385,7 +383,7 @@ invoking the above commands. For example, I believe `libtock-rs` could define
 a command function with the following signature:
 
 ```rust
-// Implemented on any type that can be represented as an ArbitraryData(r1-r15)
+// Implemented on any type that can be represented as an ArbitraryData(15)
 trait CommandReturn { ... }
 
 // Implemented on any type that can be represented as an ArbitraryData in a3-...
@@ -430,8 +428,8 @@ Cons:
 1. Command clobbers many registers. The impact of this is somewhat mitigated on
    ARM because it has instructions to push and pop multiple registers. It is
    also somewhat mitigated on RISC-V because it only clobbers caller-saved
-   registers (so the compiler has local context on which registers *actually*
-   need to be saved).
+   registers (so the compiler has local context on which registers need to be
+   saved).
 1. The userspace implementation of Yield is now larger, as it has to invoke the
    upcall itself. On some platforms, this may involve passing arguments via the
    stack. I would expect Yield to not be inlined with this ABI, whereas in Tock
@@ -469,10 +467,11 @@ Other design notes and observations:
    registers. Decoding one will consist of comparing the type descriptor to a
    constant (the descriptor of the *expected* type), then copying the data out
    of the remaining registers.
-1. The type descriptors are specified so that a tuple of no more than 4 types
-   can be passed as a 16-bit value. Even though the syscall ABI always uses a
-   whole register to pass type descriptors, setting a 16-bit value is more
-   efficient than a 32-bit value in some (all?) of the architectures we support.
+1. The type descriptors are designed so that small tuples (ones with no more
+   than 4 types) are specified by 16-bit values. Even though the syscall ABI
+   always uses a whole register to pass type descriptors, setting a 16-bit value
+   is more efficient than a 32-bit value in some (all?) of the architectures we
+   support.
 1. We can no longer use `u32`, `usize`, `*mut ()`, and `usize` interchangeably.
    In some ways this is nice, but it forces us to make decisions that are
    sometimes nonobvious (see e.g. the "get the end of the grant region" memop,
