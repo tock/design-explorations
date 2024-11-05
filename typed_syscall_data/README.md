@@ -84,23 +84,23 @@ the process). To do this, we need a way to serialize information about a a list
 of types. To start, lets assign numbers to each type (DNE means this type
 doesn't exist yet):
 
-| ID       | Rust Type                          | C Type                             |
-| -------- | -------------------------          | ---------------------------------- |
-| `0b0001` | `ErrorCode`                        | Error code (DNE)                   |
-| `0b0010` | `u32`                              | `uint32_t`                         |
-| `0b0011` | `i32`                              | `int32_t`                          |
-| `0b0100` | `usize`                            | `size_t`                           |
-| `0b0101` | `isize`                            | `ptrdiff_t`                        |
-| `0b0110` | `u64`                              | `uint64_t`                         |
-| `0b0111` | `i64`                              | `int64_t`                          |
-| `0b1000` | `f32`                              | `float`                            |
-| `0b1001` | `f64`                              | `double`                           |
-| `0b1010` | `bool`                             | `bool`                             |
-| `0b1011` | Upcall fn pointer                  | Upcall fn pointer                  |
-| `0b1100` | `*mut T` where `T: Sized`          | `T*`                               |
-| `0b1101` | Non-pointer CHERI capability (DNE) | Non-pointer CHERI capability (DNE) |
-| `0b1110` | *Reserved for future use*          | *Reserved for future use*          |
-| `0b1111` | Register                           | Register (DNE)                     |
+| ID       | Description                  | Kernel Type     | `libtock-c` Type | `libtock-rs` Type         |
+| -------- | ---------------------------- | --------------- | ---------------- | ------------------------- |
+| `0b0001` | Error code                   | `ErrorCode`     | DNE              | `ErrorCode`               |
+| `0b0010` | `u32`                        | `u32`           | `uint32_t`       | `u32`                     |
+| `0b0011` | `i32`                        | `i32`           | `int32_t`        | `i32`                     |
+| `0b0100` | `usize`                      | `usize`         | `size_t`         | `usize`                   |
+| `0b0101` | `isize`                      | `isize`         | `ptrdiff_t`      | `isize`                   |
+| `0b0110` | `u64`                        | `u64`           | `uint64_t`       | `u64`                     |
+| `0b0111` | `i64`                        | `i64`           | `int64_t`        | `i64`                     |
+| `0b1000` | `f32`                        | `f32`           | `float`          | `f32`                     |
+| `0b1001` | `f64`                        | `f64`           | `double`         | `f64`                     |
+| `0b1010` | `bool`                       | `bool`          | `bool`           | `bool`                    |
+| `0b1011` | Upcall pointer               | `CapabilityPtr` | `UpcallFn`       | `UpcallFn`                |
+| `0b1100` | Data pointer                 | `CapabilityPtr` | `T*`             | `*mut T` where `T: Sized` |
+| `0b1101` | Non-pointer CHERI capability | DNE             | DNE              | DNE                       |
+| `0b1110` | *Reserved for future use*    | -               | -                | -                         |
+| `0b1111` | Arbitrary register value     | DNE             | DNE              | `Register`                |
 
 We can describe a list of N types as a 4N bit integer by embedding the Nth type
 ID in the Nth nibble of the integer. So:
@@ -131,9 +131,9 @@ This table indicates how many registers are needed for each type:
 
 | Type              | 32 bit non-CHERI | 64 bit non-CHERI | 32 bit CHERI | 64 bit CHERI |
 | ----------------- | ---------------- | ---------------- | ------------ | ------------ |
-| `u64`             | 2                | 1                | 1? 2?        | 1            |
-| `i64`             | 2                | 1                | 1? 2?        | 1            |
-| `f64`             | 2                | 1                | 1? 2?        | 1            |
+| `u64`             | 2                | 1                | 2            | 1            |
+| `i64`             | 2                | 1                | 2            | 1            |
+| `f64`             | 2                | 1                | 2            | 1            |
 | CHERI capability  | N/A              | N/A              | 1            | 1            |
 | *Everything else* | 1                | 1                | 1            | 1            |
 
