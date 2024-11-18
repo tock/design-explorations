@@ -1,13 +1,58 @@
 # Typed Syscall Data
 
+## Motivation
+
+The primary goal of this document is to promote a more type-safe syscall API for
+future major Tock versions (3.0 and beyond). It does so by proposing a syscall
+ABI and examining its pros and cons. A secondary goal is to spread knowledge
+about CHERI among core Tock developers.
+
 To date, Tock's [syscall
 ABI](https://github.com/tock/tock/blob/master/doc/reference/trd104-syscalls.md)
-has only been defined for 32-bit non-CHERI platforms. This has allowed Tock to
-use `u32`, `usize`, and pointers relatively interchangeably in its syscall ABI.
+has only been defined for 32-bit non-CHERI platforms. This has allowed Tock's
+syscall ABI to use `u32`, `usize`, and pointers relatively interchangeably.
 However, there is now interest in porting Tock to CHERI platforms, both 32-bit
 and 64-bit. Suddenly, `u32`, `usize`, and `*mut ()` can be different sizes (in
-64-bit CHERI, they are three distinct sizes!), so we can no longer treat them as
-equivalent.
+64-bit purecap CHERI, they are three distinct sizes!), so we can no longer treat
+them as equivalent.
+
+[TRD
+104](https://github.com/tock/tock/blob/master/doc/reference/trd104-syscalls.md)
+supports returning three data types from system calls: `ErrorCode`, `u32`, and
+`u64`. Its list of return variants contains every combination of:
+
+1. 0 or 1 `ErrorCode`s
+2. `u32`
+3. `u32`
+
+That can fit into four registers. That results in 10 system call return variants
+(4 failures and 6 successes).
+
+To support 64-bit architectures and CHERI,
+https://github.com/tock/tock/pull/4174 extends the number of supported data
+types to five, adding "address" and "pointer" to the list. Adding those types to
+our list enables us to expand the number of return variants considerably:
+
+* **Failures:** Failure, Failure with u32, Failure with address, Failure with
+  pointer, Failure with 2 u32, Failure with u32 and address, Failure with u32
+  and pointer, Failure with 2 address, Failure with address and pointer, Failure
+  with 2 pointer, Failure with u64.
+* **Successes:** Success, Success with u32, Success with address, Success with
+  pointer, Success with 2 u32, Success with u32 and address, Success with u32
+  and pointer, Success with 2 address, Success with address and pointer, Success
+  with 2 pointer, Success with u64, Success with 3 u32s, Success with 2 u32s and
+  address, Success with 2 u32 and pointer, Success with u32 and 2 address,
+  Success with u32 and address and pointer, Success with 3 address, Success with
+  2 address and pointer, success with address and 2 pointer, Success with 3
+  pointer, Success with u32 and u64, Success with address and u64, Success with
+  pointer and u64.
+
+I've probably made a mistake, but if I got it correct, that is 11 failure types
+and 22 success types! Supporting all of these possibilities is starting to
+become impractical; a `match` over the full list of 33 possibilities is going to
+be error-prone to implement by hand and likely generate a lot of code. Indeed
+https://github.com/tock/tock/pull/4174 only adds the return variants that it
+immediately needs: Success with address and Success with pointer.
 
 At a higher level, Tock frequently relies on syscall drivers and userspace
 libraries to cast types for transfer across the syscall interface. For example,
@@ -17,13 +62,14 @@ the buttons capsule [uses SuccessWithU32 to return a boolean
 value](https://github.com/tock/tock/blob/772ed33c594cb3fcd7590444a6b45aaca1172b68/doc/syscalls/00003_buttons.md#command-number-3),
 and the console driver [passes an error code in an integer argument of
 upcalls](https://github.com/tock/tock/blob/772ed33c594cb3fcd7590444a6b45aaca1172b68/doc/syscalls/00001_console.md#subscribe-number-2).
+Tock's syscall APIs do not help users perform these casts correctly.
 
-This document explores the possibility of providing a more type-safe syscall API
-by proposing a type-safe syscall ABI and examining its pros and cons.
+A more extensible syscall ABI would allow us to support a larger variety of
+argument and return types without generating excessive overhead.
 
 ## What types do we care about?
 
-To start, we can look at the [list of all Rust
+To start designing the syscall ABI, we can look at the [list of all Rust
 types](https://doc.rust-lang.org/reference/types.html) and see several types
 that probably make sense in a syscall interface:
 
@@ -33,17 +79,26 @@ that probably make sense in a syscall interface:
 * Floating point: `f32`, `f64`
 * Codepoint: `char`
 * Upcall function pointer
-* Raw pointers: `*const T`, `*mut T`
+* Data pointers: `*const T`, `*mut T`
+
+Note about pointers: if `T` is not `Sized`, then `*const T` and `*mut T` are
+larger than normal pointers and are known as wide pointers. Wide pointers do not
+have a stable ABI, so we won't use them in the syscall ABI. For the rest of the
+document, assume that `*const T` and `*mut T` only point to `Sized` types.
 
 There are a couple other types that we probably want to consider as well:
 
 * Tock's `ErrorCode`, as it is extremely common.
-* A non-pointer CHERI capability.
+* A non-pointer CHERI capability: not all CHERI capabilities are pointers. For
+  example, an OS could use CHERI capabilities as file handles to prevent
+  userspace programs from forging file handles. Tock does not currently have a
+  use for non-pointer capabilities, but this document includes them for
+  educational and future-proofing purposes.
 * A Register type that represents *any* possible register value. This is a
   future-compatibility safeguard: if we ever need a type that is not in our
   fixed list, we can call it a Register and make things work (albeit with less
-  type safety). It also allows us to embed ArbitraryData (which will be defined
-  later) inside ArbitraryData, which is used by Yield.
+  type safety). It is also used by Yield to pass dynamically-typed data to
+  userspace.
 
 ### Reducing the number of types
 
@@ -51,15 +106,14 @@ Of course, there is a cost to complexity and in particular supporting a long
 list of types. It probably doesn't make sense to provide special support for
 *all* of the above types. In particular:
 
-* `i8` and `i16` are not particularly common and can easily be passed as `i32`.
+* `i8` and `i16` are not particularly common and can be passed as `i32` without
+  risking data corruption.
 * `u8` and `u16` can similarly be passed as `u32`.
 * `i128` and `u128` are extremely rare in Rust, completely absent in standard C,
   and probably exceptionally rare on the small systems Tock targets.
 * `char` is rare in Tock, as Tock mostly treats text as byte buffers. When
   needed, it can be passed as `u32`. It's also not a standard part of C (where
   `char` has a different meaning).
-* Wide pointers: these aren't a concept in other languages (e.g. C) and
-  therefore don't belong in a syscall ABI.
 * `*const T` and `*mut T` are redundant: they're distinct types, but only exist
   to communicate mutability information. We already handle this in Tock by using
   different system calls for buffers of different mutability. Therefore we only
@@ -70,37 +124,42 @@ list of types. It probably doesn't make sense to provide special support for
 This leaves us with:
 
 * `bool`
-* Numeric: `i32`, `i64`, `isize`, `u32`, `u64`, `usize`, `f32`, `f64`
+* Numeric: `i32`, `i64`, `u32`, `u64`, `f32`, `f64`
+* Sizes and offsets: `usize`, `isize`
 * Upcall function pointer
-* Narrow pointer (`*const T` or `*mut T` where `T: Sized`)
+* Data pointer (`*const T` or `*mut T`)
 * `ErrorCode`
 * Non-pointer CHERI capability
+
+CHERI note: on CHERI systems, both function pointers and data pointers are
+passed across the syscall ABI as CHERI capabilities.
 
 ## Type descriptors
 
 When a process wants to send data to the kernel, the process needs a way to tell
 the kernel the sent data's type (and vice versa when the kernel sends data to
 the process). To do this, we need a way to serialize information about a a list
-of types. To start, lets assign numbers to each type (DNE means this type
-doesn't exist yet):
+of types. To start, lets assign numbers to each type (DNE means this type Does
+Not Exist yet):
 
-| ID       | Description                  | Kernel Type     | `libtock-c` Type | `libtock-rs` Type         |
-| -------- | ---------------------------- | --------------- | ---------------- | ------------------------- |
-| `0b0001` | Error code                   | `ErrorCode`     | DNE              | `ErrorCode`               |
-| `0b0010` | `u32`                        | `u32`           | `uint32_t`       | `u32`                     |
-| `0b0011` | `i32`                        | `i32`           | `int32_t`        | `i32`                     |
-| `0b0100` | `usize`                      | `usize`         | `size_t`         | `usize`                   |
-| `0b0101` | `isize`                      | `isize`         | `ptrdiff_t`      | `isize`                   |
-| `0b0110` | `u64`                        | `u64`           | `uint64_t`       | `u64`                     |
-| `0b0111` | `i64`                        | `i64`           | `int64_t`        | `i64`                     |
-| `0b1000` | `f32`                        | `f32`           | `float`          | `f32`                     |
-| `0b1001` | `f64`                        | `f64`           | `double`         | `f64`                     |
-| `0b1010` | `bool`                       | `bool`          | `bool`           | `bool`                    |
-| `0b1011` | Upcall pointer               | `CapabilityPtr` | `UpcallFn`       | `UpcallFn`                |
-| `0b1100` | Data pointer                 | `CapabilityPtr` | `T*`             | `*mut T` where `T: Sized` |
-| `0b1101` | Non-pointer CHERI capability | DNE             | DNE              | DNE                       |
-| `0b1110` | *Reserved for future use*    | -               | -                | -                         |
-| `0b1111` | Arbitrary register value     | DNE             | DNE              | `Register`                |
+| ID       | Description                  | Kernel Type     | `libtock-c` Type | `libtock-rs` Type |
+| -------- | ---------------------------- | --------------- | ---------------- | ----------------- |
+| `0b0000` | None (invalid)               | -               | -                | -                 |
+| `0b0001` | Error code                   | `ErrorCode`     | DNE              | `ErrorCode`       |
+| `0b0010` | `u32`                        | `u32`           | `uint32_t`       | `u32`             |
+| `0b0011` | `i32`                        | `i32`           | `int32_t`        | `i32`             |
+| `0b0100` | `usize`                      | `usize`         | `size_t`         | `usize`           |
+| `0b0101` | `isize`                      | `isize`         | `ptrdiff_t`      | `isize`           |
+| `0b0110` | `u64`                        | `u64`           | `uint64_t`       | `u64`             |
+| `0b0111` | `i64`                        | `i64`           | `int64_t`        | `i64`             |
+| `0b1000` | `f32`                        | `f32`           | `float`          | `f32`             |
+| `0b1001` | `f64`                        | `f64`           | `double`         | `f64`             |
+| `0b1010` | `bool`                       | `bool`          | `bool`           | `bool`            |
+| `0b1011` | Upcall pointer               | `CapabilityPtr` | `UpcallFn`       | `UpcallFn`        |
+| `0b1100` | Data pointer                 | `CapabilityPtr` | `T*`             | `*mut T`          |
+| `0b1101` | Non-pointer CHERI capability | DNE             | DNE              | DNE               |
+| `0b1110` | *Reserved for future use*    | -               | -                | -                 |
+| `0b1111` | Arbitrary register value     | DNE             | DNE              | `Register`        |
 
 We can describe a list of N types as a 4N bit integer by embedding the Nth type
 ID in the Nth nibble of the integer. So:
@@ -115,11 +174,11 @@ ID in the Nth nibble of the integer. So:
 For example, the type `(bool, u32, *mut T)` would be described by
 `0b110000101010`, expanded here:
 
-| Bits | Value    | Type           |
-| ---- | -------- | -------------- |
-| 0-3  | `0b1010` | `bool`         |
-| 4-7  | `0b0010` | `u32`          |
-| 8-11 | `0b1100` | Narrow pointer |
+| Bits                    | Value    | Type         |
+| ----------------------- | -------- | ------------ |
+| 0-3 (least significant) | `0b1010` | `bool`       |
+| 4-7                     | `0b0010` | `u32`        |
+| 8-11                    | `0b1100` | Data pointer |
 
 Note that if this type descriptor were stored in a larger type (such as a
 `u32`), you can determine that it is a list of three types because `0b0000` is
@@ -156,9 +215,16 @@ register. To make this concrete, if we have values `(v1: bool, v2: u64, v3: *mut
 ## ArbitraryData
 
 `ArbitraryData` is a data structure designed to fit in registers and carry data
-of a variety of types. The value of the first register is the type descriptor
-for the list of data types. The remaining pieces of data are stored in the rest
-of the registers in order (as described in the previous heading).
+of a variety of types. Like [TRD 104's return
+variants](https://github.com/tock/tock/blob/a1966b8ddaa1ce819b80f2f7bea466eb76e5b46c/doc/reference/trd104-syscalls.md#32-return-values),
+it embeds information about what data type(s) it carries into one of the
+registers. However, it supports a much larger variety of data types than TRD
+104's return variants, and is also suitable for passing data to the kernel from
+userspace.
+
+The value of the first register in an `ArbitraryData` is the type descriptor for
+the list of data types it contains. The remaining pieces of data are stored in
+the rest of the registers in order (as described in the previous heading).
 
 For example, on a non-CHERI 32-bit system, `ArbitraryData` would store the value
 `(true, 0x0123456789ABCDEFu64, 3i32)` as:
@@ -221,7 +287,10 @@ All system calls return an `ArbitraryData(N)`, where `N` is the maximum of:
 
 Note: All system calls must specify their success and failure variant, so that
 userspace libraries can determine how many registers may be clobbered by the
-syscall.
+syscall. Also, the Success and Failure variants must be different so that
+userspace can determine whether the system call has succeeded. In practice,
+Failure variants will contain `ErrorCode` and Success variants generally will
+not contain `ErrorCode`.
 
 If userspace tries to invoke a system call that the kernel does not recognize or
 does not support, or a system call on a system call driver that does not exist,
@@ -270,6 +339,12 @@ userspace Yield function should then pack the register values into an
 `UpcallArbitraryData` and invoke the function pointer with the userdata pointer
 and `UpcallArbitraryData` as parameters.
 
+Note: Unlike TRD 104, in this syscall ABI Yield returns the upcall's arguments
+to the userspace library and expects the userspace library to invoke the
+callback. This allows for more than four registers' worth of arguments to be
+passed to the upcall without requiring the kernel to push arguments onto the
+userspace stack.
+
 If there is an upcall, yield-wait-for returns `(Register, Register, Register,
 Register)`. The four `Register` values are the upcall's `ArbitraryData(4)`
 parameters.
@@ -307,9 +382,14 @@ Arguments:
 | a2       | Command number              | `u32`           |
 | a3-...   | Instance-specific arguments | `ArbitraryData` |
 
-The return variants are specific to the Command instance, but MUST fit into an
-`ArbitraryData(15)`. This guarantees that Command's return value will clobber no
-more than 15 registers.
+The return variants are specific to the Command instance. On ARM, they MUST fit
+into an `ArbitraryData(11)`. On RISC-V, they MUST fit into an
+`ArbitraryData(15)`.
+
+Design reasoning: ARM has instructions to push and pop multiple registers, so
+clobbering all 11 registers is relatively inexpensive. On RISC-V, this clobbers
+only caller-saved registers, so the compiler should have the context it needs to
+only save registers that are currently in use.
 
 ### Allows
 
@@ -410,9 +490,9 @@ This pros and cons list is specified relative to Tock 2.0's syscall ABI.
 
 Pros:
 
-1. No more manually casting everything to a `u32`/`usize` to invoke Command or
-   an upcall; any casting necessary will be handled by the core syscall layer
-   (or code generator).
+1. No more manually casting non-numeric types to a `u32`/`usize` to invoke
+   Command or an upcall; any casting necessary will be handled by the core
+   syscall layer (or code generator).
 1. Type safety: If there is a type mismatch between what userspace expects a
    syscall to use and what the syscall actually uses, that will be caught
    (by the kernel for arguments and by the userspace library for return values)
@@ -421,7 +501,8 @@ Pros:
    syscall invocations specify exactly the number of arguments the system call
    needs. The same applies to upcalls.
 1. Command can accept many more arguments and return many more values in both
-   its success and error case.
+   its success and error case. An arbitrary collection of useful data types can
+   be specified, with clear semantics.
 
 Cons:
 
@@ -438,12 +519,9 @@ Cons:
    Command) can fail in a new way (incorrect argument type).
 1. Similarly, upcall arguments can error, if the passed `ArbitraryData(4)` does
    not match the type expected by the userspace driver.
-1. Success versus failure is not defined as part of this ABI. Instead, it is a
-   convention that system calls should define different types for success and
-   failure cases so they can be distinguished (in practice, success types
-   generally won't include `ErrorCode` while failure types will). If an
-   `ArbitraryData` of unexpected type is received, there is no reliable
-   mechanism to detect whether it is a success or error.
+1. If an `ArbitraryData` of unexpected type is received, there is no reliable
+   mechanism for userspace to detect whether the system calls succeeded or
+   failed.
 1. Queued upcalls are one register more expensive to store in the kernel
    (`ArbitraryData(4)` costs 4 registers whereas in Tock 2.0 only three `usize`
    arguments are passed).
@@ -472,10 +550,44 @@ Other design notes and observations:
    always uses a whole register to pass type descriptors, setting a 16-bit value
    is more efficient than a 32-bit value in some (all?) of the architectures we
    support.
-1. We can no longer use `u32`, `usize`, `*mut ()`, and `usize` interchangeably.
-   In some ways this is nice, but it forces us to make decisions that are
-   sometimes nonobvious (see e.g. the "get the end of the grant region" memop,
-   which could return either `usize` or `*mut ()`).
+1. We can no longer use `u32`, `usize`, and `*mut ()` interchangeably. In some
+   ways this is nice, but it forces us to make decisions that are sometimes
+   nonobvious (see e.g. the "get the end of the grant region" memop, which could
+   return either `usize` or `*mut ()`).
 1. Just a design note: this ABI uses caller-saved registers before callee-saved
    registers in an attempt to minimize the extent to which registers need to be
    pushed onto the stack when making syscalls.
+
+## Possible improvements
+
+As a reminder, the goals of this document are promote the development of a more
+type-safe syscall API for Tock and to spread CHERI knowledge, and the above ABI
+was designed accordingly. For practical implementation, there are several ways
+we could improve on the ABI proposed above:
+
+1. We could microoptimize the register choices better. We can probably make the
+   kernel return Upcall arguments in the same registers as they will be passed
+   into the callback so userspace's Yield implementation does not need to
+   perform a series of register moves. There may also be a better order for the
+   Command registers to reduce the amount of register shuffling that happens in
+   the userspace libraries and/or kernel.
+1. We can trim down the type list some more. The type descriptors are mainly
+   useful for parts of the syscall ABI where capsules can specify data types,
+   which are Command's arguments, Command's return values, and upcall arguments.
+   The system calls with data types that are fully-specified in the syscall ABI
+   (Allows, Memop, Subscribe, and Yield) can play looser with types without much
+   risk. Therefore, we can probably remove the upcall pointer and data pointer
+   types entirely, and replace them with arbitrary register values. If we are
+   willing to limit Tock processes to 2 GiB of RAM each, then we can remove
+   `isize` and use `i32` for relative addresses instead.
+1. We probably want to limit what types Command and upcalls can use. E.g. we
+   may want to disallow using pointers as Command arguments or return values.
+1. Depending on what types of errors we want to catch, it may not be necessary
+   to have type descriptors. If we create a system call definition format and
+   autogenerate the system call interface (in both the kernel and userspace),
+   then (assuming the code generator is correct) type mismatches become
+   impossible. That would free up a register, remove some runtime checks, and
+   allow for more than 15 types. The downside is that type mismatches could
+   still happen if a user runs an app on a kernel that was compiled for a
+   different version of the syscall definition. We could mitigate that by having
+   CI checks that prevent ABI-breaking changes to syscall interfaces.
