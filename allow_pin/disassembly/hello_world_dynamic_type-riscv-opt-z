@@ -1,0 +1,54 @@
+
+target/riscv32imc-unknown-none-elf/opt-z/examples/hello_world_dynamic_type:     file format elf32-littleriscv
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000068  000110d4  000110d4  000000d4  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .comment      0000008b  00000000  00000000  0000013c  2**0
+                  CONTENTS, READONLY
+  2 .riscv.attributes 0000002f  00000000  00000000  000001c7  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .text:
+
+000110d4 <_start>:
+   110d4:	1141                	addi	sp,sp,-16
+   110d6:	06900893          	li	a7,105
+   110da:	671d                	lui	a4,0x7
+   110dc:	00d10613          	addi	a2,sp,13
+   110e0:	4805                	li	a6,1
+   110e2:	4289                	li	t0,2
+   110e4:	4791                	li	a5,4
+   110e6:	4505                	li	a0,1
+   110e8:	4585                	li	a1,1
+   110ea:	4689                	li	a3,2
+   110ec:	80270713          	addi	a4,a4,-2046 # 6802 <_start-0xa8d2>
+   110f0:	00e11623          	sh	a4,12(sp)
+   110f4:	01110723          	sb	a7,14(sp)
+   110f8:	4711                	li	a4,4
+   110fa:	00000073          	ecall
+   110fe:	00551863          	bne	a0,t0,1110e <_start+0x3a>
+   11102:	88ae                	mv	a7,a1
+   11104:	00c14783          	lbu	a5,12(sp)
+   11108:	00579f63          	bne	a5,t0,11126 <_start+0x52>
+   1110c:	a025                	j	11134 <_start+0x60>
+   1110e:	00f10623          	sb	a5,12(sp)
+   11112:	4505                	li	a0,1
+   11114:	4585                	li	a1,1
+   11116:	4639                	li	a2,14
+   11118:	4709                	li	a4,2
+   1111a:	4681                	li	a3,0
+   1111c:	00000073          	ecall
+   11120:	88ae                	mv	a7,a1
+   11122:	08053813          	sltiu	a6,a0,128
+   11126:	4505                	li	a0,1
+   11128:	4585                	li	a1,1
+   1112a:	4601                	li	a2,0
+   1112c:	4681                	li	a3,0
+   1112e:	873e                	mv	a4,a5
+   11130:	00000073          	ecall
+   11134:	8542                	mv	a0,a6
+   11136:	85c6                	mv	a1,a7
+   11138:	0141                	addi	sp,sp,16
+   1113a:	8082                	ret

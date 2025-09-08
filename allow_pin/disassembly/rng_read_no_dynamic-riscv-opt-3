@@ -1,0 +1,64 @@
+
+target/riscv32imc-unknown-none-elf/opt-3/examples/rng_read_no_dynamic:     file format elf32-littleriscv
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000076  000110d4  000110d4  000000d4  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .comment      0000008b  00000000  00000000  0000014a  2**0
+                  CONTENTS, READONLY
+  2 .riscv.attributes 0000002f  00000000  00000000  000001d5  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .text:
+
+000110d4 <_start>:
+   110d4:	1141                	addi	sp,sp,-16
+   110d6:	c402                	sw	zero,8(sp)
+   110d8:	c602                	sw	zero,12(sp)
+   110da:	000407b7          	lui	a5,0x40
+   110de:	0030                	addi	a2,sp,8
+   110e0:	46a1                	li	a3,8
+   110e2:	0785                	addi	a5,a5,1 # 40001 <_start+0x2ef2d>
+   110e4:	470d                	li	a4,3
+   110e6:	4809                	li	a6,2
+   110e8:	853e                	mv	a0,a5
+   110ea:	4581                	li	a1,0
+   110ec:	00000073          	ecall
+   110f0:	01050d63          	beq	a0,a6,1110a <_start+0x36>
+   110f4:	4585                	li	a1,1
+   110f6:	4621                	li	a2,8
+   110f8:	4709                	li	a4,2
+   110fa:	08000813          	li	a6,128
+   110fe:	853e                	mv	a0,a5
+   11100:	4681                	li	a3,0
+   11102:	00000073          	ecall
+   11106:	01057e63          	bgeu	a0,a6,11122 <_start+0x4e>
+   1110a:	882e                	mv	a6,a1
+   1110c:	470d                	li	a4,3
+   1110e:	853e                	mv	a0,a5
+   11110:	4581                	li	a1,0
+   11112:	4601                	li	a2,0
+   11114:	4681                	li	a3,0
+   11116:	00000073          	ecall
+   1111a:	4505                	li	a0,1
+   1111c:	85c2                	mv	a1,a6
+   1111e:	0141                	addi	sp,sp,16
+   11120:	8082                	ret
+   11122:	4581                	li	a1,0
+   11124:	4601                	li	a2,0
+   11126:	4681                	li	a3,0
+   11128:	000407b7          	lui	a5,0x40
+   1112c:	0785                	addi	a5,a5,1 # 40001 <_start+0x2ef2d>
+   1112e:	470d                	li	a4,3
+   11130:	853e                	mv	a0,a5
+   11132:	00000073          	ecall
+   11136:	470d                	li	a4,3
+   11138:	853e                	mv	a0,a5
+   1113a:	4581                	li	a1,0
+   1113c:	4601                	li	a2,0
+   1113e:	4681                	li	a3,0
+   11140:	00000073          	ecall
+   11144:	4501                	li	a0,0
+   11146:	0141                	addi	sp,sp,16
+   11148:	8082                	ret

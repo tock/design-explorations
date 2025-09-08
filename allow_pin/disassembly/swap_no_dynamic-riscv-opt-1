@@ -1,0 +1,152 @@
+
+target/riscv32imc-unknown-none-elf/opt-1/examples/swap_no_dynamic:     file format elf32-littleriscv
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000164  000110d4  000110d4  000000d4  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .comment      0000008b  00000000  00000000  00000238  2**0
+                  CONTENTS, READONLY
+  2 .riscv.attributes 0000002f  00000000  00000000  000002c3  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .text:
+
+000110d4 <_start>:
+   110d4:	1101                	addi	sp,sp,-32
+   110d6:	00010e23          	sb	zero,28(sp)
+   110da:	c602                	sw	zero,12(sp)
+   110dc:	c802                	sw	zero,16(sp)
+   110de:	ca02                	sw	zero,20(sp)
+   110e0:	cc02                	sw	zero,24(sp)
+   110e2:	00d10813          	addi	a6,sp,13
+   110e6:	00040537          	lui	a0,0x40
+   110ea:	46a1                	li	a3,8
+   110ec:	0505                	addi	a0,a0,1 # 40001 <_start+0x2ef2d>
+   110ee:	470d                	li	a4,3
+   110f0:	4789                	li	a5,2
+   110f2:	4581                	li	a1,0
+   110f4:	8642                	mv	a2,a6
+   110f6:	00000073          	ecall
+   110fa:	00f51763          	bne	a0,a5,11108 <_start+0x34>
+   110fe:	88ae                	mv	a7,a1
+   11100:	4589                	li	a1,2
+   11102:	00b51963          	bne	a0,a1,11114 <_start+0x40>
+   11106:	a221                	j	1120e <_start+0x13a>
+   11108:	4585                	li	a1,1
+   1110a:	00b10623          	sb	a1,12(sp)
+   1110e:	4589                	li	a1,2
+   11110:	0eb50f63          	beq	a0,a1,1120e <_start+0x13a>
+   11114:	4681                	li	a3,0
+   11116:	00040537          	lui	a0,0x40
+   1111a:	4385                	li	t2,1
+   1111c:	4585                	li	a1,1
+   1111e:	4621                	li	a2,8
+   11120:	4709                	li	a4,2
+   11122:	0505                	addi	a0,a0,1 # 40001 <_start+0x2ef2d>
+   11124:	07f00793          	li	a5,127
+   11128:	00000073          	ecall
+   1112c:	4309                	li	t1,2
+   1112e:	00a7e463          	bltu	a5,a0,11136 <_start+0x62>
+   11132:	88ae                	mv	a7,a1
+   11134:	a8e9                	j	1120e <_start+0x13a>
+   11136:	00c14503          	lbu	a0,12(sp)
+   1113a:	01510293          	addi	t0,sp,21
+   1113e:	c90d                	beqz	a0,11170 <_start+0x9c>
+   11140:	4585                	li	a1,1
+   11142:	88c2                	mv	a7,a6
+   11144:	8616                	mv	a2,t0
+   11146:	00b50563          	beq	a0,a1,11150 <_start+0x7c>
+   1114a:	8896                	mv	a7,t0
+   1114c:	8642                	mv	a2,a6
+   1114e:	4305                	li	t1,1
+   11150:	00040537          	lui	a0,0x40
+   11154:	46a1                	li	a3,8
+   11156:	0505                	addi	a0,a0,1 # 40001 <_start+0x2ef2d>
+   11158:	470d                	li	a4,3
+   1115a:	4789                	li	a5,2
+   1115c:	4581                	li	a1,0
+   1115e:	00000073          	ecall
+   11162:	00f51b63          	bne	a0,a5,11178 <_start+0xa4>
+   11166:	4385                	li	t2,1
+   11168:	88ae                	mv	a7,a1
+   1116a:	00038c63          	beqz	t2,11182 <_start+0xae>
+   1116e:	a045                	j	1120e <_start+0x13a>
+   11170:	4891                	li	a7,4
+   11172:	00038863          	beqz	t2,11182 <_start+0xae>
+   11176:	a861                	j	1120e <_start+0x13a>
+   11178:	4381                	li	t2,0
+   1117a:	00610623          	sb	t1,12(sp)
+   1117e:	08039863          	bnez	t2,1120e <_start+0x13a>
+   11182:	4681                	li	a3,0
+   11184:	00040537          	lui	a0,0x40
+   11188:	4385                	li	t2,1
+   1118a:	4585                	li	a1,1
+   1118c:	4621                	li	a2,8
+   1118e:	4709                	li	a4,2
+   11190:	0505                	addi	a0,a0,1 # 40001 <_start+0x2ef2d>
+   11192:	07f00793          	li	a5,127
+   11196:	00000073          	ecall
+   1119a:	4309                	li	t1,2
+   1119c:	f8a7fbe3          	bgeu	a5,a0,11132 <_start+0x5e>
+   111a0:	00c14503          	lbu	a0,12(sp)
+   111a4:	c519                	beqz	a0,111b2 <_start+0xde>
+   111a6:	4585                	li	a1,1
+   111a8:	00b51963          	bne	a0,a1,111ba <_start+0xe6>
+   111ac:	88c2                	mv	a7,a6
+   111ae:	8816                	mv	a6,t0
+   111b0:	a039                	j	111be <_start+0xea>
+   111b2:	4891                	li	a7,4
+   111b4:	02038563          	beqz	t2,111de <_start+0x10a>
+   111b8:	a899                	j	1120e <_start+0x13a>
+   111ba:	4305                	li	t1,1
+   111bc:	8896                	mv	a7,t0
+   111be:	00040537          	lui	a0,0x40
+   111c2:	46a1                	li	a3,8
+   111c4:	0505                	addi	a0,a0,1 # 40001 <_start+0x2ef2d>
+   111c6:	470d                	li	a4,3
+   111c8:	4789                	li	a5,2
+   111ca:	4581                	li	a1,0
+   111cc:	8642                	mv	a2,a6
+   111ce:	00000073          	ecall
+   111d2:	02f51963          	bne	a0,a5,11204 <_start+0x130>
+   111d6:	4385                	li	t2,1
+   111d8:	88ae                	mv	a7,a1
+   111da:	02039a63          	bnez	t2,1120e <_start+0x13a>
+   111de:	4581                	li	a1,0
+   111e0:	4601                	li	a2,0
+   111e2:	4681                	li	a3,0
+   111e4:	000407b7          	lui	a5,0x40
+   111e8:	0785                	addi	a5,a5,1 # 40001 <_start+0x2ef2d>
+   111ea:	470d                	li	a4,3
+   111ec:	853e                	mv	a0,a5
+   111ee:	00000073          	ecall
+   111f2:	470d                	li	a4,3
+   111f4:	853e                	mv	a0,a5
+   111f6:	4581                	li	a1,0
+   111f8:	4601                	li	a2,0
+   111fa:	4681                	li	a3,0
+   111fc:	00000073          	ecall
+   11200:	4501                	li	a0,0
+   11202:	a805                	j	11232 <_start+0x15e>
+   11204:	4381                	li	t2,0
+   11206:	00610623          	sb	t1,12(sp)
+   1120a:	fc038ae3          	beqz	t2,111de <_start+0x10a>
+   1120e:	000407b7          	lui	a5,0x40
+   11212:	0785                	addi	a5,a5,1 # 40001 <_start+0x2ef2d>
+   11214:	470d                	li	a4,3
+   11216:	853e                	mv	a0,a5
+   11218:	4581                	li	a1,0
+   1121a:	4601                	li	a2,0
+   1121c:	4681                	li	a3,0
+   1121e:	00000073          	ecall
+   11222:	470d                	li	a4,3
+   11224:	853e                	mv	a0,a5
+   11226:	4581                	li	a1,0
+   11228:	4601                	li	a2,0
+   1122a:	4681                	li	a3,0
+   1122c:	00000073          	ecall
+   11230:	4505                	li	a0,1
+   11232:	85c6                	mv	a1,a7
+   11234:	6105                	addi	sp,sp,32
+   11236:	8082                	ret

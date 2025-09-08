@@ -1,0 +1,98 @@
+
+target/riscv32imc-unknown-none-elf/opt-3/examples/print_rng_no_dynamic:     file format elf32-littleriscv
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000ca  000110d4  000110d4  000000d4  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .comment      0000008b  00000000  00000000  0000019e  2**0
+                  CONTENTS, READONLY
+  2 .riscv.attributes 0000002f  00000000  00000000  00000229  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .text:
+
+000110d4 <_start>:
+   110d4:	1141                	addi	sp,sp,-16
+   110d6:	c002                	sw	zero,0(sp)
+   110d8:	c202                	sw	zero,4(sp)
+   110da:	00040837          	lui	a6,0x40
+   110de:	860a                	mv	a2,sp
+   110e0:	46a1                	li	a3,8
+   110e2:	0805                	addi	a6,a6,1 # 40001 <_start+0x2ef2d>
+   110e4:	470d                	li	a4,3
+   110e6:	4789                	li	a5,2
+   110e8:	8542                	mv	a0,a6
+   110ea:	4581                	li	a1,0
+   110ec:	00000073          	ecall
+   110f0:	00f50e63          	beq	a0,a5,1110c <_start+0x38>
+   110f4:	8542                	mv	a0,a6
+   110f6:	4681                	li	a3,0
+   110f8:	4585                	li	a1,1
+   110fa:	4621                	li	a2,8
+   110fc:	4709                	li	a4,2
+   110fe:	08000793          	li	a5,128
+   11102:	00000073          	ecall
+   11106:	4889                	li	a7,2
+   11108:	00f57e63          	bgeu	a0,a5,11124 <_start+0x50>
+   1110c:	87ae                	mv	a5,a1
+   1110e:	470d                	li	a4,3
+   11110:	8542                	mv	a0,a6
+   11112:	4581                	li	a1,0
+   11114:	4601                	li	a2,0
+   11116:	4681                	li	a3,0
+   11118:	00000073          	ecall
+   1111c:	4505                	li	a0,1
+   1111e:	85be                	mv	a1,a5
+   11120:	0141                	addi	sp,sp,16
+   11122:	8082                	ret
+   11124:	4581                	li	a1,0
+   11126:	4601                	li	a2,0
+   11128:	4681                	li	a3,0
+   1112a:	00040537          	lui	a0,0x40
+   1112e:	0505                	addi	a0,a0,1 # 40001 <_start+0x2ef2d>
+   11130:	470d                	li	a4,3
+   11132:	00000073          	ecall
+   11136:	4702                	lw	a4,0(sp)
+   11138:	4792                	lw	a5,4(sp)
+   1113a:	4505                	li	a0,1
+   1113c:	4585                	li	a1,1
+   1113e:	0030                	addi	a2,sp,8
+   11140:	46a1                	li	a3,8
+   11142:	c43a                	sw	a4,8(sp)
+   11144:	c63e                	sw	a5,12(sp)
+   11146:	4711                	li	a4,4
+   11148:	00000073          	ecall
+   1114c:	01150d63          	beq	a0,a7,11166 <_start+0x92>
+   11150:	4505                	li	a0,1
+   11152:	4585                	li	a1,1
+   11154:	4621                	li	a2,8
+   11156:	4709                	li	a4,2
+   11158:	08000793          	li	a5,128
+   1115c:	4681                	li	a3,0
+   1115e:	00000073          	ecall
+   11162:	00f57b63          	bgeu	a0,a5,11178 <_start+0xa4>
+   11166:	87ae                	mv	a5,a1
+   11168:	4505                	li	a0,1
+   1116a:	4585                	li	a1,1
+   1116c:	4711                	li	a4,4
+   1116e:	4601                	li	a2,0
+   11170:	4681                	li	a3,0
+   11172:	00000073          	ecall
+   11176:	bf61                	j	1110e <_start+0x3a>
+   11178:	4601                	li	a2,0
+   1117a:	4681                	li	a3,0
+   1117c:	4505                	li	a0,1
+   1117e:	4585                	li	a1,1
+   11180:	4711                	li	a4,4
+   11182:	00000073          	ecall
+   11186:	00040537          	lui	a0,0x40
+   1118a:	0505                	addi	a0,a0,1 # 40001 <_start+0x2ef2d>
+   1118c:	470d                	li	a4,3
+   1118e:	4581                	li	a1,0
+   11190:	4601                	li	a2,0
+   11192:	4681                	li	a3,0
+   11194:	00000073          	ecall
+   11198:	4501                	li	a0,0
+   1119a:	0141                	addi	sp,sp,16
+   1119c:	8082                	ret

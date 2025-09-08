@@ -1,0 +1,136 @@
+
+target/riscv32imc-unknown-none-elf/opt-s/examples/swap_dynamic_type:     file format elf32-littleriscv
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000015c  000110d4  000110d4  000000d4  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .comment      0000008b  00000000  00000000  00000230  2**0
+                  CONTENTS, READONLY
+  2 .riscv.attributes 0000002f  00000000  00000000  000002bb  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .text:
+
+000110d4 <_ZN17swap_dynamic_type38StreamingReceiveSlice$LT$_$C$_$C$_$GT$4next17hc3a77ae235f89e9aE>:
+   110d4:	87aa                	mv	a5,a0
+   110d6:	00054283          	lbu	t0,0(a0)
+   110da:	12f9                	addi	t0,t0,-2
+   110dc:	00503533          	snez	a0,t0
+   110e0:	157d                	addi	a0,a0,-1
+   110e2:	8925                	andi	a0,a0,9
+   110e4:	00a78333          	add	t1,a5,a0
+   110e8:	00034703          	lbu	a4,0(t1)
+   110ec:	4389                	li	t2,2
+   110ee:	00771563          	bne	a4,t2,110f8 <_ZN17swap_dynamic_type38StreamingReceiveSlice$LT$_$C$_$C$_$GT$4next17hc3a77ae235f89e9aE+0x24>
+   110f2:	4805                	li	a6,1
+   110f4:	4899                	li	a7,6
+   110f6:	a02d                	j	11120 <_ZN17swap_dynamic_type38StreamingReceiveSlice$LT$_$C$_$C$_$GT$4next17hc3a77ae235f89e9aE+0x4c>
+   110f8:	4581                	li	a1,0
+   110fa:	4801                	li	a6,0
+   110fc:	00130893          	addi	a7,t1,1
+   11100:	00040537          	lui	a0,0x40
+   11104:	0505                	addi	a0,a0,1 # 40001 <_start+0x2eedb>
+   11106:	46a1                	li	a3,8
+   11108:	8646                	mv	a2,a7
+   1110a:	00000073          	ecall
+   1110e:	0012b513          	seqz	a0,t0
+   11112:	157d                	addi	a0,a0,-1
+   11114:	8925                	andi	a0,a0,9
+   11116:	00730023          	sb	t2,0(t1)
+   1111a:	953e                	add	a0,a0,a5
+   1111c:	00e50023          	sb	a4,0(a0)
+   11120:	8542                	mv	a0,a6
+   11122:	85c6                	mv	a1,a7
+   11124:	8082                	ret
+
+00011126 <_start>:
+   11126:	1101                	addi	sp,sp,-32
+   11128:	ce06                	sw	ra,28(sp)
+   1112a:	4581                	li	a1,0
+   1112c:	4289                	li	t0,2
+   1112e:	00b10613          	addi	a2,sp,11
+   11132:	00010723          	sb	zero,14(sp)
+   11136:	000107a3          	sb	zero,15(sp)
+   1113a:	00010823          	sb	zero,16(sp)
+   1113e:	000108a3          	sb	zero,17(sp)
+   11142:	00010d23          	sb	zero,26(sp)
+   11146:	00010da3          	sb	zero,27(sp)
+   1114a:	00010b23          	sb	zero,22(sp)
+   1114e:	00010ba3          	sb	zero,23(sp)
+   11152:	00010c23          	sb	zero,24(sp)
+   11156:	00010ca3          	sb	zero,25(sp)
+   1115a:	000407b7          	lui	a5,0x40
+   1115e:	480d                	li	a6,3
+   11160:	00510523          	sb	t0,10(sp)
+   11164:	000105a3          	sb	zero,11(sp)
+   11168:	00010623          	sb	zero,12(sp)
+   1116c:	000106a3          	sb	zero,13(sp)
+   11170:	00010923          	sb	zero,18(sp)
+   11174:	005109a3          	sb	t0,19(sp)
+   11178:	00010a23          	sb	zero,20(sp)
+   1117c:	00010aa3          	sb	zero,21(sp)
+   11180:	0785                	addi	a5,a5,1 # 40001 <_start+0x2eedb>
+   11182:	46a1                	li	a3,8
+   11184:	470d                	li	a4,3
+   11186:	853e                	mv	a0,a5
+   11188:	00000073          	ecall
+   1118c:	00551563          	bne	a0,t0,11196 <_start+0x70>
+   11190:	88ae                	mv	a7,a1
+   11192:	4805                	li	a6,1
+   11194:	a005                	j	111b4 <_start+0x8e>
+   11196:	853e                	mv	a0,a5
+   11198:	4681                	li	a3,0
+   1119a:	01010523          	sb	a6,10(sp)
+   1119e:	4585                	li	a1,1
+   111a0:	4621                	li	a2,8
+   111a2:	4709                	li	a4,2
+   111a4:	07f00793          	li	a5,127
+   111a8:	00000073          	ecall
+   111ac:	4805                	li	a6,1
+   111ae:	04a7e163          	bltu	a5,a0,111f0 <_start+0xca>
+   111b2:	88ae                	mv	a7,a1
+   111b4:	00a14703          	lbu	a4,10(sp)
+   111b8:	4789                	li	a5,2
+   111ba:	00f70a63          	beq	a4,a5,111ce <_start+0xa8>
+   111be:	00040537          	lui	a0,0x40
+   111c2:	0505                	addi	a0,a0,1 # 40001 <_start+0x2eedb>
+   111c4:	4581                	li	a1,0
+   111c6:	4601                	li	a2,0
+   111c8:	4681                	li	a3,0
+   111ca:	00000073          	ecall
+   111ce:	01314703          	lbu	a4,19(sp)
+   111d2:	00f70a63          	beq	a4,a5,111e6 <_start+0xc0>
+   111d6:	00040537          	lui	a0,0x40
+   111da:	0505                	addi	a0,a0,1 # 40001 <_start+0x2eedb>
+   111dc:	4581                	li	a1,0
+   111de:	4601                	li	a2,0
+   111e0:	4681                	li	a3,0
+   111e2:	00000073          	ecall
+   111e6:	8542                	mv	a0,a6
+   111e8:	85c6                	mv	a1,a7
+   111ea:	40f2                	lw	ra,28(sp)
+   111ec:	6105                	addi	sp,sp,32
+   111ee:	8082                	ret
+   111f0:	00a10513          	addi	a0,sp,10
+   111f4:	00000097          	auipc	ra,0x0
+   111f8:	ee0080e7          	jalr	-288(ra) # 110d4 <_ZN17swap_dynamic_type38StreamingReceiveSlice$LT$_$C$_$C$_$GT$4next17hc3a77ae235f89e9aE>
+   111fc:	8905                	andi	a0,a0,1
+   111fe:	f949                	bnez	a0,11190 <_start+0x6a>
+   11200:	4681                	li	a3,0
+   11202:	00040537          	lui	a0,0x40
+   11206:	4585                	li	a1,1
+   11208:	4621                	li	a2,8
+   1120a:	4709                	li	a4,2
+   1120c:	0505                	addi	a0,a0,1 # 40001 <_start+0x2eedb>
+   1120e:	07f00793          	li	a5,127
+   11212:	00000073          	ecall
+   11216:	4805                	li	a6,1
+   11218:	f8a7fde3          	bgeu	a5,a0,111b2 <_start+0x8c>
+   1121c:	00a10513          	addi	a0,sp,10
+   11220:	00000097          	auipc	ra,0x0
+   11224:	eb4080e7          	jalr	-332(ra) # 110d4 <_ZN17swap_dynamic_type38StreamingReceiveSlice$LT$_$C$_$C$_$GT$4next17hc3a77ae235f89e9aE>
+   11228:	8905                	andi	a0,a0,1
+   1122a:	f13d                	bnez	a0,11190 <_start+0x6a>
+   1122c:	4801                	li	a6,0
+   1122e:	b759                	j	111b4 <_start+0x8e>

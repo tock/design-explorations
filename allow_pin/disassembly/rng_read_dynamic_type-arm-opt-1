@@ -1,0 +1,124 @@
+
+target/thumbv6m-none-eabi/opt-1/examples/rng_read_dynamic_type:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .ARM.exidx    00000010  000100d4  000100d4  000000d4  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  1 .text         000000d6  000200e4  000200e4  000000e4  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .comment      0000008b  00000000  00000000  000001ba  2**0
+                  CONTENTS, READONLY
+  3 .ARM.attributes 00000032  00000000  00000000  00000245  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .text:
+
+000200e4 <_start>:
+   200e4:	b5f0      	push	{r4, r5, r6, r7, lr}
+   200e6:	af03      	add	r7, sp, #12
+   200e8:	b089      	sub	sp, #36	@ 0x24
+   200ea:	a802      	add	r0, sp, #8
+   200ec:	2200      	movs	r2, #0
+   200ee:	7202      	strb	r2, [r0, #8]
+   200f0:	71c2      	strb	r2, [r0, #7]
+   200f2:	7182      	strb	r2, [r0, #6]
+   200f4:	7142      	strb	r2, [r0, #5]
+   200f6:	7102      	strb	r2, [r0, #4]
+   200f8:	70c2      	strb	r2, [r0, #3]
+   200fa:	7082      	strb	r2, [r0, #2]
+   200fc:	7042      	strb	r2, [r0, #1]
+   200fe:	2402      	movs	r4, #2
+   20100:	7004      	strb	r4, [r0, #0]
+   20102:	2503      	movs	r5, #3
+   20104:	2108      	movs	r1, #8
+   20106:	9100      	str	r1, [sp, #0]
+   20108:	9501      	str	r5, [sp, #4]
+   2010a:	1c43      	adds	r3, r0, #1
+   2010c:	a805      	add	r0, sp, #20
+   2010e:	4917      	ldr	r1, [pc, #92]	@ (2016c <_start+0x88>)
+   20110:	f000 f83b 	bl	2018a <_ZN9allow_pin13dynamic_allow17h33d41317a2da4f1cE>
+   20114:	9805      	ldr	r0, [sp, #20]
+   20116:	2802      	cmp	r0, #2
+   20118:	d103      	bne.n	20122 <_start+0x3e>
+   2011a:	9e06      	ldr	r6, [sp, #24]
+   2011c:	2802      	cmp	r0, #2
+   2011e:	d104      	bne.n	2012a <_start+0x46>
+   20120:	e00c      	b.n	2013c <_start+0x58>
+   20122:	a902      	add	r1, sp, #8
+   20124:	700d      	strb	r5, [r1, #0]
+   20126:	2802      	cmp	r0, #2
+   20128:	d008      	beq.n	2013c <_start+0x58>
+   2012a:	4810      	ldr	r0, [pc, #64]	@ (2016c <_start+0x88>)
+   2012c:	2101      	movs	r1, #1
+   2012e:	2208      	movs	r2, #8
+   20130:	2500      	movs	r5, #0
+   20132:	462b      	mov	r3, r5
+   20134:	df02      	svc	2
+   20136:	287f      	cmp	r0, #127	@ 0x7f
+   20138:	d80a      	bhi.n	20150 <_start+0x6c>
+   2013a:	460e      	mov	r6, r1
+   2013c:	a802      	add	r0, sp, #8
+   2013e:	7802      	ldrb	r2, [r0, #0]
+   20140:	2501      	movs	r5, #1
+   20142:	2a02      	cmp	r2, #2
+   20144:	d00e      	beq.n	20164 <_start+0x80>
+   20146:	2100      	movs	r1, #0
+   20148:	4808      	ldr	r0, [pc, #32]	@ (2016c <_start+0x88>)
+   2014a:	f000 f811 	bl	20170 <_ZN9allow_pin12dynamic_type7unshare17hefa7cd45f9379b26E>
+   2014e:	e009      	b.n	20164 <_start+0x80>
+   20150:	a802      	add	r0, sp, #8
+   20152:	7802      	ldrb	r2, [r0, #0]
+   20154:	2a02      	cmp	r2, #2
+   20156:	d003      	beq.n	20160 <_start+0x7c>
+   20158:	2100      	movs	r1, #0
+   2015a:	4804      	ldr	r0, [pc, #16]	@ (2016c <_start+0x88>)
+   2015c:	f000 f808 	bl	20170 <_ZN9allow_pin12dynamic_type7unshare17hefa7cd45f9379b26E>
+   20160:	a802      	add	r0, sp, #8
+   20162:	7004      	strb	r4, [r0, #0]
+   20164:	4628      	mov	r0, r5
+   20166:	4631      	mov	r1, r6
+   20168:	b009      	add	sp, #36	@ 0x24
+   2016a:	bdf0      	pop	{r4, r5, r6, r7, pc}
+   2016c:	00040001 	.word	0x00040001
+
+00020170 <_ZN9allow_pin12dynamic_type7unshare17hefa7cd45f9379b26E>:
+   20170:	b580      	push	{r7, lr}
+   20172:	af00      	add	r7, sp, #0
+   20174:	b2d2      	uxtb	r2, r2
+   20176:	2a03      	cmp	r2, #3
+   20178:	d103      	bne.n	20182 <_ZN9allow_pin12dynamic_type7unshare17hefa7cd45f9379b26E+0x12>
+   2017a:	2200      	movs	r2, #0
+   2017c:	4613      	mov	r3, r2
+   2017e:	df03      	svc	3
+   20180:	bd80      	pop	{r7, pc}
+   20182:	2200      	movs	r2, #0
+   20184:	4613      	mov	r3, r2
+   20186:	df04      	svc	4
+   20188:	bd80      	pop	{r7, pc}
+
+0002018a <_ZN9allow_pin13dynamic_allow17h33d41317a2da4f1cE>:
+   2018a:	b5b0      	push	{r4, r5, r7, lr}
+   2018c:	af02      	add	r7, sp, #8
+   2018e:	461d      	mov	r5, r3
+   20190:	4604      	mov	r4, r0
+   20192:	1df8      	adds	r0, r7, #7
+   20194:	3005      	adds	r0, #5
+   20196:	7800      	ldrb	r0, [r0, #0]
+   20198:	68bb      	ldr	r3, [r7, #8]
+   2019a:	2803      	cmp	r0, #3
+   2019c:	d104      	bne.n	201a8 <_ZN9allow_pin13dynamic_allow17h33d41317a2da4f1cE+0x1e>
+   2019e:	4608      	mov	r0, r1
+   201a0:	4611      	mov	r1, r2
+   201a2:	462a      	mov	r2, r5
+   201a4:	df03      	svc	3
+   201a6:	e003      	b.n	201b0 <_ZN9allow_pin13dynamic_allow17h33d41317a2da4f1cE+0x26>
+   201a8:	4608      	mov	r0, r1
+   201aa:	4611      	mov	r1, r2
+   201ac:	462a      	mov	r2, r5
+   201ae:	df04      	svc	4
+   201b0:	6020      	str	r0, [r4, #0]
+   201b2:	6061      	str	r1, [r4, #4]
+   201b4:	60a2      	str	r2, [r4, #8]
+   201b6:	60e3      	str	r3, [r4, #12]
+   201b8:	bdb0      	pop	{r4, r5, r7, pc}

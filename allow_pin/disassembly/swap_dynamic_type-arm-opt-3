@@ -1,0 +1,174 @@
+
+target/thumbv6m-none-eabi/opt-3/examples/swap_dynamic_type:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .ARM.exidx    00000010  000100d4  000100d4  000000d4  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  1 .text         0000013c  000200e4  000200e4  000000e4  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .comment      0000008b  00000000  00000000  00000220  2**0
+                  CONTENTS, READONLY
+  3 .ARM.attributes 00000032  00000000  00000000  000002ab  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .text:
+
+000200e4 <_start>:
+   200e4:	b5f0      	push	{r4, r5, r6, r7, lr}
+   200e6:	af03      	add	r7, sp, #12
+   200e8:	b087      	sub	sp, #28
+   200ea:	ae02      	add	r6, sp, #8
+   200ec:	2100      	movs	r1, #0
+   200ee:	7471      	strb	r1, [r6, #17]
+   200f0:	7431      	strb	r1, [r6, #16]
+   200f2:	73f1      	strb	r1, [r6, #15]
+   200f4:	73b1      	strb	r1, [r6, #14]
+   200f6:	7371      	strb	r1, [r6, #13]
+   200f8:	7331      	strb	r1, [r6, #12]
+   200fa:	72f1      	strb	r1, [r6, #11]
+   200fc:	72b1      	strb	r1, [r6, #10]
+   200fe:	7231      	strb	r1, [r6, #8]
+   20100:	71f1      	strb	r1, [r6, #7]
+   20102:	71b1      	strb	r1, [r6, #6]
+   20104:	7171      	strb	r1, [r6, #5]
+   20106:	7131      	strb	r1, [r6, #4]
+   20108:	70f1      	strb	r1, [r6, #3]
+   2010a:	70b1      	strb	r1, [r6, #2]
+   2010c:	7071      	strb	r1, [r6, #1]
+   2010e:	2502      	movs	r5, #2
+   20110:	7275      	strb	r5, [r6, #9]
+   20112:	7035      	strb	r5, [r6, #0]
+   20114:	1c74      	adds	r4, r6, #1
+   20116:	4841      	ldr	r0, [pc, #260]	@ (2021c <_start+0x138>)
+   20118:	2308      	movs	r3, #8
+   2011a:	4622      	mov	r2, r4
+   2011c:	df03      	svc	3
+   2011e:	2802      	cmp	r0, #2
+   20120:	d10c      	bne.n	2013c <_start+0x58>
+   20122:	a802      	add	r0, sp, #8
+   20124:	7800      	ldrb	r0, [r0, #0]
+   20126:	2802      	cmp	r0, #2
+   20128:	d02e      	beq.n	20188 <_start+0xa4>
+   2012a:	2804      	cmp	r0, #4
+   2012c:	460c      	mov	r4, r1
+   2012e:	d111      	bne.n	20154 <_start+0x70>
+   20130:	483a      	ldr	r0, [pc, #232]	@ (2021c <_start+0x138>)
+   20132:	2100      	movs	r1, #0
+   20134:	460a      	mov	r2, r1
+   20136:	460b      	mov	r3, r1
+   20138:	df04      	svc	4
+   2013a:	e026      	b.n	2018a <_start+0xa6>
+   2013c:	a802      	add	r0, sp, #8
+   2013e:	2103      	movs	r1, #3
+   20140:	9101      	str	r1, [sp, #4]
+   20142:	7001      	strb	r1, [r0, #0]
+   20144:	4835      	ldr	r0, [pc, #212]	@ (2021c <_start+0x138>)
+   20146:	2101      	movs	r1, #1
+   20148:	2208      	movs	r2, #8
+   2014a:	2300      	movs	r3, #0
+   2014c:	df02      	svc	2
+   2014e:	287f      	cmp	r0, #127	@ 0x7f
+   20150:	d806      	bhi.n	20160 <_start+0x7c>
+   20152:	460c      	mov	r4, r1
+   20154:	4831      	ldr	r0, [pc, #196]	@ (2021c <_start+0x138>)
+   20156:	2100      	movs	r1, #0
+   20158:	460a      	mov	r2, r1
+   2015a:	460b      	mov	r3, r1
+   2015c:	df03      	svc	3
+   2015e:	e014      	b.n	2018a <_start+0xa6>
+   20160:	482e      	ldr	r0, [pc, #184]	@ (2021c <_start+0x138>)
+   20162:	2100      	movs	r1, #0
+   20164:	9100      	str	r1, [sp, #0]
+   20166:	2308      	movs	r3, #8
+   20168:	4622      	mov	r2, r4
+   2016a:	461c      	mov	r4, r3
+   2016c:	df03      	svc	3
+   2016e:	a802      	add	r0, sp, #8
+   20170:	9901      	ldr	r1, [sp, #4]
+   20172:	7241      	strb	r1, [r0, #9]
+   20174:	7005      	strb	r5, [r0, #0]
+   20176:	2101      	movs	r1, #1
+   20178:	4828      	ldr	r0, [pc, #160]	@ (2021c <_start+0x138>)
+   2017a:	4622      	mov	r2, r4
+   2017c:	9b00      	ldr	r3, [sp, #0]
+   2017e:	df02      	svc	2
+   20180:	2880      	cmp	r0, #128	@ 0x80
+   20182:	d21c      	bcs.n	201be <_start+0xda>
+   20184:	460c      	mov	r4, r1
+   20186:	e010      	b.n	201aa <_start+0xc6>
+   20188:	460c      	mov	r4, r1
+   2018a:	a802      	add	r0, sp, #8
+   2018c:	7a40      	ldrb	r0, [r0, #9]
+   2018e:	2501      	movs	r5, #1
+   20190:	2802      	cmp	r0, #2
+   20192:	d006      	beq.n	201a2 <_start+0xbe>
+   20194:	2804      	cmp	r0, #4
+   20196:	d108      	bne.n	201aa <_start+0xc6>
+   20198:	4820      	ldr	r0, [pc, #128]	@ (2021c <_start+0x138>)
+   2019a:	2100      	movs	r1, #0
+   2019c:	460a      	mov	r2, r1
+   2019e:	460b      	mov	r3, r1
+   201a0:	df04      	svc	4
+   201a2:	4628      	mov	r0, r5
+   201a4:	4621      	mov	r1, r4
+   201a6:	b007      	add	sp, #28
+   201a8:	bdf0      	pop	{r4, r5, r6, r7, pc}
+   201aa:	481c      	ldr	r0, [pc, #112]	@ (2021c <_start+0x138>)
+   201ac:	2100      	movs	r1, #0
+   201ae:	460a      	mov	r2, r1
+   201b0:	460b      	mov	r3, r1
+   201b2:	df03      	svc	3
+   201b4:	2501      	movs	r5, #1
+   201b6:	4628      	mov	r0, r5
+   201b8:	4621      	mov	r1, r4
+   201ba:	b007      	add	sp, #28
+   201bc:	bdf0      	pop	{r4, r5, r6, r7, pc}
+   201be:	360a      	adds	r6, #10
+   201c0:	4816      	ldr	r0, [pc, #88]	@ (2021c <_start+0x138>)
+   201c2:	2308      	movs	r3, #8
+   201c4:	9c00      	ldr	r4, [sp, #0]
+   201c6:	4621      	mov	r1, r4
+   201c8:	4632      	mov	r2, r6
+   201ca:	df03      	svc	3
+   201cc:	ae02      	add	r6, sp, #8
+   201ce:	7275      	strb	r5, [r6, #9]
+   201d0:	9801      	ldr	r0, [sp, #4]
+   201d2:	7030      	strb	r0, [r6, #0]
+   201d4:	4811      	ldr	r0, [pc, #68]	@ (2021c <_start+0x138>)
+   201d6:	4621      	mov	r1, r4
+   201d8:	4622      	mov	r2, r4
+   201da:	4623      	mov	r3, r4
+   201dc:	df03      	svc	3
+   201de:	7a70      	ldrb	r0, [r6, #9]
+   201e0:	2802      	cmp	r0, #2
+   201e2:	d00b      	beq.n	201fc <_start+0x118>
+   201e4:	2804      	cmp	r0, #4
+   201e6:	d10e      	bne.n	20206 <_start+0x122>
+   201e8:	480c      	ldr	r0, [pc, #48]	@ (2021c <_start+0x138>)
+   201ea:	2500      	movs	r5, #0
+   201ec:	4629      	mov	r1, r5
+   201ee:	462a      	mov	r2, r5
+   201f0:	462b      	mov	r3, r5
+   201f2:	df04      	svc	4
+   201f4:	4628      	mov	r0, r5
+   201f6:	4621      	mov	r1, r4
+   201f8:	b007      	add	sp, #28
+   201fa:	bdf0      	pop	{r4, r5, r6, r7, pc}
+   201fc:	4625      	mov	r5, r4
+   201fe:	4628      	mov	r0, r5
+   20200:	4621      	mov	r1, r4
+   20202:	b007      	add	sp, #28
+   20204:	bdf0      	pop	{r4, r5, r6, r7, pc}
+   20206:	4805      	ldr	r0, [pc, #20]	@ (2021c <_start+0x138>)
+   20208:	2500      	movs	r5, #0
+   2020a:	4629      	mov	r1, r5
+   2020c:	462a      	mov	r2, r5
+   2020e:	462b      	mov	r3, r5
+   20210:	df03      	svc	3
+   20212:	4628      	mov	r0, r5
+   20214:	4621      	mov	r1, r4
+   20216:	b007      	add	sp, #28
+   20218:	bdf0      	pop	{r4, r5, r6, r7, pc}
+   2021a:	46c0      	nop			@ (mov r8, r8)
+   2021c:	00040001 	.word	0x00040001

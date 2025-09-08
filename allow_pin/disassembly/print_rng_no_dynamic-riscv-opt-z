@@ -1,0 +1,104 @@
+
+target/riscv32imc-unknown-none-elf/opt-z/examples/print_rng_no_dynamic:     file format elf32-littleriscv
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000d4  000110d4  000110d4  000000d4  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .comment      0000008b  00000000  00000000  000001a8  2**0
+                  CONTENTS, READONLY
+  2 .riscv.attributes 0000002f  00000000  00000000  00000233  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .text:
+
+000110d4 <_ZN9allow_pin7command17h1eb46760111c3605E>:
+   110d4:	4585                	li	a1,1
+   110d6:	4621                	li	a2,8
+   110d8:	4709                	li	a4,2
+   110da:	4681                	li	a3,0
+   110dc:	00000073          	ecall
+   110e0:	08053513          	sltiu	a0,a0,128
+   110e4:	8082                	ret
+
+000110e6 <_start>:
+   110e6:	1101                	addi	sp,sp,-32
+   110e8:	ce06                	sw	ra,28(sp)
+   110ea:	c402                	sw	zero,8(sp)
+   110ec:	c602                	sw	zero,12(sp)
+   110ee:	000407b7          	lui	a5,0x40
+   110f2:	0030                	addi	a2,sp,8
+   110f4:	46a1                	li	a3,8
+   110f6:	0785                	addi	a5,a5,1 # 40001 <_start+0x2ef1b>
+   110f8:	470d                	li	a4,3
+   110fa:	4889                	li	a7,2
+   110fc:	853e                	mv	a0,a5
+   110fe:	4581                	li	a1,0
+   11100:	00000073          	ecall
+   11104:	01150963          	beq	a0,a7,11116 <_start+0x30>
+   11108:	853e                	mv	a0,a5
+   1110a:	00000097          	auipc	ra,0x0
+   1110e:	fca080e7          	jalr	-54(ra) # 110d4 <_ZN9allow_pin7command17h1eb46760111c3605E>
+   11112:	8905                	andi	a0,a0,1
+   11114:	c10d                	beqz	a0,11136 <_start+0x50>
+   11116:	882e                	mv	a6,a1
+   11118:	00040537          	lui	a0,0x40
+   1111c:	0505                	addi	a0,a0,1 # 40001 <_start+0x2ef1b>
+   1111e:	470d                	li	a4,3
+   11120:	4581                	li	a1,0
+   11122:	4601                	li	a2,0
+   11124:	4681                	li	a3,0
+   11126:	00000073          	ecall
+   1112a:	4785                	li	a5,1
+   1112c:	853e                	mv	a0,a5
+   1112e:	85c2                	mv	a1,a6
+   11130:	40f2                	lw	ra,28(sp)
+   11132:	6105                	addi	sp,sp,32
+   11134:	8082                	ret
+   11136:	4581                	li	a1,0
+   11138:	4601                	li	a2,0
+   1113a:	4681                	li	a3,0
+   1113c:	00040537          	lui	a0,0x40
+   11140:	0505                	addi	a0,a0,1 # 40001 <_start+0x2ef1b>
+   11142:	470d                	li	a4,3
+   11144:	00000073          	ecall
+   11148:	4711                	li	a4,4
+   1114a:	47a2                	lw	a5,8(sp)
+   1114c:	4832                	lw	a6,12(sp)
+   1114e:	4505                	li	a0,1
+   11150:	4585                	li	a1,1
+   11152:	0810                	addi	a2,sp,16
+   11154:	46a1                	li	a3,8
+   11156:	c83e                	sw	a5,16(sp)
+   11158:	ca42                	sw	a6,20(sp)
+   1115a:	4789                	li	a5,2
+   1115c:	00000073          	ecall
+   11160:	00f50963          	beq	a0,a5,11172 <_start+0x8c>
+   11164:	4505                	li	a0,1
+   11166:	00000097          	auipc	ra,0x0
+   1116a:	f6e080e7          	jalr	-146(ra) # 110d4 <_ZN9allow_pin7command17h1eb46760111c3605E>
+   1116e:	8905                	andi	a0,a0,1
+   11170:	c911                	beqz	a0,11184 <_start+0x9e>
+   11172:	882e                	mv	a6,a1
+   11174:	4505                	li	a0,1
+   11176:	4585                	li	a1,1
+   11178:	4711                	li	a4,4
+   1117a:	4601                	li	a2,0
+   1117c:	4681                	li	a3,0
+   1117e:	00000073          	ecall
+   11182:	bf59                	j	11118 <_start+0x32>
+   11184:	4601                	li	a2,0
+   11186:	4681                	li	a3,0
+   11188:	4781                	li	a5,0
+   1118a:	4505                	li	a0,1
+   1118c:	4585                	li	a1,1
+   1118e:	4711                	li	a4,4
+   11190:	00000073          	ecall
+   11194:	00040537          	lui	a0,0x40
+   11198:	0505                	addi	a0,a0,1 # 40001 <_start+0x2ef1b>
+   1119a:	470d                	li	a4,3
+   1119c:	4581                	li	a1,0
+   1119e:	4601                	li	a2,0
+   111a0:	4681                	li	a3,0
+   111a2:	00000073          	ecall
+   111a6:	b759                	j	1112c <_start+0x46>

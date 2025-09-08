@@ -1,0 +1,62 @@
+
+target/thumbv6m-none-eabi/opt-2/examples/rng_read_no_dynamic:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .ARM.exidx    00000010  000100d4  000100d4  000000d4  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  1 .text         0000005c  000200e4  000200e4  000000e4  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .comment      0000008b  00000000  00000000  00000140  2**0
+                  CONTENTS, READONLY
+  3 .ARM.attributes 00000032  00000000  00000000  000001cb  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .text:
+
+000200e4 <_start>:
+   200e4:	b5b0      	push	{r4, r5, r7, lr}
+   200e6:	af02      	add	r7, sp, #8
+   200e8:	b082      	sub	sp, #8
+   200ea:	2100      	movs	r1, #0
+   200ec:	9101      	str	r1, [sp, #4]
+   200ee:	9100      	str	r1, [sp, #0]
+   200f0:	4812      	ldr	r0, [pc, #72]	@ (2013c <_start+0x58>)
+   200f2:	466a      	mov	r2, sp
+   200f4:	2308      	movs	r3, #8
+   200f6:	df03      	svc	3
+   200f8:	2802      	cmp	r0, #2
+   200fa:	d007      	beq.n	2010c <_start+0x28>
+   200fc:	480f      	ldr	r0, [pc, #60]	@ (2013c <_start+0x58>)
+   200fe:	2101      	movs	r1, #1
+   20100:	2208      	movs	r2, #8
+   20102:	2400      	movs	r4, #0
+   20104:	4623      	mov	r3, r4
+   20106:	df02      	svc	2
+   20108:	2880      	cmp	r0, #128	@ 0x80
+   2010a:	d208      	bcs.n	2011e <_start+0x3a>
+   2010c:	460d      	mov	r5, r1
+   2010e:	480b      	ldr	r0, [pc, #44]	@ (2013c <_start+0x58>)
+   20110:	2100      	movs	r1, #0
+   20112:	460a      	mov	r2, r1
+   20114:	460b      	mov	r3, r1
+   20116:	df03      	svc	3
+   20118:	2401      	movs	r4, #1
+   2011a:	4629      	mov	r1, r5
+   2011c:	e00a      	b.n	20134 <_start+0x50>
+   2011e:	4d07      	ldr	r5, [pc, #28]	@ (2013c <_start+0x58>)
+   20120:	4628      	mov	r0, r5
+   20122:	4621      	mov	r1, r4
+   20124:	4622      	mov	r2, r4
+   20126:	4623      	mov	r3, r4
+   20128:	df03      	svc	3
+   2012a:	4628      	mov	r0, r5
+   2012c:	4621      	mov	r1, r4
+   2012e:	4622      	mov	r2, r4
+   20130:	4623      	mov	r3, r4
+   20132:	df03      	svc	3
+   20134:	4620      	mov	r0, r4
+   20136:	b002      	add	sp, #8
+   20138:	bdb0      	pop	{r4, r5, r7, pc}
+   2013a:	46c0      	nop			@ (mov r8, r8)
+   2013c:	00040001 	.word	0x00040001

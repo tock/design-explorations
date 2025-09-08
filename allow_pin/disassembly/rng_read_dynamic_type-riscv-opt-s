@@ -1,0 +1,61 @@
+
+target/riscv32imc-unknown-none-elf/opt-s/examples/rng_read_dynamic_type:     file format elf32-littleriscv
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000082  000110d4  000110d4  000000d4  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .comment      0000008b  00000000  00000000  00000156  2**0
+                  CONTENTS, READONLY
+  2 .riscv.attributes 0000002f  00000000  00000000  000001e1  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .text:
+
+000110d4 <_start>:
+   110d4:	1141                	addi	sp,sp,-16
+   110d6:	4581                	li	a1,0
+   110d8:	4309                	li	t1,2
+   110da:	0030                	addi	a2,sp,8
+   110dc:	000107a3          	sb	zero,15(sp)
+   110e0:	000105a3          	sb	zero,11(sp)
+   110e4:	00010623          	sb	zero,12(sp)
+   110e8:	000106a3          	sb	zero,13(sp)
+   110ec:	00010723          	sb	zero,14(sp)
+   110f0:	000407b7          	lui	a5,0x40
+   110f4:	428d                	li	t0,3
+   110f6:	006103a3          	sb	t1,7(sp)
+   110fa:	00010423          	sb	zero,8(sp)
+   110fe:	000104a3          	sb	zero,9(sp)
+   11102:	00010523          	sb	zero,10(sp)
+   11106:	0785                	addi	a5,a5,1 # 40001 <_start+0x2ef2d>
+   11108:	46a1                	li	a3,8
+   1110a:	470d                	li	a4,3
+   1110c:	853e                	mv	a0,a5
+   1110e:	00000073          	ecall
+   11112:	00651963          	bne	a0,t1,11124 <_start+0x50>
+   11116:	882e                	mv	a6,a1
+   11118:	00714283          	lbu	t0,7(sp)
+   1111c:	4885                	li	a7,1
+   1111e:	00629f63          	bne	t0,t1,1113c <_start+0x68>
+   11122:	a035                	j	1114e <_start+0x7a>
+   11124:	005103a3          	sb	t0,7(sp)
+   11128:	4585                	li	a1,1
+   1112a:	4621                	li	a2,8
+   1112c:	4709                	li	a4,2
+   1112e:	853e                	mv	a0,a5
+   11130:	4681                	li	a3,0
+   11132:	00000073          	ecall
+   11136:	882e                	mv	a6,a1
+   11138:	08053893          	sltiu	a7,a0,128
+   1113c:	00040537          	lui	a0,0x40
+   11140:	0505                	addi	a0,a0,1 # 40001 <_start+0x2ef2d>
+   11142:	4581                	li	a1,0
+   11144:	4601                	li	a2,0
+   11146:	4681                	li	a3,0
+   11148:	8716                	mv	a4,t0
+   1114a:	00000073          	ecall
+   1114e:	8546                	mv	a0,a7
+   11150:	85c2                	mv	a1,a6
+   11152:	0141                	addi	sp,sp,16
+   11154:	8082                	ret

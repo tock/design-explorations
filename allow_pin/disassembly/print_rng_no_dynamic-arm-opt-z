@@ -1,0 +1,90 @@
+
+target/thumbv6m-none-eabi/opt-z/examples/print_rng_no_dynamic:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .ARM.exidx    00000010  000100d4  000100d4  000000d4  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  1 .text         00000094  000200e4  000200e4  000000e4  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .comment      0000008b  00000000  00000000  00000178  2**0
+                  CONTENTS, READONLY
+  3 .ARM.attributes 00000032  00000000  00000000  00000203  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .text:
+
+000200e4 <_start>:
+   200e4:	b5bf      	push	{r0, r1, r2, r3, r4, r5, r7, lr}
+   200e6:	af06      	add	r7, sp, #24
+   200e8:	2100      	movs	r1, #0
+   200ea:	9101      	str	r1, [sp, #4]
+   200ec:	9100      	str	r1, [sp, #0]
+   200ee:	4821      	ldr	r0, [pc, #132]	@ (20174 <_start+0x90>)
+   200f0:	466a      	mov	r2, sp
+   200f2:	2308      	movs	r3, #8
+   200f4:	df03      	svc	3
+   200f6:	2802      	cmp	r0, #2
+   200f8:	d006      	beq.n	20108 <_start+0x24>
+   200fa:	481e      	ldr	r0, [pc, #120]	@ (20174 <_start+0x90>)
+   200fc:	2101      	movs	r1, #1
+   200fe:	2208      	movs	r2, #8
+   20100:	2300      	movs	r3, #0
+   20102:	df02      	svc	2
+   20104:	287f      	cmp	r0, #127	@ 0x7f
+   20106:	d80a      	bhi.n	2011e <_start+0x3a>
+   20108:	460c      	mov	r4, r1
+   2010a:	481a      	ldr	r0, [pc, #104]	@ (20174 <_start+0x90>)
+   2010c:	2100      	movs	r1, #0
+   2010e:	460a      	mov	r2, r1
+   20110:	460b      	mov	r3, r1
+   20112:	df03      	svc	3
+   20114:	2501      	movs	r5, #1
+   20116:	4628      	mov	r0, r5
+   20118:	4621      	mov	r1, r4
+   2011a:	b004      	add	sp, #16
+   2011c:	bdb0      	pop	{r4, r5, r7, pc}
+   2011e:	4815      	ldr	r0, [pc, #84]	@ (20174 <_start+0x90>)
+   20120:	2100      	movs	r1, #0
+   20122:	460a      	mov	r2, r1
+   20124:	460b      	mov	r3, r1
+   20126:	df03      	svc	3
+   20128:	9801      	ldr	r0, [sp, #4]
+   2012a:	9003      	str	r0, [sp, #12]
+   2012c:	9800      	ldr	r0, [sp, #0]
+   2012e:	9002      	str	r0, [sp, #8]
+   20130:	2001      	movs	r0, #1
+   20132:	aa02      	add	r2, sp, #8
+   20134:	2308      	movs	r3, #8
+   20136:	4601      	mov	r1, r0
+   20138:	df04      	svc	4
+   2013a:	2802      	cmp	r0, #2
+   2013c:	d007      	beq.n	2014e <_start+0x6a>
+   2013e:	2001      	movs	r0, #1
+   20140:	2208      	movs	r2, #8
+   20142:	2500      	movs	r5, #0
+   20144:	4601      	mov	r1, r0
+   20146:	462b      	mov	r3, r5
+   20148:	df02      	svc	2
+   2014a:	287f      	cmp	r0, #127	@ 0x7f
+   2014c:	d806      	bhi.n	2015c <_start+0x78>
+   2014e:	460c      	mov	r4, r1
+   20150:	2001      	movs	r0, #1
+   20152:	2200      	movs	r2, #0
+   20154:	4601      	mov	r1, r0
+   20156:	4613      	mov	r3, r2
+   20158:	df04      	svc	4
+   2015a:	e7d6      	b.n	2010a <_start+0x26>
+   2015c:	2001      	movs	r0, #1
+   2015e:	4601      	mov	r1, r0
+   20160:	462a      	mov	r2, r5
+   20162:	462b      	mov	r3, r5
+   20164:	df04      	svc	4
+   20166:	4803      	ldr	r0, [pc, #12]	@ (20174 <_start+0x90>)
+   20168:	4629      	mov	r1, r5
+   2016a:	462a      	mov	r2, r5
+   2016c:	462b      	mov	r3, r5
+   2016e:	df03      	svc	3
+   20170:	e7d1      	b.n	20116 <_start+0x32>
+   20172:	46c0      	nop			@ (mov r8, r8)
+   20174:	00040001 	.word	0x00040001

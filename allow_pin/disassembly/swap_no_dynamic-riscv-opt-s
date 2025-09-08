@@ -1,0 +1,148 @@
+
+target/riscv32imc-unknown-none-elf/opt-s/examples/swap_no_dynamic:     file format elf32-littleriscv
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .eh_frame     0000002c  000100d4  000100d4  000000d4  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  1 .text         0000015e  00011100  00011100  00000100  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .comment      0000008b  00000000  00000000  0000025e  2**0
+                  CONTENTS, READONLY
+  3 .riscv.attributes 0000002f  00000000  00000000  000002e9  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .text:
+
+00011100 <_start>:
+   11100:	1101                	addi	sp,sp,-32
+   11102:	ce06                	sw	ra,28(sp)
+   11104:	00b10513          	addi	a0,sp,11
+   11108:	4645                	li	a2,17
+   1110a:	4581                	li	a1,0
+   1110c:	00000097          	auipc	ra,0x0
+   11110:	0e6080e7          	jalr	230(ra) # 111f2 <memset>
+   11114:	00c10813          	addi	a6,sp,12
+   11118:	000407b7          	lui	a5,0x40
+   1111c:	46a1                	li	a3,8
+   1111e:	0785                	addi	a5,a5,1 # 40001 <memset+0x2ee0f>
+   11120:	470d                	li	a4,3
+   11122:	4889                	li	a7,2
+   11124:	853e                	mv	a0,a5
+   11126:	4581                	li	a1,0
+   11128:	8642                	mv	a2,a6
+   1112a:	00000073          	ecall
+   1112e:	07150763          	beq	a0,a7,1119c <_start+0x9c>
+   11132:	853e                	mv	a0,a5
+   11134:	4681                	li	a3,0
+   11136:	4785                	li	a5,1
+   11138:	4585                	li	a1,1
+   1113a:	4621                	li	a2,8
+   1113c:	4709                	li	a4,2
+   1113e:	00f105a3          	sb	a5,11(sp)
+   11142:	07f00793          	li	a5,127
+   11146:	00000073          	ecall
+   1114a:	4309                	li	t1,2
+   1114c:	04a7f863          	bgeu	a5,a0,1119c <_start+0x9c>
+   11150:	0850                	addi	a2,sp,20
+   11152:	000408b7          	lui	a7,0x40
+   11156:	0885                	addi	a7,a7,1 # 40001 <memset+0x2ee0f>
+   11158:	46a1                	li	a3,8
+   1115a:	470d                	li	a4,3
+   1115c:	8546                	mv	a0,a7
+   1115e:	4581                	li	a1,0
+   11160:	00000073          	ecall
+   11164:	02650c63          	beq	a0,t1,1119c <_start+0x9c>
+   11168:	4309                	li	t1,2
+   1116a:	4585                	li	a1,1
+   1116c:	4621                	li	a2,8
+   1116e:	4709                	li	a4,2
+   11170:	07f00793          	li	a5,127
+   11174:	006105a3          	sb	t1,11(sp)
+   11178:	8546                	mv	a0,a7
+   1117a:	4681                	li	a3,0
+   1117c:	00000073          	ecall
+   11180:	00a7fe63          	bgeu	a5,a0,1119c <_start+0x9c>
+   11184:	000408b7          	lui	a7,0x40
+   11188:	0885                	addi	a7,a7,1 # 40001 <memset+0x2ee0f>
+   1118a:	46a1                	li	a3,8
+   1118c:	470d                	li	a4,3
+   1118e:	8546                	mv	a0,a7
+   11190:	4581                	li	a1,0
+   11192:	8642                	mv	a2,a6
+   11194:	00000073          	ecall
+   11198:	02651a63          	bne	a0,t1,111cc <_start+0xcc>
+   1119c:	82ae                	mv	t0,a1
+   1119e:	000407b7          	lui	a5,0x40
+   111a2:	0785                	addi	a5,a5,1 # 40001 <memset+0x2ee0f>
+   111a4:	470d                	li	a4,3
+   111a6:	853e                	mv	a0,a5
+   111a8:	4581                	li	a1,0
+   111aa:	4601                	li	a2,0
+   111ac:	4681                	li	a3,0
+   111ae:	00000073          	ecall
+   111b2:	470d                	li	a4,3
+   111b4:	853e                	mv	a0,a5
+   111b6:	4581                	li	a1,0
+   111b8:	4601                	li	a2,0
+   111ba:	4681                	li	a3,0
+   111bc:	00000073          	ecall
+   111c0:	4785                	li	a5,1
+   111c2:	853e                	mv	a0,a5
+   111c4:	8596                	mv	a1,t0
+   111c6:	40f2                	lw	ra,28(sp)
+   111c8:	6105                	addi	sp,sp,32
+   111ca:	8082                	ret
+   111cc:	8546                	mv	a0,a7
+   111ce:	4581                	li	a1,0
+   111d0:	4601                	li	a2,0
+   111d2:	4681                	li	a3,0
+   111d4:	4781                	li	a5,0
+   111d6:	4705                	li	a4,1
+   111d8:	00e105a3          	sb	a4,11(sp)
+   111dc:	470d                	li	a4,3
+   111de:	00000073          	ecall
+   111e2:	470d                	li	a4,3
+   111e4:	8546                	mv	a0,a7
+   111e6:	4581                	li	a1,0
+   111e8:	4601                	li	a2,0
+   111ea:	4681                	li	a3,0
+   111ec:	00000073          	ecall
+   111f0:	bfc9                	j	111c2 <_start+0xc2>
+
+000111f2 <memset>:
+   111f2:	46c1                	li	a3,16
+   111f4:	04d66f63          	bltu	a2,a3,11252 <memset+0x60>
+   111f8:	40a006b3          	neg	a3,a0
+   111fc:	0036f813          	andi	a6,a3,3
+   11200:	01050733          	add	a4,a0,a6
+   11204:	00e57963          	bgeu	a0,a4,11216 <memset+0x24>
+   11208:	87c2                	mv	a5,a6
+   1120a:	86aa                	mv	a3,a0
+   1120c:	00b68023          	sb	a1,0(a3)
+   11210:	17fd                	addi	a5,a5,-1
+   11212:	0685                	addi	a3,a3,1
+   11214:	ffe5                	bnez	a5,1120c <memset+0x1a>
+   11216:	41060633          	sub	a2,a2,a6
+   1121a:	ffc67693          	andi	a3,a2,-4
+   1121e:	96ba                	add	a3,a3,a4
+   11220:	00d77e63          	bgeu	a4,a3,1123c <memset+0x4a>
+   11224:	0ff5f813          	zext.b	a6,a1
+   11228:	010107b7          	lui	a5,0x1010
+   1122c:	10178793          	addi	a5,a5,257 # 1010101 <memset+0xffef0f>
+   11230:	02f807b3          	mul	a5,a6,a5
+   11234:	c31c                	sw	a5,0(a4)
+   11236:	0711                	addi	a4,a4,4
+   11238:	fed76ee3          	bltu	a4,a3,11234 <memset+0x42>
+   1123c:	8a0d                	andi	a2,a2,3
+   1123e:	00c68733          	add	a4,a3,a2
+   11242:	00e6f763          	bgeu	a3,a4,11250 <memset+0x5e>
+   11246:	00b68023          	sb	a1,0(a3)
+   1124a:	167d                	addi	a2,a2,-1
+   1124c:	0685                	addi	a3,a3,1
+   1124e:	fe65                	bnez	a2,11246 <memset+0x54>
+   11250:	8082                	ret
+   11252:	86aa                	mv	a3,a0
+   11254:	00c50733          	add	a4,a0,a2
+   11258:	fee567e3          	bltu	a0,a4,11246 <memset+0x54>
+   1125c:	bfd5                	j	11250 <memset+0x5e>

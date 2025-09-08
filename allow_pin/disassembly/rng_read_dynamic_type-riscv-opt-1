@@ -1,0 +1,85 @@
+
+target/riscv32imc-unknown-none-elf/opt-1/examples/rng_read_dynamic_type:     file format elf32-littleriscv
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000c4  000110d4  000110d4  000000d4  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .comment      0000008b  00000000  00000000  00000198  2**0
+                  CONTENTS, READONLY
+  2 .riscv.attributes 0000002f  00000000  00000000  00000223  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .text:
+
+000110d4 <_start>:
+   110d4:	1101                	addi	sp,sp,-32
+   110d6:	ce06                	sw	ra,28(sp)
+   110d8:	cc22                	sw	s0,24(sp)
+   110da:	ca26                	sw	s1,20(sp)
+   110dc:	4581                	li	a1,0
+   110de:	4489                	li	s1,2
+   110e0:	0070                	addi	a2,sp,12
+   110e2:	000109a3          	sb	zero,19(sp)
+   110e6:	000107a3          	sb	zero,15(sp)
+   110ea:	00010823          	sb	zero,16(sp)
+   110ee:	000108a3          	sb	zero,17(sp)
+   110f2:	00010923          	sb	zero,18(sp)
+   110f6:	00040537          	lui	a0,0x40
+   110fa:	478d                	li	a5,3
+   110fc:	009105a3          	sb	s1,11(sp)
+   11100:	00010623          	sb	zero,12(sp)
+   11104:	000106a3          	sb	zero,13(sp)
+   11108:	00010723          	sb	zero,14(sp)
+   1110c:	0505                	addi	a0,a0,1 # 40001 <_ZN9allow_pin12dynamic_type7unshare17h0269127f30dbe29bE+0x2ee75>
+   1110e:	46a1                	li	a3,8
+   11110:	470d                	li	a4,3
+   11112:	00000073          	ecall
+   11116:	00950463          	beq	a0,s1,1111e <_start+0x4a>
+   1111a:	00f105a3          	sb	a5,11(sp)
+   1111e:	4789                	li	a5,2
+   11120:	02f50063          	beq	a0,a5,11140 <_start+0x6c>
+   11124:	4681                	li	a3,0
+   11126:	00040537          	lui	a0,0x40
+   1112a:	4585                	li	a1,1
+   1112c:	4621                	li	a2,8
+   1112e:	4709                	li	a4,2
+   11130:	0505                	addi	a0,a0,1 # 40001 <_ZN9allow_pin12dynamic_type7unshare17h0269127f30dbe29bE+0x2ee75>
+   11132:	07f00493          	li	s1,127
+   11136:	00000073          	ecall
+   1113a:	4689                	li	a3,2
+   1113c:	02a4e263          	bltu	s1,a0,11160 <_start+0x8c>
+   11140:	00b14603          	lbu	a2,11(sp)
+   11144:	4405                	li	s0,1
+   11146:	02f60d63          	beq	a2,a5,11180 <_start+0xac>
+   1114a:	00040537          	lui	a0,0x40
+   1114e:	0505                	addi	a0,a0,1 # 40001 <_ZN9allow_pin12dynamic_type7unshare17h0269127f30dbe29bE+0x2ee75>
+   11150:	84ae                	mv	s1,a1
+   11152:	4581                	li	a1,0
+   11154:	00000097          	auipc	ra,0x0
+   11158:	038080e7          	jalr	56(ra) # 1118c <_ZN9allow_pin12dynamic_type7unshare17h0269127f30dbe29bE>
+   1115c:	85a6                	mv	a1,s1
+   1115e:	a00d                	j	11180 <_start+0xac>
+   11160:	00b14603          	lbu	a2,11(sp)
+   11164:	00d60a63          	beq	a2,a3,11178 <_start+0xa4>
+   11168:	00040537          	lui	a0,0x40
+   1116c:	0505                	addi	a0,a0,1 # 40001 <_ZN9allow_pin12dynamic_type7unshare17h0269127f30dbe29bE+0x2ee75>
+   1116e:	4581                	li	a1,0
+   11170:	00000097          	auipc	ra,0x0
+   11174:	01c080e7          	jalr	28(ra) # 1118c <_ZN9allow_pin12dynamic_type7unshare17h0269127f30dbe29bE>
+   11178:	4401                	li	s0,0
+   1117a:	4509                	li	a0,2
+   1117c:	00a105a3          	sb	a0,11(sp)
+   11180:	8522                	mv	a0,s0
+   11182:	40f2                	lw	ra,28(sp)
+   11184:	4462                	lw	s0,24(sp)
+   11186:	44d2                	lw	s1,20(sp)
+   11188:	6105                	addi	sp,sp,32
+   1118a:	8082                	ret
+
+0001118c <_ZN9allow_pin12dynamic_type7unshare17h0269127f30dbe29bE>:
+   1118c:	8732                	mv	a4,a2
+   1118e:	4601                	li	a2,0
+   11190:	4681                	li	a3,0
+   11192:	00000073          	ecall
+   11196:	8082                	ret
