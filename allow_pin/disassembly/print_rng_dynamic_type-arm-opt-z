@@ -7,41 +7,41 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
   1 .text         0000012a  000200e4  000200e4  000000e4  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .comment      0000008b  00000000  00000000  0000020e  2**0
+  2 .comment      00000099  00000000  00000000  0000020e  2**0
                   CONTENTS, READONLY
-  3 .ARM.attributes 00000032  00000000  00000000  00000299  2**0
+  3 .ARM.attributes 00000032  00000000  00000000  000002a7  2**0
                   CONTENTS, READONLY
 
 Disassembly of section .text:
 
-000200e4 <_ZN4core3ptr99drop_in_place$LT$allow_pin..dynamic_type..Buffer$LT$$u5b$u8$u3b$$u20$8$u5d$$C$1_u32$C$1_u32$GT$$GT$17h9aea1bcc8b0cf422E>:
+000200e4 <_ZN4core3ptr99drop_in_place$LT$allow_pin..dynamic_type..Buffer$LT$$u5b$u8$u3b$$u20$8$u5d$$C$1_u32$C$1_u32$GT$$GT$17heb25e710aca3a6a0E>:
    200e4:	b580      	push	{r7, lr}
    200e6:	af00      	add	r7, sp, #0
    200e8:	4602      	mov	r2, r0
    200ea:	b2c0      	uxtb	r0, r0
    200ec:	2802      	cmp	r0, #2
-   200ee:	d003      	beq.n	200f8 <_ZN4core3ptr99drop_in_place$LT$allow_pin..dynamic_type..Buffer$LT$$u5b$u8$u3b$$u20$8$u5d$$C$1_u32$C$1_u32$GT$$GT$17h9aea1bcc8b0cf422E+0x14>
+   200ee:	d003      	beq.n	200f8 <_ZN4core3ptr99drop_in_place$LT$allow_pin..dynamic_type..Buffer$LT$$u5b$u8$u3b$$u20$8$u5d$$C$1_u32$C$1_u32$GT$$GT$17heb25e710aca3a6a0E+0x14>
    200f0:	2001      	movs	r0, #1
    200f2:	4601      	mov	r1, r0
-   200f4:	f000 f87e 	bl	201f4 <_ZN9allow_pin12dynamic_type7unshare17hee746cf65a2a0f7eE>
+   200f4:	f000 f87e 	bl	201f4 <_ZN9allow_pin12dynamic_type7unshare17ha4091652f9b609c4E>
    200f8:	bd80      	pop	{r7, pc}
 
-000200fa <_ZN9allow_pin12dynamic_type11allow_inner17h2d1f579c2873c29cE>:
+000200fa <_ZN9allow_pin12dynamic_type11allow_inner17h27ff86f1c4c958beE>:
    200fa:	b580      	push	{r7, lr}
    200fc:	af00      	add	r7, sp, #0
    200fe:	b2db      	uxtb	r3, r3
    20100:	2b03      	cmp	r3, #3
-   20102:	d102      	bne.n	2010a <_ZN9allow_pin12dynamic_type11allow_inner17h2d1f579c2873c29cE+0x10>
+   20102:	d102      	bne.n	2010a <_ZN9allow_pin12dynamic_type11allow_inner17h27ff86f1c4c958beE+0x10>
    20104:	2308      	movs	r3, #8
    20106:	df03      	svc	3
-   20108:	e001      	b.n	2010e <_ZN9allow_pin12dynamic_type11allow_inner17h2d1f579c2873c29cE+0x14>
+   20108:	e001      	b.n	2010e <_ZN9allow_pin12dynamic_type11allow_inner17h27ff86f1c4c958beE+0x14>
    2010a:	2308      	movs	r3, #8
    2010c:	df04      	svc	4
    2010e:	1e82      	subs	r2, r0, #2
    20110:	4250      	negs	r0, r2
    20112:	4150      	adcs	r0, r2
    20114:	bd80      	pop	{r7, pc}
-   20116:	d4d4      	bmi.n	200c2 <_ZN4core3ptr99drop_in_place$LT$allow_pin..dynamic_type..Buffer$LT$$u5b$u8$u3b$$u20$8$u5d$$C$1_u32$C$1_u32$GT$$GT$17h9aea1bcc8b0cf422E-0x22>
+   20116:	d4d4      	bmi.n	200c2 <_ZN4core3ptr99drop_in_place$LT$allow_pin..dynamic_type..Buffer$LT$$u5b$u8$u3b$$u20$8$u5d$$C$1_u32$C$1_u32$GT$$GT$17heb25e710aca3a6a0E-0x22>
 
 00020118 <_start>:
    20118:	b5f0      	push	{r4, r5, r6, r7, lr}
@@ -64,7 +64,7 @@ Disassembly of section .text:
    2013a:	2503      	movs	r5, #3
    2013c:	4622      	mov	r2, r4
    2013e:	462b      	mov	r3, r5
-   20140:	f7ff ffdb 	bl	200fa <_ZN9allow_pin12dynamic_type11allow_inner17h2d1f579c2873c29cE>
+   20140:	f7ff ffdb 	bl	200fa <_ZN9allow_pin12dynamic_type11allow_inner17h27ff86f1c4c958beE>
    20144:	07c0      	lsls	r0, r0, #31
    20146:	d001      	beq.n	2014c <_start+0x34>
    20148:	2501      	movs	r5, #1
@@ -82,7 +82,7 @@ Disassembly of section .text:
    20160:	2100      	movs	r1, #0
    20162:	2203      	movs	r2, #3
    20164:	4822      	ldr	r0, [pc, #136]	@ (201f0 <_start+0xd8>)
-   20166:	f000 f845 	bl	201f4 <_ZN9allow_pin12dynamic_type7unshare17hee746cf65a2a0f7eE>
+   20166:	f000 f845 	bl	201f4 <_ZN9allow_pin12dynamic_type7unshare17ha4091652f9b609c4E>
    2016a:	a801      	add	r0, sp, #4
    2016c:	7006      	strb	r6, [r0, #0]
    2016e:	a804      	add	r0, sp, #16
@@ -109,7 +109,7 @@ Disassembly of section .text:
    20198:	4628      	mov	r0, r5
    2019a:	4629      	mov	r1, r5
    2019c:	4623      	mov	r3, r4
-   2019e:	f7ff ffac 	bl	200fa <_ZN9allow_pin12dynamic_type11allow_inner17h2d1f579c2873c29cE>
+   2019e:	f7ff ffac 	bl	200fa <_ZN9allow_pin12dynamic_type11allow_inner17h27ff86f1c4c958beE>
    201a2:	07c0      	lsls	r0, r0, #31
    201a4:	d003      	beq.n	201ae <_start+0x96>
    201a6:	460e      	mov	r6, r1
@@ -128,11 +128,11 @@ Disassembly of section .text:
    201c0:	d805      	bhi.n	201ce <_start+0xb6>
    201c2:	460e      	mov	r6, r1
    201c4:	4620      	mov	r0, r4
-   201c6:	f7ff ff8d 	bl	200e4 <_ZN4core3ptr99drop_in_place$LT$allow_pin..dynamic_type..Buffer$LT$$u5b$u8$u3b$$u20$8$u5d$$C$1_u32$C$1_u32$GT$$GT$17h9aea1bcc8b0cf422E>
+   201c6:	f7ff ff8d 	bl	200e4 <_ZN4core3ptr99drop_in_place$LT$allow_pin..dynamic_type..Buffer$LT$$u5b$u8$u3b$$u20$8$u5d$$C$1_u32$C$1_u32$GT$$GT$17heb25e710aca3a6a0E>
    201ca:	4631      	mov	r1, r6
    201cc:	e003      	b.n	201d6 <_start+0xbe>
    201ce:	2004      	movs	r0, #4
-   201d0:	f7ff ff88 	bl	200e4 <_ZN4core3ptr99drop_in_place$LT$allow_pin..dynamic_type..Buffer$LT$$u5b$u8$u3b$$u20$8$u5d$$C$1_u32$C$1_u32$GT$$GT$17h9aea1bcc8b0cf422E>
+   201d0:	f7ff ff88 	bl	200e4 <_ZN4core3ptr99drop_in_place$LT$allow_pin..dynamic_type..Buffer$LT$$u5b$u8$u3b$$u20$8$u5d$$C$1_u32$C$1_u32$GT$$GT$17heb25e710aca3a6a0E>
    201d4:	4635      	mov	r5, r6
    201d6:	a801      	add	r0, sp, #4
    201d8:	7802      	ldrb	r2, [r0, #0]
@@ -141,19 +141,19 @@ Disassembly of section .text:
    201de:	460c      	mov	r4, r1
    201e0:	2100      	movs	r1, #0
    201e2:	4803      	ldr	r0, [pc, #12]	@ (201f0 <_start+0xd8>)
-   201e4:	f000 f806 	bl	201f4 <_ZN9allow_pin12dynamic_type7unshare17hee746cf65a2a0f7eE>
+   201e4:	f000 f806 	bl	201f4 <_ZN9allow_pin12dynamic_type7unshare17ha4091652f9b609c4E>
    201e8:	4621      	mov	r1, r4
    201ea:	4628      	mov	r0, r5
    201ec:	b007      	add	sp, #28
    201ee:	bdf0      	pop	{r4, r5, r6, r7, pc}
    201f0:	00040001 	.word	0x00040001
 
-000201f4 <_ZN9allow_pin12dynamic_type7unshare17hee746cf65a2a0f7eE>:
+000201f4 <_ZN9allow_pin12dynamic_type7unshare17ha4091652f9b609c4E>:
    201f4:	b580      	push	{r7, lr}
    201f6:	af00      	add	r7, sp, #0
    201f8:	b2d2      	uxtb	r2, r2
    201fa:	2a03      	cmp	r2, #3
-   201fc:	d103      	bne.n	20206 <_ZN9allow_pin12dynamic_type7unshare17hee746cf65a2a0f7eE+0x12>
+   201fc:	d103      	bne.n	20206 <_ZN9allow_pin12dynamic_type7unshare17ha4091652f9b609c4E+0x12>
    201fe:	2200      	movs	r2, #0
    20200:	4613      	mov	r3, r2
    20202:	df03      	svc	3

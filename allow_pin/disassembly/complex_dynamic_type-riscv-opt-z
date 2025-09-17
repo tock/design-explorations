@@ -9,190 +9,190 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
   2 .text         00008834  000112ec  000112ec  000002ec  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  3 .comment      0000008b  00000000  00000000  00008b20  2**0
+  3 .comment      00000099  00000000  00000000  00008b20  2**0
                   CONTENTS, READONLY
-  4 .riscv.attributes 0000002f  00000000  00000000  00008bab  2**0
+  4 .riscv.attributes 0000002f  00000000  00000000  00008bb9  2**0
                   CONTENTS, READONLY
 
 Disassembly of section .text:
 
-000112ec <_ZN9allow_pin12dynamic_type11allow_inner17h0123a3b9d8c67b48E>:
+000112ec <_ZN9allow_pin12dynamic_type11allow_inner17he6743ed698332499E>:
    112ec:	00000073          	ecall
    112f0:	1579                	addi	a0,a0,-2
    112f2:	00153513          	seqz	a0,a0
    112f6:	8082                	ret
 
-000112f8 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h0edf0a9be50f20f3E>:
+000112f8 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h00d8da9a4b2f9d4fE>:
    112f8:	00008297          	auipc	t0,0x8
    112fc:	300282e7          	jalr	t0,768(t0) # 195f8 <OUTLINED_FUNCTION_21>
-   11300:	02b51363          	bne	a0,a1,11326 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h0edf0a9be50f20f3E+0x2e>
+   11300:	02b51363          	bne	a0,a1,11326 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h00d8da9a4b2f9d4fE+0x2e>
    11304:	8932                	mv	s2,a2
    11306:	00148613          	addi	a2,s1,1
    1130a:	55e00513          	li	a0,1374
    1130e:	45a5                	li	a1,9
    11310:	874a                	mv	a4,s2
    11312:	00000097          	auipc	ra,0x0
-   11316:	fda080e7          	jalr	-38(ra) # 112ec <_ZN9allow_pin12dynamic_type11allow_inner17h0123a3b9d8c67b48E>
+   11316:	fda080e7          	jalr	-38(ra) # 112ec <_ZN9allow_pin12dynamic_type11allow_inner17he6743ed698332499E>
    1131a:	8905                	andi	a0,a0,1
-   1131c:	e511                	bnez	a0,11328 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h0edf0a9be50f20f3E+0x30>
+   1131c:	e511                	bnez	a0,11328 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h00d8da9a4b2f9d4fE+0x30>
    1131e:	4401                	li	s0,0
    11320:	01248023          	sb	s2,0(s1)
-   11324:	a011                	j	11328 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h0edf0a9be50f20f3E+0x30>
+   11324:	a011                	j	11328 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h00d8da9a4b2f9d4fE+0x30>
    11326:	458d                	li	a1,3
    11328:	00008317          	auipc	t1,0x8
    1132c:	2e830067          	jr	744(t1) # 19610 <OUTLINED_FUNCTION_22>
 
-00011330 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h257e0e199a080bcdE>:
+00011330 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h2a2b32723c36d520E>:
    11330:	00008297          	auipc	t0,0x8
    11334:	2c8282e7          	jalr	t0,712(t0) # 195f8 <OUTLINED_FUNCTION_21>
-   11338:	02b51463          	bne	a0,a1,11360 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h257e0e199a080bcdE+0x30>
+   11338:	02b51463          	bne	a0,a1,11360 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h2a2b32723c36d520E+0x30>
    1133c:	8932                	mv	s2,a2
    1133e:	00148613          	addi	a2,s1,1
    11342:	6505                	lui	a0,0x1
-   11344:	a9d50513          	addi	a0,a0,-1379 # a9d <.Lline_table_start1+0x872>
-   11348:	45a5                	li	a1,9
+   11344:	0e250513          	addi	a0,a0,226 # 10e2 <.Lline_table_start1+0xeb7>
+   11348:	458d                	li	a1,3
    1134a:	874a                	mv	a4,s2
    1134c:	00000097          	auipc	ra,0x0
-   11350:	fa0080e7          	jalr	-96(ra) # 112ec <_ZN9allow_pin12dynamic_type11allow_inner17h0123a3b9d8c67b48E>
+   11350:	fa0080e7          	jalr	-96(ra) # 112ec <_ZN9allow_pin12dynamic_type11allow_inner17he6743ed698332499E>
    11354:	8905                	andi	a0,a0,1
-   11356:	e511                	bnez	a0,11362 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h257e0e199a080bcdE+0x32>
+   11356:	e511                	bnez	a0,11362 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h2a2b32723c36d520E+0x32>
    11358:	4401                	li	s0,0
    1135a:	01248023          	sb	s2,0(s1)
-   1135e:	a011                	j	11362 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h257e0e199a080bcdE+0x32>
+   1135e:	a011                	j	11362 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h2a2b32723c36d520E+0x32>
    11360:	458d                	li	a1,3
    11362:	00008317          	auipc	t1,0x8
    11366:	2ae30067          	jr	686(t1) # 19610 <OUTLINED_FUNCTION_22>
 
-0001136a <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h3a5e801415c5edc3E>:
+0001136a <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h5c470d8c4b0b9f28E>:
    1136a:	00008297          	auipc	t0,0x8
    1136e:	28e282e7          	jalr	t0,654(t0) # 195f8 <OUTLINED_FUNCTION_21>
-   11372:	02b51463          	bne	a0,a1,1139a <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h3a5e801415c5edc3E+0x30>
+   11372:	02b51463          	bne	a0,a1,1139a <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h5c470d8c4b0b9f28E+0x30>
    11376:	8932                	mv	s2,a2
    11378:	00148613          	addi	a2,s1,1
-   1137c:	6509                	lui	a0,0x2
-   1137e:	54850513          	addi	a0,a0,1352 # 2548 <.Lline_table_start1+0x231d>
-   11382:	458d                	li	a1,3
+   1137c:	6505                	lui	a0,0x1
+   1137e:	c8950513          	addi	a0,a0,-887 # c89 <.Lline_table_start1+0xa5e>
+   11382:	4589                	li	a1,2
    11384:	874a                	mv	a4,s2
    11386:	00000097          	auipc	ra,0x0
-   1138a:	f66080e7          	jalr	-154(ra) # 112ec <_ZN9allow_pin12dynamic_type11allow_inner17h0123a3b9d8c67b48E>
+   1138a:	f66080e7          	jalr	-154(ra) # 112ec <_ZN9allow_pin12dynamic_type11allow_inner17he6743ed698332499E>
    1138e:	8905                	andi	a0,a0,1
-   11390:	e511                	bnez	a0,1139c <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h3a5e801415c5edc3E+0x32>
+   11390:	e511                	bnez	a0,1139c <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h5c470d8c4b0b9f28E+0x32>
    11392:	4401                	li	s0,0
    11394:	01248023          	sb	s2,0(s1)
-   11398:	a011                	j	1139c <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h3a5e801415c5edc3E+0x32>
+   11398:	a011                	j	1139c <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h5c470d8c4b0b9f28E+0x32>
    1139a:	458d                	li	a1,3
    1139c:	00008317          	auipc	t1,0x8
    113a0:	27430067          	jr	628(t1) # 19610 <OUTLINED_FUNCTION_22>
 
-000113a4 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h4031926fc054d9f8E>:
+000113a4 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h88da09c9c1e390a5E>:
    113a4:	00008297          	auipc	t0,0x8
    113a8:	254282e7          	jalr	t0,596(t0) # 195f8 <OUTLINED_FUNCTION_21>
-   113ac:	02b51463          	bne	a0,a1,113d4 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h4031926fc054d9f8E+0x30>
+   113ac:	02b51463          	bne	a0,a1,113d4 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h88da09c9c1e390a5E+0x30>
    113b0:	8932                	mv	s2,a2
    113b2:	00148613          	addi	a2,s1,1
-   113b6:	6509                	lui	a0,0x2
-   113b8:	09550513          	addi	a0,a0,149 # 2095 <.Lline_table_start1+0x1e6a>
-   113bc:	45a1                	li	a1,8
+   113b6:	6505                	lui	a0,0x1
+   113b8:	6b050513          	addi	a0,a0,1712 # 16b0 <.Lline_table_start1+0x1485>
+   113bc:	4581                	li	a1,0
    113be:	874a                	mv	a4,s2
    113c0:	00000097          	auipc	ra,0x0
-   113c4:	f2c080e7          	jalr	-212(ra) # 112ec <_ZN9allow_pin12dynamic_type11allow_inner17h0123a3b9d8c67b48E>
+   113c4:	f2c080e7          	jalr	-212(ra) # 112ec <_ZN9allow_pin12dynamic_type11allow_inner17he6743ed698332499E>
    113c8:	8905                	andi	a0,a0,1
-   113ca:	e511                	bnez	a0,113d6 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h4031926fc054d9f8E+0x32>
+   113ca:	e511                	bnez	a0,113d6 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h88da09c9c1e390a5E+0x32>
    113cc:	4401                	li	s0,0
    113ce:	01248023          	sb	s2,0(s1)
-   113d2:	a011                	j	113d6 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h4031926fc054d9f8E+0x32>
+   113d2:	a011                	j	113d6 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h88da09c9c1e390a5E+0x32>
    113d4:	458d                	li	a1,3
    113d6:	00008317          	auipc	t1,0x8
    113da:	23a30067          	jr	570(t1) # 19610 <OUTLINED_FUNCTION_22>
 
-000113de <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h4a38eadd1fee01e0E>:
+000113de <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hb263d64b6a8a2d08E>:
    113de:	00008297          	auipc	t0,0x8
    113e2:	21a282e7          	jalr	t0,538(t0) # 195f8 <OUTLINED_FUNCTION_21>
-   113e6:	02b51463          	bne	a0,a1,1140e <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h4a38eadd1fee01e0E+0x30>
+   113e6:	02b51463          	bne	a0,a1,1140e <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hb263d64b6a8a2d08E+0x30>
    113ea:	8932                	mv	s2,a2
    113ec:	00148613          	addi	a2,s1,1
-   113f0:	6505                	lui	a0,0x1
-   113f2:	6b050513          	addi	a0,a0,1712 # 16b0 <.Lline_table_start1+0x1485>
-   113f6:	4581                	li	a1,0
+   113f0:	6509                	lui	a0,0x2
+   113f2:	54850513          	addi	a0,a0,1352 # 2548 <.Lline_table_start1+0x231d>
+   113f6:	458d                	li	a1,3
    113f8:	874a                	mv	a4,s2
    113fa:	00000097          	auipc	ra,0x0
-   113fe:	ef2080e7          	jalr	-270(ra) # 112ec <_ZN9allow_pin12dynamic_type11allow_inner17h0123a3b9d8c67b48E>
+   113fe:	ef2080e7          	jalr	-270(ra) # 112ec <_ZN9allow_pin12dynamic_type11allow_inner17he6743ed698332499E>
    11402:	8905                	andi	a0,a0,1
-   11404:	e511                	bnez	a0,11410 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h4a38eadd1fee01e0E+0x32>
+   11404:	e511                	bnez	a0,11410 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hb263d64b6a8a2d08E+0x32>
    11406:	4401                	li	s0,0
    11408:	01248023          	sb	s2,0(s1)
-   1140c:	a011                	j	11410 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h4a38eadd1fee01e0E+0x32>
+   1140c:	a011                	j	11410 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hb263d64b6a8a2d08E+0x32>
    1140e:	458d                	li	a1,3
    11410:	00008317          	auipc	t1,0x8
    11414:	20030067          	jr	512(t1) # 19610 <OUTLINED_FUNCTION_22>
 
-00011418 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h4c25bcceeb786d4dE>:
+00011418 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hbb366d0d5038cc4bE>:
    11418:	00008297          	auipc	t0,0x8
    1141c:	1e0282e7          	jalr	t0,480(t0) # 195f8 <OUTLINED_FUNCTION_21>
-   11420:	02b51463          	bne	a0,a1,11448 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h4c25bcceeb786d4dE+0x30>
+   11420:	02b51363          	bne	a0,a1,11446 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hbb366d0d5038cc4bE+0x2e>
    11424:	8932                	mv	s2,a2
    11426:	00148613          	addi	a2,s1,1
    1142a:	6509                	lui	a0,0x2
-   1142c:	d1950513          	addi	a0,a0,-743 # 1d19 <.Lline_table_start1+0x1aee>
-   11430:	458d                	li	a1,3
-   11432:	874a                	mv	a4,s2
-   11434:	00000097          	auipc	ra,0x0
-   11438:	eb8080e7          	jalr	-328(ra) # 112ec <_ZN9allow_pin12dynamic_type11allow_inner17h0123a3b9d8c67b48E>
-   1143c:	8905                	andi	a0,a0,1
-   1143e:	e511                	bnez	a0,1144a <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h4c25bcceeb786d4dE+0x32>
-   11440:	4401                	li	s0,0
-   11442:	01248023          	sb	s2,0(s1)
-   11446:	a011                	j	1144a <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h4c25bcceeb786d4dE+0x32>
-   11448:	458d                	li	a1,3
-   1144a:	00008317          	auipc	t1,0x8
-   1144e:	1c630067          	jr	454(t1) # 19610 <OUTLINED_FUNCTION_22>
+   1142c:	0519                	addi	a0,a0,6 # 2006 <.Lline_table_start1+0x1ddb>
+   1142e:	45a5                	li	a1,9
+   11430:	874a                	mv	a4,s2
+   11432:	00000097          	auipc	ra,0x0
+   11436:	eba080e7          	jalr	-326(ra) # 112ec <_ZN9allow_pin12dynamic_type11allow_inner17he6743ed698332499E>
+   1143a:	8905                	andi	a0,a0,1
+   1143c:	e511                	bnez	a0,11448 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hbb366d0d5038cc4bE+0x30>
+   1143e:	4401                	li	s0,0
+   11440:	01248023          	sb	s2,0(s1)
+   11444:	a011                	j	11448 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hbb366d0d5038cc4bE+0x30>
+   11446:	458d                	li	a1,3
+   11448:	00008317          	auipc	t1,0x8
+   1144c:	1c830067          	jr	456(t1) # 19610 <OUTLINED_FUNCTION_22>
 
-00011452 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17haf0565a91a1cf8aeE>:
-   11452:	00008297          	auipc	t0,0x8
-   11456:	1a6282e7          	jalr	t0,422(t0) # 195f8 <OUTLINED_FUNCTION_21>
-   1145a:	02b51463          	bne	a0,a1,11482 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17haf0565a91a1cf8aeE+0x30>
-   1145e:	8932                	mv	s2,a2
-   11460:	00148613          	addi	a2,s1,1
-   11464:	6505                	lui	a0,0x1
-   11466:	c8950513          	addi	a0,a0,-887 # c89 <.Lline_table_start1+0xa5e>
-   1146a:	4589                	li	a1,2
-   1146c:	874a                	mv	a4,s2
-   1146e:	00000097          	auipc	ra,0x0
-   11472:	e7e080e7          	jalr	-386(ra) # 112ec <_ZN9allow_pin12dynamic_type11allow_inner17h0123a3b9d8c67b48E>
-   11476:	8905                	andi	a0,a0,1
-   11478:	e511                	bnez	a0,11484 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17haf0565a91a1cf8aeE+0x32>
-   1147a:	4401                	li	s0,0
-   1147c:	01248023          	sb	s2,0(s1)
-   11480:	a011                	j	11484 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17haf0565a91a1cf8aeE+0x32>
-   11482:	458d                	li	a1,3
-   11484:	00008317          	auipc	t1,0x8
-   11488:	18c30067          	jr	396(t1) # 19610 <OUTLINED_FUNCTION_22>
+00011450 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hc76a7200de937682E>:
+   11450:	00008297          	auipc	t0,0x8
+   11454:	1a8282e7          	jalr	t0,424(t0) # 195f8 <OUTLINED_FUNCTION_21>
+   11458:	02b51463          	bne	a0,a1,11480 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hc76a7200de937682E+0x30>
+   1145c:	8932                	mv	s2,a2
+   1145e:	00148613          	addi	a2,s1,1
+   11462:	6509                	lui	a0,0x2
+   11464:	d1950513          	addi	a0,a0,-743 # 1d19 <.Lline_table_start1+0x1aee>
+   11468:	458d                	li	a1,3
+   1146a:	874a                	mv	a4,s2
+   1146c:	00000097          	auipc	ra,0x0
+   11470:	e80080e7          	jalr	-384(ra) # 112ec <_ZN9allow_pin12dynamic_type11allow_inner17he6743ed698332499E>
+   11474:	8905                	andi	a0,a0,1
+   11476:	e511                	bnez	a0,11482 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hc76a7200de937682E+0x32>
+   11478:	4401                	li	s0,0
+   1147a:	01248023          	sb	s2,0(s1)
+   1147e:	a011                	j	11482 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hc76a7200de937682E+0x32>
+   11480:	458d                	li	a1,3
+   11482:	00008317          	auipc	t1,0x8
+   11486:	18e30067          	jr	398(t1) # 19610 <OUTLINED_FUNCTION_22>
 
-0001148c <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hbcd4b227da7fe99fE>:
-   1148c:	00008297          	auipc	t0,0x8
-   11490:	16c282e7          	jalr	t0,364(t0) # 195f8 <OUTLINED_FUNCTION_21>
-   11494:	02b51363          	bne	a0,a1,114ba <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hbcd4b227da7fe99fE+0x2e>
-   11498:	8932                	mv	s2,a2
-   1149a:	00148613          	addi	a2,s1,1
-   1149e:	6509                	lui	a0,0x2
-   114a0:	0519                	addi	a0,a0,6 # 2006 <.Lline_table_start1+0x1ddb>
-   114a2:	45a5                	li	a1,9
+0001148a <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hc9380a211bfec8beE>:
+   1148a:	00008297          	auipc	t0,0x8
+   1148e:	16e282e7          	jalr	t0,366(t0) # 195f8 <OUTLINED_FUNCTION_21>
+   11492:	02b51463          	bne	a0,a1,114ba <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hc9380a211bfec8beE+0x30>
+   11496:	8932                	mv	s2,a2
+   11498:	00148613          	addi	a2,s1,1
+   1149c:	6509                	lui	a0,0x2
+   1149e:	09550513          	addi	a0,a0,149 # 2095 <.Lline_table_start1+0x1e6a>
+   114a2:	45a1                	li	a1,8
    114a4:	874a                	mv	a4,s2
    114a6:	00000097          	auipc	ra,0x0
-   114aa:	e46080e7          	jalr	-442(ra) # 112ec <_ZN9allow_pin12dynamic_type11allow_inner17h0123a3b9d8c67b48E>
+   114aa:	e46080e7          	jalr	-442(ra) # 112ec <_ZN9allow_pin12dynamic_type11allow_inner17he6743ed698332499E>
    114ae:	8905                	andi	a0,a0,1
-   114b0:	e511                	bnez	a0,114bc <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hbcd4b227da7fe99fE+0x30>
+   114b0:	e511                	bnez	a0,114bc <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hc9380a211bfec8beE+0x32>
    114b2:	4401                	li	s0,0
    114b4:	01248023          	sb	s2,0(s1)
-   114b8:	a011                	j	114bc <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hbcd4b227da7fe99fE+0x30>
+   114b8:	a011                	j	114bc <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hc9380a211bfec8beE+0x32>
    114ba:	458d                	li	a1,3
    114bc:	00008317          	auipc	t1,0x8
    114c0:	15430067          	jr	340(t1) # 19610 <OUTLINED_FUNCTION_22>
 
-000114c4 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hcb5376a51e920b20E>:
+000114c4 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hce7f73a0b06e9962E>:
    114c4:	00008297          	auipc	t0,0x8
    114c8:	134282e7          	jalr	t0,308(t0) # 195f8 <OUTLINED_FUNCTION_21>
-   114cc:	02b51463          	bne	a0,a1,114f4 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hcb5376a51e920b20E+0x30>
+   114cc:	02b51463          	bne	a0,a1,114f4 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hce7f73a0b06e9962E+0x30>
    114d0:	8932                	mv	s2,a2
    114d2:	00148613          	addi	a2,s1,1
    114d6:	6509                	lui	a0,0x2
@@ -200,72 +200,71 @@ Disassembly of section .text:
    114dc:	4599                	li	a1,6
    114de:	874a                	mv	a4,s2
    114e0:	00000097          	auipc	ra,0x0
-   114e4:	e0c080e7          	jalr	-500(ra) # 112ec <_ZN9allow_pin12dynamic_type11allow_inner17h0123a3b9d8c67b48E>
+   114e4:	e0c080e7          	jalr	-500(ra) # 112ec <_ZN9allow_pin12dynamic_type11allow_inner17he6743ed698332499E>
    114e8:	8905                	andi	a0,a0,1
-   114ea:	e511                	bnez	a0,114f6 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hcb5376a51e920b20E+0x32>
+   114ea:	e511                	bnez	a0,114f6 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hce7f73a0b06e9962E+0x32>
    114ec:	4401                	li	s0,0
    114ee:	01248023          	sb	s2,0(s1)
-   114f2:	a011                	j	114f6 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hcb5376a51e920b20E+0x32>
+   114f2:	a011                	j	114f6 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hce7f73a0b06e9962E+0x32>
    114f4:	458d                	li	a1,3
    114f6:	00008317          	auipc	t1,0x8
    114fa:	11a30067          	jr	282(t1) # 19610 <OUTLINED_FUNCTION_22>
 
-000114fe <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17he52992a718527229E>:
+000114fe <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17he56d9f8ebf58384cE>:
    114fe:	00008297          	auipc	t0,0x8
    11502:	0fa282e7          	jalr	t0,250(t0) # 195f8 <OUTLINED_FUNCTION_21>
-   11506:	02b51463          	bne	a0,a1,1152e <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17he52992a718527229E+0x30>
+   11506:	02b51463          	bne	a0,a1,1152e <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17he56d9f8ebf58384cE+0x30>
    1150a:	8932                	mv	s2,a2
    1150c:	00148613          	addi	a2,s1,1
    11510:	6505                	lui	a0,0x1
-   11512:	0e250513          	addi	a0,a0,226 # 10e2 <.Lline_table_start1+0xeb7>
-   11516:	458d                	li	a1,3
+   11512:	a9d50513          	addi	a0,a0,-1379 # a9d <.Lline_table_start1+0x872>
+   11516:	45a5                	li	a1,9
    11518:	874a                	mv	a4,s2
    1151a:	00000097          	auipc	ra,0x0
-   1151e:	dd2080e7          	jalr	-558(ra) # 112ec <_ZN9allow_pin12dynamic_type11allow_inner17h0123a3b9d8c67b48E>
+   1151e:	dd2080e7          	jalr	-558(ra) # 112ec <_ZN9allow_pin12dynamic_type11allow_inner17he6743ed698332499E>
    11522:	8905                	andi	a0,a0,1
-   11524:	e511                	bnez	a0,11530 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17he52992a718527229E+0x32>
+   11524:	e511                	bnez	a0,11530 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17he56d9f8ebf58384cE+0x32>
    11526:	4401                	li	s0,0
    11528:	01248023          	sb	s2,0(s1)
-   1152c:	a011                	j	11530 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17he52992a718527229E+0x32>
+   1152c:	a011                	j	11530 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17he56d9f8ebf58384cE+0x32>
    1152e:	458d                	li	a1,3
    11530:	00008317          	auipc	t1,0x8
    11534:	0e030067          	jr	224(t1) # 19610 <OUTLINED_FUNCTION_22>
 
-00011538 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h004c0eb1339abef1E>:
+00011538 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h0c4a6abd1d2d275dE>:
    11538:	87aa                	mv	a5,a0
    1153a:	00054703          	lbu	a4,0(a0)
    1153e:	4809                	li	a6,2
-   11540:	01070a63          	beq	a4,a6,11554 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h004c0eb1339abef1E+0x1c>
-   11544:	6505                	lui	a0,0x1
-   11546:	0e250513          	addi	a0,a0,226 # 10e2 <.Lline_table_start1+0xeb7>
-   1154a:	458d                	li	a1,3
-   1154c:	4601                	li	a2,0
-   1154e:	4681                	li	a3,0
-   11550:	00000073          	ecall
-   11554:	00008317          	auipc	t1,0x8
-   11558:	31830067          	jr	792(t1) # 1986c <OUTLINED_FUNCTION_48>
+   11540:	01070963          	beq	a4,a6,11552 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h0c4a6abd1d2d275dE+0x1a>
+   11544:	55e00513          	li	a0,1374
+   11548:	45a5                	li	a1,9
+   1154a:	4601                	li	a2,0
+   1154c:	4681                	li	a3,0
+   1154e:	00000073          	ecall
+   11552:	00008317          	auipc	t1,0x8
+   11556:	31a30067          	jr	794(t1) # 1986c <OUTLINED_FUNCTION_48>
 
-0001155c <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h184144af6537db74E>:
-   1155c:	87aa                	mv	a5,a0
-   1155e:	00054703          	lbu	a4,0(a0)
-   11562:	4809                	li	a6,2
-   11564:	01070a63          	beq	a4,a6,11578 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h184144af6537db74E+0x1c>
-   11568:	6505                	lui	a0,0x1
-   1156a:	6b050513          	addi	a0,a0,1712 # 16b0 <.Lline_table_start1+0x1485>
-   1156e:	4581                	li	a1,0
-   11570:	4601                	li	a2,0
-   11572:	4681                	li	a3,0
-   11574:	00000073          	ecall
-   11578:	00008317          	auipc	t1,0x8
-   1157c:	2f430067          	jr	756(t1) # 1986c <OUTLINED_FUNCTION_48>
+0001155a <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h10cbd5e0c19f0720E>:
+   1155a:	87aa                	mv	a5,a0
+   1155c:	00054703          	lbu	a4,0(a0)
+   11560:	4809                	li	a6,2
+   11562:	01070a63          	beq	a4,a6,11576 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h10cbd5e0c19f0720E+0x1c>
+   11566:	6509                	lui	a0,0x2
+   11568:	09550513          	addi	a0,a0,149 # 2095 <.Lline_table_start1+0x1e6a>
+   1156c:	45a1                	li	a1,8
+   1156e:	4601                	li	a2,0
+   11570:	4681                	li	a3,0
+   11572:	00000073          	ecall
+   11576:	00008317          	auipc	t1,0x8
+   1157a:	2f630067          	jr	758(t1) # 1986c <OUTLINED_FUNCTION_48>
 
-00011580 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h2a88d12a30fe1850E>:
-   11580:	87aa                	mv	a5,a0
-   11582:	00054703          	lbu	a4,0(a0)
-   11586:	4809                	li	a6,2
-   11588:	01070963          	beq	a4,a6,1159a <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h2a88d12a30fe1850E+0x1a>
-   1158c:	6509                	lui	a0,0x2
-   1158e:	0519                	addi	a0,a0,6 # 2006 <.Lline_table_start1+0x1ddb>
+0001157e <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h19fa26036b7badbbE>:
+   1157e:	87aa                	mv	a5,a0
+   11580:	00054703          	lbu	a4,0(a0)
+   11584:	4809                	li	a6,2
+   11586:	01070a63          	beq	a4,a6,1159a <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h19fa26036b7badbbE+0x1c>
+   1158a:	6505                	lui	a0,0x1
+   1158c:	a9d50513          	addi	a0,a0,-1379 # a9d <.Lline_table_start1+0x872>
    11590:	45a5                	li	a1,9
    11592:	4601                	li	a2,0
    11594:	4681                	li	a3,0
@@ -273,104 +272,105 @@ Disassembly of section .text:
    1159a:	00008317          	auipc	t1,0x8
    1159e:	2d230067          	jr	722(t1) # 1986c <OUTLINED_FUNCTION_48>
 
-000115a2 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h39523eacccb2eadcE>:
+000115a2 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h26dc0a28a99a5eb3E>:
    115a2:	87aa                	mv	a5,a0
    115a4:	00054703          	lbu	a4,0(a0)
    115a8:	4809                	li	a6,2
-   115aa:	01070a63          	beq	a4,a6,115be <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h39523eacccb2eadcE+0x1c>
-   115ae:	6505                	lui	a0,0x1
-   115b0:	a9d50513          	addi	a0,a0,-1379 # a9d <.Lline_table_start1+0x872>
-   115b4:	45a5                	li	a1,9
+   115aa:	01070a63          	beq	a4,a6,115be <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h26dc0a28a99a5eb3E+0x1c>
+   115ae:	6509                	lui	a0,0x2
+   115b0:	54850513          	addi	a0,a0,1352 # 2548 <.Lline_table_start1+0x231d>
+   115b4:	458d                	li	a1,3
    115b6:	4601                	li	a2,0
    115b8:	4681                	li	a3,0
    115ba:	00000073          	ecall
    115be:	00008317          	auipc	t1,0x8
    115c2:	2ae30067          	jr	686(t1) # 1986c <OUTLINED_FUNCTION_48>
 
-000115c6 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h5f7482dd87f86bceE>:
+000115c6 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h5e47778a173ef681E>:
    115c6:	87aa                	mv	a5,a0
    115c8:	00054703          	lbu	a4,0(a0)
    115cc:	4809                	li	a6,2
-   115ce:	01070a63          	beq	a4,a6,115e2 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h5f7482dd87f86bceE+0x1c>
-   115d2:	6505                	lui	a0,0x1
-   115d4:	c8950513          	addi	a0,a0,-887 # c89 <.Lline_table_start1+0xa5e>
-   115d8:	4589                	li	a1,2
+   115ce:	01070a63          	beq	a4,a6,115e2 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h5e47778a173ef681E+0x1c>
+   115d2:	6509                	lui	a0,0x2
+   115d4:	d1950513          	addi	a0,a0,-743 # 1d19 <.Lline_table_start1+0x1aee>
+   115d8:	458d                	li	a1,3
    115da:	4601                	li	a2,0
    115dc:	4681                	li	a3,0
    115de:	00000073          	ecall
    115e2:	00008317          	auipc	t1,0x8
    115e6:	28a30067          	jr	650(t1) # 1986c <OUTLINED_FUNCTION_48>
 
-000115ea <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h72282c4967f0efdfE>:
+000115ea <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h6a057eeb960328bdE>:
    115ea:	87aa                	mv	a5,a0
    115ec:	00054703          	lbu	a4,0(a0)
    115f0:	4809                	li	a6,2
-   115f2:	01070a63          	beq	a4,a6,11606 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h72282c4967f0efdfE+0x1c>
-   115f6:	6509                	lui	a0,0x2
-   115f8:	c6b50513          	addi	a0,a0,-917 # 1c6b <.Lline_table_start1+0x1a40>
-   115fc:	4599                	li	a1,6
+   115f2:	01070a63          	beq	a4,a6,11606 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h6a057eeb960328bdE+0x1c>
+   115f6:	6505                	lui	a0,0x1
+   115f8:	c8950513          	addi	a0,a0,-887 # c89 <.Lline_table_start1+0xa5e>
+   115fc:	4589                	li	a1,2
    115fe:	4601                	li	a2,0
    11600:	4681                	li	a3,0
    11602:	00000073          	ecall
    11606:	00008317          	auipc	t1,0x8
    1160a:	26630067          	jr	614(t1) # 1986c <OUTLINED_FUNCTION_48>
 
-0001160e <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h73d48311e15db622E>:
+0001160e <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h8a5cfb6bfc11e057E>:
    1160e:	87aa                	mv	a5,a0
    11610:	00054703          	lbu	a4,0(a0)
    11614:	4809                	li	a6,2
-   11616:	01070a63          	beq	a4,a6,1162a <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h73d48311e15db622E+0x1c>
+   11616:	01070a63          	beq	a4,a6,1162a <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h8a5cfb6bfc11e057E+0x1c>
    1161a:	6509                	lui	a0,0x2
-   1161c:	09550513          	addi	a0,a0,149 # 2095 <.Lline_table_start1+0x1e6a>
-   11620:	45a1                	li	a1,8
+   1161c:	c6b50513          	addi	a0,a0,-917 # 1c6b <.Lline_table_start1+0x1a40>
+   11620:	4599                	li	a1,6
    11622:	4601                	li	a2,0
    11624:	4681                	li	a3,0
    11626:	00000073          	ecall
    1162a:	00008317          	auipc	t1,0x8
    1162e:	24230067          	jr	578(t1) # 1986c <OUTLINED_FUNCTION_48>
 
-00011632 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17hd74e3cd4c632fd0dE>:
+00011632 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17hbcbcb76d084b4defE>:
    11632:	87aa                	mv	a5,a0
    11634:	00054703          	lbu	a4,0(a0)
    11638:	4809                	li	a6,2
-   1163a:	01070963          	beq	a4,a6,1164c <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17hd74e3cd4c632fd0dE+0x1a>
-   1163e:	55e00513          	li	a0,1374
-   11642:	45a5                	li	a1,9
-   11644:	4601                	li	a2,0
-   11646:	4681                	li	a3,0
-   11648:	00000073          	ecall
-   1164c:	00008317          	auipc	t1,0x8
-   11650:	22030067          	jr	544(t1) # 1986c <OUTLINED_FUNCTION_48>
+   1163a:	01070a63          	beq	a4,a6,1164e <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17hbcbcb76d084b4defE+0x1c>
+   1163e:	6505                	lui	a0,0x1
+   11640:	6b050513          	addi	a0,a0,1712 # 16b0 <.Lline_table_start1+0x1485>
+   11644:	4581                	li	a1,0
+   11646:	4601                	li	a2,0
+   11648:	4681                	li	a3,0
+   1164a:	00000073          	ecall
+   1164e:	00008317          	auipc	t1,0x8
+   11652:	21e30067          	jr	542(t1) # 1986c <OUTLINED_FUNCTION_48>
 
-00011654 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17hd9110e20ea887c65E>:
-   11654:	87aa                	mv	a5,a0
-   11656:	00054703          	lbu	a4,0(a0)
-   1165a:	4809                	li	a6,2
-   1165c:	01070a63          	beq	a4,a6,11670 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17hd9110e20ea887c65E+0x1c>
-   11660:	6509                	lui	a0,0x2
-   11662:	d1950513          	addi	a0,a0,-743 # 1d19 <.Lline_table_start1+0x1aee>
-   11666:	458d                	li	a1,3
-   11668:	4601                	li	a2,0
-   1166a:	4681                	li	a3,0
-   1166c:	00000073          	ecall
-   11670:	00008317          	auipc	t1,0x8
-   11674:	1fc30067          	jr	508(t1) # 1986c <OUTLINED_FUNCTION_48>
+00011656 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17hbe34119deca3a188E>:
+   11656:	87aa                	mv	a5,a0
+   11658:	00054703          	lbu	a4,0(a0)
+   1165c:	4809                	li	a6,2
+   1165e:	01070a63          	beq	a4,a6,11672 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17hbe34119deca3a188E+0x1c>
+   11662:	6505                	lui	a0,0x1
+   11664:	0e250513          	addi	a0,a0,226 # 10e2 <.Lline_table_start1+0xeb7>
+   11668:	458d                	li	a1,3
+   1166a:	4601                	li	a2,0
+   1166c:	4681                	li	a3,0
+   1166e:	00000073          	ecall
+   11672:	00008317          	auipc	t1,0x8
+   11676:	1fa30067          	jr	506(t1) # 1986c <OUTLINED_FUNCTION_48>
 
-00011678 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17hdb5e7205b953f800E>:
-   11678:	87aa                	mv	a5,a0
-   1167a:	00054703          	lbu	a4,0(a0)
-   1167e:	4809                	li	a6,2
-   11680:	01070a63          	beq	a4,a6,11694 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17hdb5e7205b953f800E+0x1c>
-   11684:	6509                	lui	a0,0x2
-   11686:	54850513          	addi	a0,a0,1352 # 2548 <.Lline_table_start1+0x231d>
-   1168a:	458d                	li	a1,3
+0001167a <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17hc3a372182efdcb5aE>:
+   1167a:	87aa                	mv	a5,a0
+   1167c:	00054703          	lbu	a4,0(a0)
+   11680:	4809                	li	a6,2
+   11682:	01070963          	beq	a4,a6,11694 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17hc3a372182efdcb5aE+0x1a>
+   11686:	6509                	lui	a0,0x2
+   11688:	0519                	addi	a0,a0,6 # 2006 <.Lline_table_start1+0x1ddb>
+   1168a:	45a5                	li	a1,9
    1168c:	4601                	li	a2,0
    1168e:	4681                	li	a3,0
    11690:	00000073          	ecall
    11694:	00008317          	auipc	t1,0x8
    11698:	1d830067          	jr	472(t1) # 1986c <OUTLINED_FUNCTION_48>
 
-0001169c <_ZN9allow_pin7command17h1eb46760111c3605E>:
+0001169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>:
    1169c:	4709                	li	a4,2
    1169e:	4681                	li	a3,0
    116a0:	00000073          	ecall
@@ -406,14 +406,14 @@ Disassembly of section .text:
    11702:	02800593          	li	a1,40
    11706:	4611                	li	a2,4
    11708:	00000097          	auipc	ra,0x0
-   1170c:	d84080e7          	jalr	-636(ra) # 1148c <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hbcd4b227da7fe99fE>
+   1170c:	d10080e7          	jalr	-752(ra) # 11418 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hbb366d0d5038cc4bE>
    11710:	8905                	andi	a0,a0,1
    11712:	e51d                	bnez	a0,11740 <_start+0x96>
    11714:	56c10513          	addi	a0,sp,1388
    11718:	05100593          	li	a1,81
    1171c:	460d                	li	a2,3
    1171e:	00000097          	auipc	ra,0x0
-   11722:	d6e080e7          	jalr	-658(ra) # 1148c <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hbcd4b227da7fe99fE>
+   11722:	cfa080e7          	jalr	-774(ra) # 11418 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hbb366d0d5038cc4bE>
    11726:	8905                	andi	a0,a0,1
    11728:	ed01                	bnez	a0,11740 <_start+0x96>
    1172a:	6509                	lui	a0,0x2
@@ -421,7 +421,7 @@ Disassembly of section .text:
    1172e:	0519                	addi	a0,a0,6 # 2006 <.Lline_table_start1+0x1ddb>
    11730:	4625                	li	a2,9
    11732:	00000097          	auipc	ra,0x0
-   11736:	f6a080e7          	jalr	-150(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   11736:	f6a080e7          	jalr	-150(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    1173a:	8905                	andi	a0,a0,1
    1173c:	360503e3          	beqz	a0,122a2 <_start+0xbf8>
    11740:	8b2e                	mv	s6,a1
@@ -489,7 +489,7 @@ Disassembly of section .text:
    117fe:	459d                	li	a1,7
    11800:	4601                	li	a2,0
    11802:	00000097          	auipc	ra,0x0
-   11806:	e9a080e7          	jalr	-358(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   11806:	e9a080e7          	jalr	-358(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    1180a:	8905                	andi	a0,a0,1
    1180c:	2e0506e3          	beqz	a0,122f8 <_start+0xc4e>
    11810:	8b2e                	mv	s6,a1
@@ -555,7 +555,7 @@ Disassembly of section .text:
    118ca:	4609                	li	a2,2
    118cc:	4409                	li	s0,2
    118ce:	00000097          	auipc	ra,0x0
-   118d2:	dce080e7          	jalr	-562(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   118d2:	dce080e7          	jalr	-562(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    118d6:	8905                	andi	a0,a0,1
    118d8:	240505e3          	beqz	a0,12322 <_start+0xc78>
    118dc:	8b2e                	mv	s6,a1
@@ -619,7 +619,7 @@ Disassembly of section .text:
    11990:	461d                	li	a2,7
    11992:	4581                	li	a1,0
    11994:	00000097          	auipc	ra,0x0
-   11998:	d08080e7          	jalr	-760(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   11998:	d08080e7          	jalr	-760(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    1199c:	8905                	andi	a0,a0,1
    1199e:	1c050fe3          	beqz	a0,1237c <_start+0xcd2>
    119a2:	8b2e                	mv	s6,a1
@@ -682,7 +682,7 @@ Disassembly of section .text:
    11a5c:	459d                	li	a1,7
    11a5e:	4601                	li	a2,0
    11a60:	00000097          	auipc	ra,0x0
-   11a64:	c3c080e7          	jalr	-964(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   11a64:	c3c080e7          	jalr	-964(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    11a68:	8905                	andi	a0,a0,1
    11a6a:	160506e3          	beqz	a0,123d6 <_start+0xd2c>
    11a6e:	8b2e                	mv	s6,a1
@@ -747,7 +747,7 @@ Disassembly of section .text:
    11b22:	4621                	li	a2,8
    11b24:	4409                	li	s0,2
    11b26:	00000097          	auipc	ra,0x0
-   11b2a:	b76080e7          	jalr	-1162(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   11b2a:	b76080e7          	jalr	-1162(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    11b2e:	8905                	andi	a0,a0,1
    11b30:	0e050fe3          	beqz	a0,1242e <_start+0xd84>
    11b34:	8b2e                	mv	s6,a1
@@ -816,7 +816,7 @@ Disassembly of section .text:
    11bfe:	2d150513          	addi	a0,a0,721 # 12d1 <.Lline_table_start1+0x10a6>
    11c02:	4621                	li	a2,8
    11c04:	00000097          	auipc	ra,0x0
-   11c08:	a98080e7          	jalr	-1384(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   11c08:	a98080e7          	jalr	-1384(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    11c0c:	8905                	andi	a0,a0,1
    11c0e:	06050ce3          	beqz	a0,12486 <_start+0xddc>
    11c12:	8b2e                	mv	s6,a1
@@ -883,7 +883,7 @@ Disassembly of section .text:
    11cd0:	11d50513          	addi	a0,a0,285 # 111d <.Lline_table_start1+0xef2>
    11cd4:	4625                	li	a2,9
    11cd6:	00000097          	auipc	ra,0x0
-   11cda:	9c6080e7          	jalr	-1594(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   11cda:	9c6080e7          	jalr	-1594(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    11cde:	8905                	andi	a0,a0,1
    11ce0:	04050ee3          	beqz	a0,1253c <_start+0xe92>
    11ce4:	8b2e                	mv	s6,a1
@@ -959,7 +959,7 @@ Disassembly of section .text:
    11dce:	45a1                	li	a1,8
    11dd0:	4601                	li	a2,0
    11dd2:	00000097          	auipc	ra,0x0
-   11dd6:	8ca080e7          	jalr	-1846(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   11dd6:	8ca080e7          	jalr	-1846(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    11dda:	8905                	andi	a0,a0,1
    11ddc:	7a050e63          	beqz	a0,12598 <_start+0xeee>
    11de0:	8b2e                	mv	s6,a1
@@ -1030,7 +1030,7 @@ Disassembly of section .text:
    11eaa:	460d                	li	a2,3
    11eac:	4581                	li	a1,0
    11eae:	fffff097          	auipc	ra,0xfffff
-   11eb2:	7ee080e7          	jalr	2030(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   11eb2:	7ee080e7          	jalr	2030(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    11eb6:	8905                	andi	a0,a0,1
    11eb8:	7a050063          	beqz	a0,12658 <_start+0xfae>
    11ebc:	8b2e                	mv	s6,a1
@@ -1097,7 +1097,7 @@ Disassembly of section .text:
    11f7e:	4591                	li	a1,4
    11f80:	4601                	li	a2,0
    11f82:	fffff097          	auipc	ra,0xfffff
-   11f86:	71a080e7          	jalr	1818(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   11f86:	71a080e7          	jalr	1818(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    11f8a:	8905                	andi	a0,a0,1
    11f8c:	72050363          	beqz	a0,126b2 <_start+0x1008>
    11f90:	8b2e                	mv	s6,a1
@@ -1168,7 +1168,7 @@ Disassembly of section .text:
    1205c:	459d                	li	a1,7
    1205e:	4601                	li	a2,0
    12060:	fffff097          	auipc	ra,0xfffff
-   12064:	63c080e7          	jalr	1596(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   12064:	63c080e7          	jalr	1596(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    12068:	8905                	andi	a0,a0,1
    1206a:	6a050263          	beqz	a0,1270e <_start+0x1064>
    1206e:	8b2e                	mv	s6,a1
@@ -1219,14 +1219,14 @@ Disassembly of section .text:
    120fe:	02700593          	li	a1,39
    12102:	4611                	li	a2,4
    12104:	fffff097          	auipc	ra,0xfffff
-   12108:	3fa080e7          	jalr	1018(ra) # 114fe <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17he52992a718527229E>
+   12108:	22c080e7          	jalr	556(ra) # 11330 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h2a2b32723c36d520E>
    1210c:	8905                	andi	a0,a0,1
    1210e:	e51d                	bnez	a0,1213c <_start+0xa92>
    12110:	46410513          	addi	a0,sp,1124
    12114:	45f9                	li	a1,30
    12116:	460d                	li	a2,3
    12118:	fffff097          	auipc	ra,0xfffff
-   1211c:	3e6080e7          	jalr	998(ra) # 114fe <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17he52992a718527229E>
+   1211c:	218080e7          	jalr	536(ra) # 11330 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h2a2b32723c36d520E>
    12120:	8905                	andi	a0,a0,1
    12122:	ed09                	bnez	a0,1213c <_start+0xa92>
    12124:	6505                	lui	a0,0x1
@@ -1234,7 +1234,7 @@ Disassembly of section .text:
    12128:	0e250513          	addi	a0,a0,226 # 10e2 <.Lline_table_start1+0xeb7>
    1212c:	460d                	li	a2,3
    1212e:	fffff097          	auipc	ra,0xfffff
-   12132:	56e080e7          	jalr	1390(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   12132:	56e080e7          	jalr	1390(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    12136:	8905                	andi	a0,a0,1
    12138:	62050863          	beqz	a0,12768 <_start+0x10be>
    1213c:	8b2e                	mv	s6,a1
@@ -1299,7 +1299,7 @@ Disassembly of section .text:
    121f2:	459d                	li	a1,7
    121f4:	4601                	li	a2,0
    121f6:	fffff097          	auipc	ra,0xfffff
-   121fa:	4a6080e7          	jalr	1190(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   121fa:	4a6080e7          	jalr	1190(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    121fe:	8905                	andi	a0,a0,1
    12200:	68050063          	beqz	a0,12880 <_start+0x11d6>
    12204:	8b2e                	mv	s6,a1
@@ -1352,13 +1352,13 @@ Disassembly of section .text:
    1229e:	4785                	li	a5,1
    122a0:	a561                	j	12928 <_start+0x127e>
    122a2:	00010937          	lui	s2,0x10
-   122a6:	13790913          	addi	s2,s2,311 # 10137 <.Lanon.49c9f8067fe4468184af16d7576940c9.1>
+   122a6:	16690913          	addi	s2,s2,358 # 10166 <.Lanon.49c9f8067fe4468184af16d7576940c9.3>
    122aa:	51c10513          	addi	a0,sp,1308
    122ae:	fffff097          	auipc	ra,0xfffff
-   122b2:	2d2080e7          	jalr	722(ra) # 11580 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h2a88d12a30fe1850E>
+   122b2:	3cc080e7          	jalr	972(ra) # 1167a <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17hc3a372182efdcb5aE>
    122b6:	56c10513          	addi	a0,sp,1388
    122ba:	fffff097          	auipc	ra,0xfffff
-   122be:	2c6080e7          	jalr	710(ra) # 11580 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h2a88d12a30fe1850E>
+   122be:	3c0080e7          	jalr	960(ra) # 1167a <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17hc3a372182efdcb5aE>
    122c2:	56c14483          	lbu	s1,1388(sp)
    122c6:	ffe48593          	addi	a1,s1,-2
    122ca:	4809                	li	a6,2
@@ -1734,14 +1734,14 @@ Disassembly of section .text:
    12766:	b03d                	j	11f94 <_start+0x8ea>
    12768:	56c10513          	addi	a0,sp,1388
    1276c:	fffff097          	auipc	ra,0xfffff
-   12770:	dcc080e7          	jalr	-564(ra) # 11538 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h004c0eb1339abef1E>
+   12770:	eea080e7          	jalr	-278(ra) # 11656 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17hbe34119deca3a188E>
    12774:	46410513          	addi	a0,sp,1124
    12778:	fffff097          	auipc	ra,0xfffff
-   1277c:	dc0080e7          	jalr	-576(ra) # 11538 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h004c0eb1339abef1E>
+   1277c:	ede080e7          	jalr	-290(ra) # 11656 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17hbe34119deca3a188E>
    12780:	00007297          	auipc	t0,0x7
    12784:	140282e7          	jalr	t0,320(t0) # 198c0 <OUTLINED_FUNCTION_55>
    12788:	00010837          	lui	a6,0x10
-   1278c:	1cb80813          	addi	a6,a6,459 # 101cb <.Lanon.49c9f8067fe4468184af16d7576940c9.4>
+   1278c:	0d480813          	addi	a6,a6,212 # 100d4 <.Lanon.49c9f8067fe4468184af16d7576940c9.0>
    12790:	01148363          	beq	s1,a7,12796 <_start+0x10ec>
    12794:	8a42                	mv	s4,a6
    12796:	001a4683          	lbu	a3,1(s4)
@@ -1777,7 +1777,7 @@ Disassembly of section .text:
    127fa:	458d                	li	a1,3
    127fc:	4601                	li	a2,0
    127fe:	fffff097          	auipc	ra,0xfffff
-   12802:	e9e080e7          	jalr	-354(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   12802:	e9e080e7          	jalr	-354(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    12806:	8905                	andi	a0,a0,1
    12808:	c159                	beqz	a0,1288e <_start+0x11e4>
    1280a:	4785                	li	a5,1
@@ -1930,7 +1930,7 @@ Disassembly of section .text:
    129d2:	a7050513          	addi	a0,a0,-1424 # a70 <.Lline_table_start1+0x845>
    129d6:	4621                	li	a2,8
    129d8:	fffff097          	auipc	ra,0xfffff
-   129dc:	cc4080e7          	jalr	-828(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   129dc:	cc4080e7          	jalr	-828(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    129e0:	8905                	andi	a0,a0,1
    129e2:	000502e3          	beqz	a0,131e6 <_start+0x1b3c>
    129e6:	4785                	li	a5,1
@@ -1994,7 +1994,7 @@ Disassembly of section .text:
    12a9a:	45a1                	li	a1,8
    12a9c:	4611                	li	a2,4
    12a9e:	fffff097          	auipc	ra,0xfffff
-   12aa2:	bfe080e7          	jalr	-1026(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   12aa2:	bfe080e7          	jalr	-1026(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    12aa6:	8905                	andi	a0,a0,1
    12aa8:	74050663          	beqz	a0,131f4 <_start+0x1b4a>
    12aac:	4785                	li	a5,1
@@ -2058,7 +2058,7 @@ Disassembly of section .text:
    12b68:	4609                	li	a2,2
    12b6a:	4409                	li	s0,2
    12b6c:	fffff097          	auipc	ra,0xfffff
-   12b70:	b30080e7          	jalr	-1232(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   12b70:	b30080e7          	jalr	-1232(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    12b74:	8905                	andi	a0,a0,1
    12b76:	6c050c63          	beqz	a0,1324e <_start+0x1ba4>
    12b7a:	4785                	li	a5,1
@@ -2127,7 +2127,7 @@ Disassembly of section .text:
    12c44:	4621                	li	a2,8
    12c46:	4409                	li	s0,2
    12c48:	fffff097          	auipc	ra,0xfffff
-   12c4c:	a54080e7          	jalr	-1452(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   12c4c:	a54080e7          	jalr	-1452(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    12c50:	8905                	andi	a0,a0,1
    12c52:	64050863          	beqz	a0,132a2 <_start+0x1bf8>
    12c56:	4785                	li	a5,1
@@ -2174,15 +2174,15 @@ Disassembly of section .text:
    12cdc:	51c10513          	addi	a0,sp,1308
    12ce0:	02e00593          	li	a1,46
    12ce4:	4611                	li	a2,4
-   12ce6:	ffffe097          	auipc	ra,0xffffe
-   12cea:	64a080e7          	jalr	1610(ra) # 11330 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h257e0e199a080bcdE>
+   12ce6:	fffff097          	auipc	ra,0xfffff
+   12cea:	818080e7          	jalr	-2024(ra) # 114fe <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17he56d9f8ebf58384cE>
    12cee:	8905                	andi	a0,a0,1
    12cf0:	e905                	bnez	a0,12d20 <_start+0x1676>
    12cf2:	56c10513          	addi	a0,sp,1388
    12cf6:	03800593          	li	a1,56
    12cfa:	460d                	li	a2,3
-   12cfc:	ffffe097          	auipc	ra,0xffffe
-   12d00:	634080e7          	jalr	1588(ra) # 11330 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h257e0e199a080bcdE>
+   12cfc:	fffff097          	auipc	ra,0xfffff
+   12d00:	802080e7          	jalr	-2046(ra) # 114fe <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17he56d9f8ebf58384cE>
    12d04:	8905                	andi	a0,a0,1
    12d06:	ed09                	bnez	a0,12d20 <_start+0x1676>
    12d08:	6505                	lui	a0,0x1
@@ -2190,7 +2190,7 @@ Disassembly of section .text:
    12d0c:	a9d50513          	addi	a0,a0,-1379 # a9d <.Lline_table_start1+0x872>
    12d10:	4625                	li	a2,9
    12d12:	fffff097          	auipc	ra,0xfffff
-   12d16:	98a080e7          	jalr	-1654(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   12d16:	98a080e7          	jalr	-1654(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    12d1a:	8905                	andi	a0,a0,1
    12d1c:	5c050f63          	beqz	a0,132fa <_start+0x1c50>
    12d20:	8b2e                	mv	s6,a1
@@ -2255,7 +2255,7 @@ Disassembly of section .text:
    12dde:	45a1                	li	a1,8
    12de0:	460d                	li	a2,3
    12de2:	fffff097          	auipc	ra,0xfffff
-   12de6:	8ba080e7          	jalr	-1862(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   12de6:	8ba080e7          	jalr	-1862(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    12dea:	8905                	andi	a0,a0,1
    12dec:	5c050063          	beqz	a0,133ac <_start+0x1d02>
    12df0:	4785                	li	a5,1
@@ -2318,7 +2318,7 @@ Disassembly of section .text:
    12ea4:	4615                	li	a2,5
    12ea6:	4581                	li	a1,0
    12ea8:	ffffe097          	auipc	ra,0xffffe
-   12eac:	7f4080e7          	jalr	2036(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   12eac:	7f4080e7          	jalr	2036(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    12eb0:	8905                	andi	a0,a0,1
    12eb2:	50050463          	beqz	a0,133ba <_start+0x1d10>
    12eb6:	4785                	li	a5,1
@@ -2383,7 +2383,7 @@ Disassembly of section .text:
    12f6a:	aee50513          	addi	a0,a0,-1298 # aee <.Lline_table_start1+0x8c3>
    12f6e:	4611                	li	a2,4
    12f70:	ffffe097          	auipc	ra,0xffffe
-   12f74:	72c080e7          	jalr	1836(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   12f74:	72c080e7          	jalr	1836(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    12f78:	8905                	andi	a0,a0,1
    12f7a:	48050b63          	beqz	a0,13410 <_start+0x1d66>
    12f7e:	4785                	li	a5,1
@@ -2446,7 +2446,7 @@ Disassembly of section .text:
    13038:	d7a50513          	addi	a0,a0,-646 # d7a <.Lline_table_start1+0xb4f>
    1303c:	4625                	li	a2,9
    1303e:	ffffe097          	auipc	ra,0xffffe
-   13042:	65e080e7          	jalr	1630(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   13042:	65e080e7          	jalr	1630(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    13046:	8905                	andi	a0,a0,1
    13048:	42050063          	beqz	a0,13468 <_start+0x1dbe>
    1304c:	4785                	li	a5,1
@@ -2511,7 +2511,7 @@ Disassembly of section .text:
    13106:	b1e50513          	addi	a0,a0,-1250 # 1b1e <.Lline_table_start1+0x18f3>
    1310a:	4621                	li	a2,8
    1310c:	ffffe097          	auipc	ra,0xffffe
-   13110:	590080e7          	jalr	1424(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   13110:	590080e7          	jalr	1424(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    13114:	8905                	andi	a0,a0,1
    13116:	56050f63          	beqz	a0,13694 <_start+0x1fea>
    1311a:	4785                	li	a5,1
@@ -2667,13 +2667,13 @@ Disassembly of section .text:
    132f6:	4781                	li	a5,0
    132f8:	b059                	j	12b7e <_start+0x14d4>
    132fa:	00010ab7          	lui	s5,0x10
-   132fe:	232a8a93          	addi	s5,s5,562 # 10232 <.Lanon.49c9f8067fe4468184af16d7576940c9.6>
+   132fe:	1d8a8a93          	addi	s5,s5,472 # 101d8 <.Lanon.49c9f8067fe4468184af16d7576940c9.5>
    13302:	51c10513          	addi	a0,sp,1308
    13306:	ffffe097          	auipc	ra,0xffffe
-   1330a:	29c080e7          	jalr	668(ra) # 115a2 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h39523eacccb2eadcE>
+   1330a:	278080e7          	jalr	632(ra) # 1157e <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h19fa26036b7badbbE>
    1330e:	56c10513          	addi	a0,sp,1388
    13312:	ffffe097          	auipc	ra,0xffffe
-   13316:	290080e7          	jalr	656(ra) # 115a2 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h39523eacccb2eadcE>
+   13316:	26c080e7          	jalr	620(ra) # 1157e <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h19fa26036b7badbbE>
    1331a:	56c14483          	lbu	s1,1388(sp)
    1331e:	ffe48593          	addi	a1,s1,-2
    13322:	4809                	li	a6,2
@@ -2801,7 +2801,7 @@ Disassembly of section .text:
    1349e:	4605                	li	a2,1
    134a0:	4405                	li	s0,1
    134a2:	ffffe097          	auipc	ra,0xffffe
-   134a6:	1fa080e7          	jalr	506(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   134a6:	1fa080e7          	jalr	506(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    134aa:	8905                	andi	a0,a0,1
    134ac:	24050163          	beqz	a0,136ee <_start+0x2044>
    134b0:	8b2e                	mv	s6,a1
@@ -2867,7 +2867,7 @@ Disassembly of section .text:
    13566:	9d650513          	addi	a0,a0,-1578 # 19d6 <.Lline_table_start1+0x17ab>
    1356a:	4625                	li	a2,9
    1356c:	ffffe097          	auipc	ra,0xffffe
-   13570:	130080e7          	jalr	304(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   13570:	130080e7          	jalr	304(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    13574:	8905                	andi	a0,a0,1
    13576:	1c050963          	beqz	a0,13748 <_start+0x209e>
    1357a:	4785                	li	a5,1
@@ -3031,7 +3031,7 @@ Disassembly of section .text:
    13762:	461d                	li	a2,7
    13764:	4405                	li	s0,1
    13766:	ffffe097          	auipc	ra,0xffffe
-   1376a:	f36080e7          	jalr	-202(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   1376a:	f36080e7          	jalr	-202(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    1376e:	8905                	andi	a0,a0,1
    13770:	62050c63          	beqz	a0,13da8 <_start+0x26fe>
    13774:	8b2e                	mv	s6,a1
@@ -3096,7 +3096,7 @@ Disassembly of section .text:
    13830:	4595                	li	a1,5
    13832:	460d                	li	a2,3
    13834:	ffffe097          	auipc	ra,0xffffe
-   13838:	e68080e7          	jalr	-408(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   13838:	e68080e7          	jalr	-408(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    1383c:	8905                	andi	a0,a0,1
    1383e:	56050c63          	beqz	a0,13db6 <_start+0x270c>
    13842:	4805                	li	a6,1
@@ -3173,7 +3173,7 @@ Disassembly of section .text:
    13928:	458d                	li	a1,3
    1392a:	4601                	li	a2,0
    1392c:	ffffe097          	auipc	ra,0xffffe
-   13930:	d70080e7          	jalr	-656(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   13930:	d70080e7          	jalr	-656(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    13934:	8905                	andi	a0,a0,1
    13936:	4c050d63          	beqz	a0,13e10 <_start+0x2766>
    1393a:	4785                	li	a5,1
@@ -3253,7 +3253,7 @@ Disassembly of section .text:
    13a20:	45a5                	li	a1,9
    13a22:	461d                	li	a2,7
    13a24:	ffffe097          	auipc	ra,0xffffe
-   13a28:	c78080e7          	jalr	-904(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   13a28:	c78080e7          	jalr	-904(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    13a2c:	8905                	andi	a0,a0,1
    13a2e:	48050e63          	beqz	a0,13eca <_start+0x2820>
    13a32:	4785                	li	a5,1
@@ -3299,14 +3299,14 @@ Disassembly of section .text:
    13aba:	05500593          	li	a1,85
    13abe:	4611                	li	a2,4
    13ac0:	ffffe097          	auipc	ra,0xffffe
-   13ac4:	8e4080e7          	jalr	-1820(ra) # 113a4 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h4031926fc054d9f8E>
+   13ac4:	9ca080e7          	jalr	-1590(ra) # 1148a <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hc9380a211bfec8beE>
    13ac8:	8905                	andi	a0,a0,1
    13aca:	e905                	bnez	a0,13afa <_start+0x2450>
    13acc:	46410513          	addi	a0,sp,1124
    13ad0:	03200593          	li	a1,50
    13ad4:	460d                	li	a2,3
    13ad6:	ffffe097          	auipc	ra,0xffffe
-   13ada:	8ce080e7          	jalr	-1842(ra) # 113a4 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h4031926fc054d9f8E>
+   13ada:	9b4080e7          	jalr	-1612(ra) # 1148a <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hc9380a211bfec8beE>
    13ade:	8905                	andi	a0,a0,1
    13ae0:	ed09                	bnez	a0,13afa <_start+0x2450>
    13ae2:	6509                	lui	a0,0x2
@@ -3314,7 +3314,7 @@ Disassembly of section .text:
    13ae6:	09550513          	addi	a0,a0,149 # 2095 <.Lline_table_start1+0x1e6a>
    13aea:	4621                	li	a2,8
    13aec:	ffffe097          	auipc	ra,0xffffe
-   13af0:	bb0080e7          	jalr	-1104(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   13af0:	bb0080e7          	jalr	-1104(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    13af4:	8905                	andi	a0,a0,1
    13af6:	4a050b63          	beqz	a0,13fac <_start+0x2902>
    13afa:	8b2e                	mv	s6,a1
@@ -3380,7 +3380,7 @@ Disassembly of section .text:
    13bb6:	91d50513          	addi	a0,a0,-1763 # 91d <.Lline_table_start1+0x6f2>
    13bba:	4615                	li	a2,5
    13bbc:	ffffe097          	auipc	ra,0xffffe
-   13bc0:	ae0080e7          	jalr	-1312(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   13bc0:	ae0080e7          	jalr	-1312(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    13bc4:	8905                	andi	a0,a0,1
    13bc6:	48050f63          	beqz	a0,14064 <_start+0x29ba>
    13bca:	4785                	li	a5,1
@@ -3704,14 +3704,14 @@ Disassembly of section .text:
    13faa:	ba51                	j	1393e <_start+0x2294>
    13fac:	56c10513          	addi	a0,sp,1388
    13fb0:	ffffd097          	auipc	ra,0xffffd
-   13fb4:	65e080e7          	jalr	1630(ra) # 1160e <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h73d48311e15db622E>
+   13fb4:	5aa080e7          	jalr	1450(ra) # 1155a <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h10cbd5e0c19f0720E>
    13fb8:	46410513          	addi	a0,sp,1124
    13fbc:	ffffd097          	auipc	ra,0xffffd
-   13fc0:	652080e7          	jalr	1618(ra) # 1160e <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h73d48311e15db622E>
+   13fc0:	59e080e7          	jalr	1438(ra) # 1155a <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h10cbd5e0c19f0720E>
    13fc4:	00006297          	auipc	t0,0x6
    13fc8:	8fc282e7          	jalr	t0,-1796(t0) # 198c0 <OUTLINED_FUNCTION_55>
    13fcc:	00010837          	lui	a6,0x10
-   13fd0:	19980813          	addi	a6,a6,409 # 10199 <.Lanon.49c9f8067fe4468184af16d7576940c9.3>
+   13fd0:	21080813          	addi	a6,a6,528 # 10210 <.Lanon.49c9f8067fe4468184af16d7576940c9.6>
    13fd4:	01148363          	beq	s1,a7,13fda <_start+0x2930>
    13fd8:	8a42                	mv	s4,a6
    13fda:	001a4683          	lbu	a3,1(s4)
@@ -3767,7 +3767,7 @@ Disassembly of section .text:
    14080:	4405                	li	s0,1
    14082:	4601                	li	a2,0
    14084:	ffffd097          	auipc	ra,0xffffd
-   14088:	618080e7          	jalr	1560(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   14088:	618080e7          	jalr	1560(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    1408c:	8905                	andi	a0,a0,1
    1408e:	300503e3          	beqz	a0,14b94 <_start+0x34ea>
    14092:	8b2e                	mv	s6,a1
@@ -3816,21 +3816,21 @@ Disassembly of section .text:
    1411a:	02200593          	li	a1,34
    1411e:	4611                	li	a2,4
    14120:	ffffd097          	auipc	ra,0xffffd
-   14124:	1d8080e7          	jalr	472(ra) # 112f8 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h0edf0a9be50f20f3E>
+   14124:	1d8080e7          	jalr	472(ra) # 112f8 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h00d8da9a4b2f9d4fE>
    14128:	8905                	andi	a0,a0,1
    1412a:	e51d                	bnez	a0,14158 <_start+0x2aae>
    1412c:	56c10513          	addi	a0,sp,1388
    14130:	05100593          	li	a1,81
    14134:	460d                	li	a2,3
    14136:	ffffd097          	auipc	ra,0xffffd
-   1413a:	1c2080e7          	jalr	450(ra) # 112f8 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h0edf0a9be50f20f3E>
+   1413a:	1c2080e7          	jalr	450(ra) # 112f8 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h00d8da9a4b2f9d4fE>
    1413e:	8905                	andi	a0,a0,1
    14140:	ed01                	bnez	a0,14158 <_start+0x2aae>
    14142:	55e00513          	li	a0,1374
    14146:	45a5                	li	a1,9
    14148:	4625                	li	a2,9
    1414a:	ffffd097          	auipc	ra,0xffffd
-   1414e:	552080e7          	jalr	1362(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   1414e:	552080e7          	jalr	1362(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    14152:	8905                	andi	a0,a0,1
    14154:	240507e3          	beqz	a0,14ba2 <_start+0x34f8>
    14158:	8b2e                	mv	s6,a1
@@ -3892,7 +3892,7 @@ Disassembly of section .text:
    14210:	4611                	li	a2,4
    14212:	4409                	li	s0,2
    14214:	ffffd097          	auipc	ra,0xffffd
-   14218:	488080e7          	jalr	1160(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   14218:	488080e7          	jalr	1160(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    1421c:	8905                	andi	a0,a0,1
    1421e:	240507e3          	beqz	a0,14c6c <_start+0x35c2>
    14222:	4785                	li	a5,1
@@ -3957,7 +3957,7 @@ Disassembly of section .text:
    142de:	a0650513          	addi	a0,a0,-1530 # a06 <.Lline_table_start1+0x7db>
    142e2:	4615                	li	a2,5
    142e4:	ffffd097          	auipc	ra,0xffffd
-   142e8:	3b8080e7          	jalr	952(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   142e8:	3b8080e7          	jalr	952(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    142ec:	8905                	andi	a0,a0,1
    142ee:	180505e3          	beqz	a0,14c78 <_start+0x35ce>
    142f2:	4785                	li	a5,1
@@ -4022,7 +4022,7 @@ Disassembly of section .text:
    143ae:	bd350513          	addi	a0,a0,-1069 # bd3 <.Lline_table_start1+0x9a8>
    143b2:	460d                	li	a2,3
    143b4:	ffffd097          	auipc	ra,0xffffd
-   143b8:	2e8080e7          	jalr	744(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   143b8:	2e8080e7          	jalr	744(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    143bc:	8905                	andi	a0,a0,1
    143be:	10050be3          	beqz	a0,14cd4 <_start+0x362a>
    143c2:	4785                	li	a5,1
@@ -4091,7 +4091,7 @@ Disassembly of section .text:
    14484:	2c950513          	addi	a0,a0,713 # 22c9 <.Lline_table_start1+0x209e>
    14488:	4615                	li	a2,5
    1448a:	ffffd097          	auipc	ra,0xffffd
-   1448e:	212080e7          	jalr	530(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   1448e:	212080e7          	jalr	530(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    14492:	8905                	andi	a0,a0,1
    14494:	08050ee3          	beqz	a0,14d30 <_start+0x3686>
    14498:	4785                	li	a5,1
@@ -4163,7 +4163,7 @@ Disassembly of section .text:
    1455c:	39f50513          	addi	a0,a0,927 # 239f <.Lline_table_start1+0x2174>
    14560:	4611                	li	a2,4
    14562:	ffffd097          	auipc	ra,0xffffd
-   14566:	13a080e7          	jalr	314(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   14566:	13a080e7          	jalr	314(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    1456a:	8905                	andi	a0,a0,1
    1456c:	020500e3          	beqz	a0,14d8c <_start+0x36e2>
    14570:	4785                	li	a5,1
@@ -4231,7 +4231,7 @@ Disassembly of section .text:
    14634:	459d                	li	a1,7
    14636:	4621                	li	a2,8
    14638:	ffffd097          	auipc	ra,0xffffd
-   1463c:	064080e7          	jalr	100(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   1463c:	064080e7          	jalr	100(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    14640:	8905                	andi	a0,a0,1
    14642:	02050ce3          	beqz	a0,14e7a <_start+0x37d0>
    14646:	4785                	li	a5,1
@@ -4295,7 +4295,7 @@ Disassembly of section .text:
    146fa:	4409                	li	s0,2
    146fc:	4601                	li	a2,0
    146fe:	ffffd097          	auipc	ra,0xffffd
-   14702:	f9e080e7          	jalr	-98(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   14702:	f9e080e7          	jalr	-98(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    14706:	8905                	andi	a0,a0,1
    14708:	7c050763          	beqz	a0,14ed6 <_start+0x382c>
    1470c:	4785                	li	a5,1
@@ -4361,7 +4361,7 @@ Disassembly of section .text:
    147c8:	460d                	li	a2,3
    147ca:	4581                	li	a1,0
    147cc:	ffffd097          	auipc	ra,0xffffd
-   147d0:	ed0080e7          	jalr	-304(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   147d0:	ed0080e7          	jalr	-304(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    147d4:	8905                	andi	a0,a0,1
    147d6:	74050a63          	beqz	a0,14f2a <_start+0x3880>
    147da:	4805                	li	a6,1
@@ -4447,7 +4447,7 @@ Disassembly of section .text:
    148e2:	4609                	li	a2,2
    148e4:	4409                	li	s0,2
    148e6:	ffffd097          	auipc	ra,0xffffd
-   148ea:	db6080e7          	jalr	-586(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   148ea:	db6080e7          	jalr	-586(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    148ee:	8905                	andi	a0,a0,1
    148f0:	68050c63          	beqz	a0,14f88 <_start+0x38de>
    148f4:	4785                	li	a5,1
@@ -4514,7 +4514,7 @@ Disassembly of section .text:
    149b6:	e5050513          	addi	a0,a0,-432 # 1e50 <.Lline_table_start1+0x1c25>
    149ba:	460d                	li	a2,3
    149bc:	ffffd097          	auipc	ra,0xffffd
-   149c0:	ce0080e7          	jalr	-800(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   149c0:	ce0080e7          	jalr	-800(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    149c4:	8905                	andi	a0,a0,1
    149c6:	68050063          	beqz	a0,15046 <_start+0x399c>
    149ca:	4785                	li	a5,1
@@ -4562,14 +4562,14 @@ Disassembly of section .text:
    14a56:	05600593          	li	a1,86
    14a5a:	4611                	li	a2,4
    14a5c:	ffffd097          	auipc	ra,0xffffd
-   14a60:	a68080e7          	jalr	-1432(ra) # 114c4 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hcb5376a51e920b20E>
+   14a60:	a68080e7          	jalr	-1432(ra) # 114c4 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hce7f73a0b06e9962E>
    14a64:	8905                	andi	a0,a0,1
    14a66:	e905                	bnez	a0,14a96 <_start+0x33ec>
    14a68:	46410513          	addi	a0,sp,1124
    14a6c:	04900593          	li	a1,73
    14a70:	460d                	li	a2,3
    14a72:	ffffd097          	auipc	ra,0xffffd
-   14a76:	a52080e7          	jalr	-1454(ra) # 114c4 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hcb5376a51e920b20E>
+   14a76:	a52080e7          	jalr	-1454(ra) # 114c4 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hce7f73a0b06e9962E>
    14a7a:	8905                	andi	a0,a0,1
    14a7c:	ed09                	bnez	a0,14a96 <_start+0x33ec>
    14a7e:	6509                	lui	a0,0x2
@@ -4577,7 +4577,7 @@ Disassembly of section .text:
    14a82:	c6b50513          	addi	a0,a0,-917 # 1c6b <.Lline_table_start1+0x1a40>
    14a86:	4619                	li	a2,6
    14a88:	ffffd097          	auipc	ra,0xffffd
-   14a8c:	c14080e7          	jalr	-1004(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   14a8c:	c14080e7          	jalr	-1004(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    14a90:	8905                	andi	a0,a0,1
    14a92:	340506e3          	beqz	a0,155de <_start+0x3f34>
    14a96:	8b2e                	mv	s6,a1
@@ -4667,16 +4667,16 @@ Disassembly of section .text:
    14ba0:	a871                	j	14c3c <_start+0x3592>
    14ba2:	51c10513          	addi	a0,sp,1308
    14ba6:	ffffd097          	auipc	ra,0xffffd
-   14baa:	a8c080e7          	jalr	-1396(ra) # 11632 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17hd74e3cd4c632fd0dE>
+   14baa:	992080e7          	jalr	-1646(ra) # 11538 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h0c4a6abd1d2d275dE>
    14bae:	56c10513          	addi	a0,sp,1388
    14bb2:	ffffd097          	auipc	ra,0xffffd
-   14bb6:	a80080e7          	jalr	-1408(ra) # 11632 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17hd74e3cd4c632fd0dE>
+   14bb6:	986080e7          	jalr	-1658(ra) # 11538 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h0c4a6abd1d2d275dE>
    14bba:	56c14483          	lbu	s1,1388(sp)
    14bbe:	4889                	li	a7,2
    14bc0:	ffe48593          	addi	a1,s1,-2
    14bc4:	00b03633          	snez	a2,a1
    14bc8:	00010837          	lui	a6,0x10
-   14bcc:	13780813          	addi	a6,a6,311 # 10137 <.Lanon.49c9f8067fe4468184af16d7576940c9.1>
+   14bcc:	16680813          	addi	a6,a6,358 # 10166 <.Lanon.49c9f8067fe4468184af16d7576940c9.3>
    14bd0:	01148363          	beq	s1,a7,14bd6 <_start+0x352c>
    14bd4:	8a42                	mv	s4,a6
    14bd6:	001a4683          	lbu	a3,1(s4)
@@ -5059,7 +5059,7 @@ Disassembly of section .text:
    1507c:	4605                	li	a2,1
    1507e:	4485                	li	s1,1
    15080:	ffffc097          	auipc	ra,0xffffc
-   15084:	61c080e7          	jalr	1564(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   15084:	61c080e7          	jalr	1564(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    15088:	8905                	andi	a0,a0,1
    1508a:	5e050e63          	beqz	a0,15686 <_start+0x3fdc>
    1508e:	8b2e                	mv	s6,a1
@@ -5132,7 +5132,7 @@ Disassembly of section .text:
    1515a:	4409                	li	s0,2
    1515c:	4601                	li	a2,0
    1515e:	ffffc097          	auipc	ra,0xffffc
-   15162:	53e080e7          	jalr	1342(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   15162:	53e080e7          	jalr	1342(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    15166:	8905                	andi	a0,a0,1
    15168:	54050563          	beqz	a0,156b2 <_start+0x4008>
    1516c:	4785                	li	a5,1
@@ -5206,7 +5206,7 @@ Disassembly of section .text:
    1523c:	4599                	li	a1,6
    1523e:	4601                	li	a2,0
    15240:	ffffc097          	auipc	ra,0xffffc
-   15244:	45c080e7          	jalr	1116(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   15244:	45c080e7          	jalr	1116(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    15248:	8905                	andi	a0,a0,1
    1524a:	4a050f63          	beqz	a0,15708 <_start+0x405e>
    1524e:	4785                	li	a5,1
@@ -5255,14 +5255,14 @@ Disassembly of section .text:
    152d8:	45b5                	li	a1,13
    152da:	4611                	li	a2,4
    152dc:	ffffc097          	auipc	ra,0xffffc
-   152e0:	102080e7          	jalr	258(ra) # 113de <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h4a38eadd1fee01e0E>
+   152e0:	0c8080e7          	jalr	200(ra) # 113a4 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h88da09c9c1e390a5E>
    152e4:	8905                	andi	a0,a0,1
    152e6:	e905                	bnez	a0,15316 <_start+0x3c6c>
    152e8:	56c10513          	addi	a0,sp,1388
    152ec:	02100593          	li	a1,33
    152f0:	460d                	li	a2,3
    152f2:	ffffc097          	auipc	ra,0xffffc
-   152f6:	0ec080e7          	jalr	236(ra) # 113de <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h4a38eadd1fee01e0E>
+   152f6:	0b2080e7          	jalr	178(ra) # 113a4 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h88da09c9c1e390a5E>
    152fa:	8905                	andi	a0,a0,1
    152fc:	ed09                	bnez	a0,15316 <_start+0x3c6c>
    152fe:	6505                	lui	a0,0x1
@@ -5270,7 +5270,7 @@ Disassembly of section .text:
    15304:	4581                	li	a1,0
    15306:	4601                	li	a2,0
    15308:	ffffc097          	auipc	ra,0xffffc
-   1530c:	394080e7          	jalr	916(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   1530c:	394080e7          	jalr	916(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    15310:	8905                	andi	a0,a0,1
    15312:	46050263          	beqz	a0,15776 <_start+0x40cc>
    15316:	8b2e                	mv	s6,a1
@@ -5345,7 +5345,7 @@ Disassembly of section .text:
    153ec:	4621                	li	a2,8
    153ee:	4409                	li	s0,2
    153f0:	ffffc097          	auipc	ra,0xffffc
-   153f4:	2ac080e7          	jalr	684(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   153f4:	2ac080e7          	jalr	684(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    153f8:	8905                	andi	a0,a0,1
    153fa:	48050d63          	beqz	a0,15894 <_start+0x41ea>
    153fe:	4785                	li	a5,1
@@ -5410,7 +5410,7 @@ Disassembly of section .text:
    154bc:	6ba50513          	addi	a0,a0,1722 # 16ba <.Lline_table_start1+0x148f>
    154c0:	4611                	li	a2,4
    154c2:	ffffc097          	auipc	ra,0xffffc
-   154c6:	1da080e7          	jalr	474(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   154c6:	1da080e7          	jalr	474(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    154ca:	8905                	andi	a0,a0,1
    154cc:	3c050a63          	beqz	a0,158a0 <_start+0x41f6>
    154d0:	4785                	li	a5,1
@@ -5501,14 +5501,14 @@ Disassembly of section .text:
    155da:	b1eff06f          	j	148f8 <_start+0x324e>
    155de:	56c10513          	addi	a0,sp,1388
    155e2:	ffffc097          	auipc	ra,0xffffc
-   155e6:	008080e7          	jalr	8(ra) # 115ea <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h72282c4967f0efdfE>
+   155e6:	02c080e7          	jalr	44(ra) # 1160e <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h8a5cfb6bfc11e057E>
    155ea:	46410513          	addi	a0,sp,1124
    155ee:	ffffc097          	auipc	ra,0xffffc
-   155f2:	ffc080e7          	jalr	-4(ra) # 115ea <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h72282c4967f0efdfE>
+   155f2:	020080e7          	jalr	32(ra) # 1160e <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h8a5cfb6bfc11e057E>
    155f6:	00004297          	auipc	t0,0x4
    155fa:	2ca282e7          	jalr	t0,714(t0) # 198c0 <OUTLINED_FUNCTION_55>
    155fe:	00010837          	lui	a6,0x10
-   15602:	1e980813          	addi	a6,a6,489 # 101e9 <.Lanon.49c9f8067fe4468184af16d7576940c9.5>
+   15602:	24280813          	addi	a6,a6,578 # 10242 <.Lanon.49c9f8067fe4468184af16d7576940c9.7>
    15606:	01148363          	beq	s1,a7,1560c <_start+0x3f62>
    1560a:	89c2                	mv	s3,a6
    1560c:	0019c683          	lbu	a3,1(s3)
@@ -5625,16 +5625,16 @@ Disassembly of section .text:
    15774:	baf5                	j	15170 <_start+0x3ac6>
    15776:	0488                	addi	a0,sp,576
    15778:	ffffc097          	auipc	ra,0xffffc
-   1577c:	de4080e7          	jalr	-540(ra) # 1155c <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h184144af6537db74E>
+   1577c:	eba080e7          	jalr	-326(ra) # 11632 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17hbcbcb76d084b4defE>
    15780:	56c10513          	addi	a0,sp,1388
    15784:	ffffc097          	auipc	ra,0xffffc
-   15788:	dd8080e7          	jalr	-552(ra) # 1155c <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h184144af6537db74E>
+   15788:	eae080e7          	jalr	-338(ra) # 11632 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17hbcbcb76d084b4defE>
    1578c:	56c14483          	lbu	s1,1388(sp)
    15790:	4889                	li	a7,2
    15792:	ffe48593          	addi	a1,s1,-2
    15796:	00b03633          	snez	a2,a1
    1579a:	00010837          	lui	a6,0x10
-   1579e:	26a80813          	addi	a6,a6,618 # 1026a <.Lanon.49c9f8067fe4468184af16d7576940c9.7>
+   1579e:	1b780813          	addi	a6,a6,439 # 101b7 <.Lanon.49c9f8067fe4468184af16d7576940c9.4>
    157a2:	01148363          	beq	s1,a7,157a8 <_start+0x40fe>
    157a6:	8ac2                	mv	s5,a6
    157a8:	001ac683          	lbu	a3,1(s5)
@@ -5725,7 +5725,7 @@ Disassembly of section .text:
    158b6:	1ab50513          	addi	a0,a0,427 # 21ab <.Lline_table_start1+0x1f80>
    158ba:	4625                	li	a2,9
    158bc:	ffffc097          	auipc	ra,0xffffc
-   158c0:	de0080e7          	jalr	-544(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   158c0:	de0080e7          	jalr	-544(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    158c4:	8905                	andi	a0,a0,1
    158c6:	c54d                	beqz	a0,15970 <_start+0x42c6>
    158c8:	8b2e                	mv	s6,a1
@@ -5853,14 +5853,14 @@ Disassembly of section .text:
    15a4e:	03c00593          	li	a1,60
    15a52:	4611                	li	a2,4
    15a54:	ffffc097          	auipc	ra,0xffffc
-   15a58:	9c4080e7          	jalr	-1596(ra) # 11418 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h4c25bcceeb786d4dE>
+   15a58:	9fc080e7          	jalr	-1540(ra) # 11450 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hc76a7200de937682E>
    15a5c:	8905                	andi	a0,a0,1
    15a5e:	e51d                	bnez	a0,15a8c <_start+0x43e2>
    15a60:	46410513          	addi	a0,sp,1124
    15a64:	03800593          	li	a1,56
    15a68:	460d                	li	a2,3
    15a6a:	ffffc097          	auipc	ra,0xffffc
-   15a6e:	9ae080e7          	jalr	-1618(ra) # 11418 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h4c25bcceeb786d4dE>
+   15a6e:	9e6080e7          	jalr	-1562(ra) # 11450 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hc76a7200de937682E>
    15a72:	8905                	andi	a0,a0,1
    15a74:	ed01                	bnez	a0,15a8c <_start+0x43e2>
    15a76:	6509                	lui	a0,0x2
@@ -5868,7 +5868,7 @@ Disassembly of section .text:
    15a7a:	d1950513          	addi	a0,a0,-743 # 1d19 <.Lline_table_start1+0x1aee>
    15a7e:	460d                	li	a2,3
    15a80:	ffffc097          	auipc	ra,0xffffc
-   15a84:	c1c080e7          	jalr	-996(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   15a84:	c1c080e7          	jalr	-996(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    15a88:	8905                	andi	a0,a0,1
    15a8a:	c511                	beqz	a0,15a96 <_start+0x43ec>
    15a8c:	8b2e                	mv	s6,a1
@@ -5877,16 +5877,16 @@ Disassembly of section .text:
    15a94:	a079                	j	15b22 <_start+0x4478>
    15a96:	56c10513          	addi	a0,sp,1388
    15a9a:	ffffc097          	auipc	ra,0xffffc
-   15a9e:	bba080e7          	jalr	-1094(ra) # 11654 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17hd9110e20ea887c65E>
+   15a9e:	b2c080e7          	jalr	-1236(ra) # 115c6 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h5e47778a173ef681E>
    15aa2:	46410513          	addi	a0,sp,1124
    15aa6:	ffffc097          	auipc	ra,0xffffc
-   15aaa:	bae080e7          	jalr	-1106(ra) # 11654 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17hd9110e20ea887c65E>
+   15aaa:	b20080e7          	jalr	-1248(ra) # 115c6 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h5e47778a173ef681E>
    15aae:	46414483          	lbu	s1,1124(sp)
    15ab2:	4809                	li	a6,2
    15ab4:	ffe48593          	addi	a1,s1,-2
    15ab8:	00b03633          	snez	a2,a1
    15abc:	000108b7          	lui	a7,0x10
-   15ac0:	23288893          	addi	a7,a7,562 # 10232 <.Lanon.49c9f8067fe4468184af16d7576940c9.6>
+   15ac0:	1d888893          	addi	a7,a7,472 # 101d8 <.Lanon.49c9f8067fe4468184af16d7576940c9.5>
    15ac4:	01048363          	beq	s1,a6,15aca <_start+0x4420>
    15ac8:	89c6                	mv	s3,a7
    15aca:	0019c683          	lbu	a3,1(s3)
@@ -5980,7 +5980,7 @@ Disassembly of section .text:
    15be4:	4621                	li	a2,8
    15be6:	4409                	li	s0,2
    15be8:	ffffc097          	auipc	ra,0xffffc
-   15bec:	ab4080e7          	jalr	-1356(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   15bec:	ab4080e7          	jalr	-1356(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    15bf0:	8905                	andi	a0,a0,1
    15bf2:	c501                	beqz	a0,15bfa <_start+0x4550>
    15bf4:	8b2e                	mv	s6,a1
@@ -6072,7 +6072,7 @@ Disassembly of section .text:
    15d04:	4611                	li	a2,4
    15d06:	4581                	li	a1,0
    15d08:	ffffc097          	auipc	ra,0xffffc
-   15d0c:	994080e7          	jalr	-1644(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   15d0c:	994080e7          	jalr	-1644(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    15d10:	8905                	andi	a0,a0,1
    15d12:	c501                	beqz	a0,15d1a <_start+0x4670>
    15d14:	8b2e                	mv	s6,a1
@@ -6169,7 +6169,7 @@ Disassembly of section .text:
    15e2e:	0ee50513          	addi	a0,a0,238 # 20ee <.Lline_table_start1+0x1ec3>
    15e32:	4625                	li	a2,9
    15e34:	ffffc097          	auipc	ra,0xffffc
-   15e38:	868080e7          	jalr	-1944(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   15e38:	868080e7          	jalr	-1944(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    15e3c:	8905                	andi	a0,a0,1
    15e3e:	c501                	beqz	a0,15e46 <_start+0x479c>
    15e40:	8b2e                	mv	s6,a1
@@ -6264,7 +6264,7 @@ Disassembly of section .text:
    15f54:	4621                	li	a2,8
    15f56:	4409                	li	s0,2
    15f58:	ffffb097          	auipc	ra,0xffffb
-   15f5c:	744080e7          	jalr	1860(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   15f5c:	744080e7          	jalr	1860(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    15f60:	8905                	andi	a0,a0,1
    15f62:	c501                	beqz	a0,15f6a <_start+0x48c0>
    15f64:	8b2e                	mv	s6,a1
@@ -6355,7 +6355,7 @@ Disassembly of section .text:
    16074:	4591                	li	a1,4
    16076:	4619                	li	a2,6
    16078:	ffffb097          	auipc	ra,0xffffb
-   1607c:	624080e7          	jalr	1572(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   1607c:	624080e7          	jalr	1572(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    16080:	8905                	andi	a0,a0,1
    16082:	c501                	beqz	a0,1608a <_start+0x49e0>
    16084:	8b2e                	mv	s6,a1
@@ -6447,7 +6447,7 @@ Disassembly of section .text:
    1618a:	9b550513          	addi	a0,a0,-1611 # 19b5 <.Lline_table_start1+0x178a>
    1618e:	4625                	li	a2,9
    16190:	ffffb097          	auipc	ra,0xffffb
-   16194:	50c080e7          	jalr	1292(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   16194:	50c080e7          	jalr	1292(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    16198:	8905                	andi	a0,a0,1
    1619a:	c501                	beqz	a0,161a2 <_start+0x4af8>
    1619c:	8b2e                	mv	s6,a1
@@ -6548,7 +6548,7 @@ Disassembly of section .text:
    162b8:	460d                	li	a2,3
    162ba:	4405                	li	s0,1
    162bc:	ffffb097          	auipc	ra,0xffffb
-   162c0:	3e0080e7          	jalr	992(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   162c0:	3e0080e7          	jalr	992(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    162c4:	8905                	andi	a0,a0,1
    162c6:	c119                	beqz	a0,162cc <_start+0x4c22>
    162c8:	8b2e                	mv	s6,a1
@@ -6650,7 +6650,7 @@ Disassembly of section .text:
    163f0:	460d                	li	a2,3
    163f2:	4405                	li	s0,1
    163f4:	ffffb097          	auipc	ra,0xffffb
-   163f8:	2a8080e7          	jalr	680(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   163f8:	2a8080e7          	jalr	680(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    163fc:	8905                	andi	a0,a0,1
    163fe:	c119                	beqz	a0,16404 <_start+0x4d5a>
    16400:	8b2e                	mv	s6,a1
@@ -6743,7 +6743,7 @@ Disassembly of section .text:
    16516:	4611                	li	a2,4
    16518:	4581                	li	a1,0
    1651a:	ffffb097          	auipc	ra,0xffffb
-   1651e:	182080e7          	jalr	386(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   1651e:	182080e7          	jalr	386(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    16522:	8905                	andi	a0,a0,1
    16524:	c501                	beqz	a0,1652c <_start+0x4e82>
    16526:	8b2e                	mv	s6,a1
@@ -6837,7 +6837,7 @@ Disassembly of section .text:
    16640:	460d                	li	a2,3
    16642:	4409                	li	s0,2
    16644:	ffffb097          	auipc	ra,0xffffb
-   16648:	058080e7          	jalr	88(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   16648:	058080e7          	jalr	88(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    1664c:	8905                	andi	a0,a0,1
    1664e:	c501                	beqz	a0,16656 <_start+0x4fac>
    16650:	8b2e                	mv	s6,a1
@@ -6933,7 +6933,7 @@ Disassembly of section .text:
    1676c:	461d                	li	a2,7
    1676e:	4409                	li	s0,2
    16770:	ffffb097          	auipc	ra,0xffffb
-   16774:	f2c080e7          	jalr	-212(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   16774:	f2c080e7          	jalr	-212(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    16778:	8905                	andi	a0,a0,1
    1677a:	c501                	beqz	a0,16782 <_start+0x50d8>
    1677c:	8b2e                	mv	s6,a1
@@ -7031,7 +7031,7 @@ Disassembly of section .text:
    16898:	64550513          	addi	a0,a0,1605 # 2645 <.Lline_table_start1+0x241a>
    1689c:	461d                	li	a2,7
    1689e:	ffffb097          	auipc	ra,0xffffb
-   168a2:	dfe080e7          	jalr	-514(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   168a2:	dfe080e7          	jalr	-514(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    168a6:	8905                	andi	a0,a0,1
    168a8:	c501                	beqz	a0,168b0 <_start+0x5206>
    168aa:	8b2e                	mv	s6,a1
@@ -7123,7 +7123,7 @@ Disassembly of section .text:
    169be:	4615                	li	a2,5
    169c0:	4581                	li	a1,0
    169c2:	ffffb097          	auipc	ra,0xffffb
-   169c6:	cda080e7          	jalr	-806(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   169c6:	cda080e7          	jalr	-806(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    169ca:	8905                	andi	a0,a0,1
    169cc:	c501                	beqz	a0,169d4 <_start+0x532a>
    169ce:	8b2e                	mv	s6,a1
@@ -7217,7 +7217,7 @@ Disassembly of section .text:
    16ae4:	02850513          	addi	a0,a0,40 # 1028 <.Lline_table_start1+0xdfd>
    16ae8:	4611                	li	a2,4
    16aea:	ffffb097          	auipc	ra,0xffffb
-   16aee:	bb2080e7          	jalr	-1102(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   16aee:	bb2080e7          	jalr	-1102(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    16af2:	8905                	andi	a0,a0,1
    16af4:	c501                	beqz	a0,16afc <_start+0x5452>
    16af6:	8b2e                	mv	s6,a1
@@ -7313,7 +7313,7 @@ Disassembly of section .text:
    16c10:	fce50513          	addi	a0,a0,-50 # fce <.Lline_table_start1+0xda3>
    16c14:	4615                	li	a2,5
    16c16:	ffffb097          	auipc	ra,0xffffb
-   16c1a:	a86080e7          	jalr	-1402(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   16c1a:	a86080e7          	jalr	-1402(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    16c1e:	8905                	andi	a0,a0,1
    16c20:	c501                	beqz	a0,16c28 <_start+0x557e>
    16c22:	8b2e                	mv	s6,a1
@@ -7405,7 +7405,7 @@ Disassembly of section .text:
    16d34:	80e50513          	addi	a0,a0,-2034 # 180e <.Lline_table_start1+0x15e3>
    16d38:	460d                	li	a2,3
    16d3a:	ffffb097          	auipc	ra,0xffffb
-   16d3e:	962080e7          	jalr	-1694(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   16d3e:	962080e7          	jalr	-1694(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    16d42:	8905                	andi	a0,a0,1
    16d44:	c501                	beqz	a0,16d4c <_start+0x56a2>
    16d46:	8b2e                	mv	s6,a1
@@ -7501,7 +7501,7 @@ Disassembly of section .text:
    16e5e:	6a450513          	addi	a0,a0,1700 # 26a4 <.Lline_table_start1+0x2479>
    16e62:	4611                	li	a2,4
    16e64:	ffffb097          	auipc	ra,0xffffb
-   16e68:	838080e7          	jalr	-1992(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   16e68:	838080e7          	jalr	-1992(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    16e6c:	8905                	andi	a0,a0,1
    16e6e:	c501                	beqz	a0,16e76 <_start+0x57cc>
    16e70:	8b2e                	mv	s6,a1
@@ -7596,7 +7596,7 @@ Disassembly of section .text:
    16f84:	04850513          	addi	a0,a0,72 # 2048 <.Lline_table_start1+0x1e1d>
    16f88:	460d                	li	a2,3
    16f8a:	ffffa097          	auipc	ra,0xffffa
-   16f8e:	712080e7          	jalr	1810(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   16f8e:	712080e7          	jalr	1810(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    16f92:	8905                	andi	a0,a0,1
    16f94:	c501                	beqz	a0,16f9c <_start+0x58f2>
    16f96:	8b2e                	mv	s6,a1
@@ -7693,7 +7693,7 @@ Disassembly of section .text:
    170a4:	4609                	li	a2,2
    170a6:	4409                	li	s0,2
    170a8:	ffffa097          	auipc	ra,0xffffa
-   170ac:	5f4080e7          	jalr	1524(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   170ac:	5f4080e7          	jalr	1524(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    170b0:	8905                	andi	a0,a0,1
    170b2:	c501                	beqz	a0,170ba <_start+0x5a10>
    170b4:	8b2e                	mv	s6,a1
@@ -7788,7 +7788,7 @@ Disassembly of section .text:
    171c4:	45a1                	li	a1,8
    171c6:	4625                	li	a2,9
    171c8:	ffffa097          	auipc	ra,0xffffa
-   171cc:	4d4080e7          	jalr	1236(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   171cc:	4d4080e7          	jalr	1236(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    171d0:	8905                	andi	a0,a0,1
    171d2:	c501                	beqz	a0,171da <_start+0x5b30>
    171d4:	8b2e                	mv	s6,a1
@@ -7887,7 +7887,7 @@ Disassembly of section .text:
    172f2:	4625                	li	a2,9
    172f4:	4405                	li	s0,1
    172f6:	ffffa097          	auipc	ra,0xffffa
-   172fa:	3a6080e7          	jalr	934(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   172fa:	3a6080e7          	jalr	934(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    172fe:	8905                	andi	a0,a0,1
    17300:	c119                	beqz	a0,17306 <_start+0x5c5c>
    17302:	8b2e                	mv	s6,a1
@@ -7982,7 +7982,7 @@ Disassembly of section .text:
    1740a:	cbb50513          	addi	a0,a0,-837 # cbb <.Lline_table_start1+0xa90>
    1740e:	4615                	li	a2,5
    17410:	ffffa097          	auipc	ra,0xffffa
-   17414:	28c080e7          	jalr	652(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   17414:	28c080e7          	jalr	652(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    17418:	8905                	andi	a0,a0,1
    1741a:	c501                	beqz	a0,17422 <_start+0x5d78>
    1741c:	8b2e                	mv	s6,a1
@@ -8075,7 +8075,7 @@ Disassembly of section .text:
    1752a:	460d                	li	a2,3
    1752c:	4409                	li	s0,2
    1752e:	ffffa097          	auipc	ra,0xffffa
-   17532:	16e080e7          	jalr	366(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   17532:	16e080e7          	jalr	366(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    17536:	8905                	andi	a0,a0,1
    17538:	c501                	beqz	a0,17540 <_start+0x5e96>
    1753a:	8b2e                	mv	s6,a1
@@ -8171,7 +8171,7 @@ Disassembly of section .text:
    17652:	eac50513          	addi	a0,a0,-340 # 1eac <.Lline_table_start1+0x1c81>
    17656:	461d                	li	a2,7
    17658:	ffffa097          	auipc	ra,0xffffa
-   1765c:	044080e7          	jalr	68(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   1765c:	044080e7          	jalr	68(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    17660:	8905                	andi	a0,a0,1
    17662:	c501                	beqz	a0,1766a <_start+0x5fc0>
    17664:	8b2e                	mv	s6,a1
@@ -8264,7 +8264,7 @@ Disassembly of section .text:
    1777a:	1b550513          	addi	a0,a0,437 # 11b5 <.Lline_table_start1+0xf8a>
    1777e:	460d                	li	a2,3
    17780:	ffffa097          	auipc	ra,0xffffa
-   17784:	f1c080e7          	jalr	-228(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   17784:	f1c080e7          	jalr	-228(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    17788:	8905                	andi	a0,a0,1
    1778a:	c501                	beqz	a0,17792 <_start+0x60e8>
    1778c:	8b2e                	mv	s6,a1
@@ -8363,7 +8363,7 @@ Disassembly of section .text:
    178b2:	45a5                	li	a1,9
    178b4:	4601                	li	a2,0
    178b6:	ffffa097          	auipc	ra,0xffffa
-   178ba:	de6080e7          	jalr	-538(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   178ba:	de6080e7          	jalr	-538(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    178be:	8905                	andi	a0,a0,1
    178c0:	c501                	beqz	a0,178c8 <_start+0x621e>
    178c2:	8b2e                	mv	s6,a1
@@ -8466,7 +8466,7 @@ Disassembly of section .text:
    179ea:	4605                	li	a2,1
    179ec:	4405                	li	s0,1
    179ee:	ffffa097          	auipc	ra,0xffffa
-   179f2:	cae080e7          	jalr	-850(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   179f2:	cae080e7          	jalr	-850(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    179f6:	8905                	andi	a0,a0,1
    179f8:	c119                	beqz	a0,179fe <_start+0x6354>
    179fa:	8b2e                	mv	s6,a1
@@ -8561,7 +8561,7 @@ Disassembly of section .text:
    17b14:	460d                	li	a2,3
    17b16:	4581                	li	a1,0
    17b18:	ffffa097          	auipc	ra,0xffffa
-   17b1c:	b84080e7          	jalr	-1148(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   17b1c:	b84080e7          	jalr	-1148(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    17b20:	8905                	andi	a0,a0,1
    17b22:	c501                	beqz	a0,17b2a <_start+0x6480>
    17b24:	8b2e                	mv	s6,a1
@@ -8654,7 +8654,7 @@ Disassembly of section .text:
    17c36:	4d750513          	addi	a0,a0,1239 # 14d7 <.Lline_table_start1+0x12ac>
    17c3a:	460d                	li	a2,3
    17c3c:	ffffa097          	auipc	ra,0xffffa
-   17c40:	a60080e7          	jalr	-1440(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   17c40:	a60080e7          	jalr	-1440(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    17c44:	8905                	andi	a0,a0,1
    17c46:	c501                	beqz	a0,17c4e <_start+0x65a4>
    17c48:	8b2e                	mv	s6,a1
@@ -8793,7 +8793,7 @@ Disassembly of section .text:
    17dec:	cb050513          	addi	a0,a0,-848 # cb0 <.Lline_table_start1+0xa85>
    17df0:	4611                	li	a2,4
    17df2:	ffffa097          	auipc	ra,0xffffa
-   17df6:	8aa080e7          	jalr	-1878(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   17df6:	8aa080e7          	jalr	-1878(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    17dfa:	8905                	andi	a0,a0,1
    17dfc:	c501                	beqz	a0,17e04 <_start+0x675a>
    17dfe:	8b2e                	mv	s6,a1
@@ -8889,7 +8889,7 @@ Disassembly of section .text:
    17f14:	69450513          	addi	a0,a0,1684 # 1694 <.Lline_table_start1+0x1469>
    17f18:	4625                	li	a2,9
    17f1a:	ffff9097          	auipc	ra,0xffff9
-   17f1e:	782080e7          	jalr	1922(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   17f1e:	782080e7          	jalr	1922(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    17f22:	8905                	andi	a0,a0,1
    17f24:	c501                	beqz	a0,17f2c <_start+0x6882>
    17f26:	8b2e                	mv	s6,a1
@@ -8981,7 +8981,7 @@ Disassembly of section .text:
    18030:	c3e50513          	addi	a0,a0,-962 # c3e <.Lline_table_start1+0xa13>
    18034:	4615                	li	a2,5
    18036:	ffff9097          	auipc	ra,0xffff9
-   1803a:	666080e7          	jalr	1638(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   1803a:	666080e7          	jalr	1638(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    1803e:	8905                	andi	a0,a0,1
    18040:	c501                	beqz	a0,18048 <_start+0x699e>
    18042:	8b2e                	mv	s6,a1
@@ -9078,7 +9078,7 @@ Disassembly of section .text:
    1815e:	4409                	li	s0,2
    18160:	4581                	li	a1,0
    18162:	ffff9097          	auipc	ra,0xffff9
-   18166:	53a080e7          	jalr	1338(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   18166:	53a080e7          	jalr	1338(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    1816a:	8905                	andi	a0,a0,1
    1816c:	c501                	beqz	a0,18174 <_start+0x6aca>
    1816e:	8b2e                	mv	s6,a1
@@ -9219,7 +9219,7 @@ Disassembly of section .text:
    18322:	4625                	li	a2,9
    18324:	4409                	li	s0,2
    18326:	ffff9097          	auipc	ra,0xffff9
-   1832a:	376080e7          	jalr	886(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   1832a:	376080e7          	jalr	886(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    1832e:	8905                	andi	a0,a0,1
    18330:	c501                	beqz	a0,18338 <_start+0x6c8e>
    18332:	8b2e                	mv	s6,a1
@@ -9312,7 +9312,7 @@ Disassembly of section .text:
    1844a:	9bf50513          	addi	a0,a0,-1601 # 9bf <.Lline_table_start1+0x794>
    1844e:	460d                	li	a2,3
    18450:	ffff9097          	auipc	ra,0xffff9
-   18454:	24c080e7          	jalr	588(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   18454:	24c080e7          	jalr	588(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    18458:	8905                	andi	a0,a0,1
    1845a:	c501                	beqz	a0,18462 <_start+0x6db8>
    1845c:	8b2e                	mv	s6,a1
@@ -9413,7 +9413,7 @@ Disassembly of section .text:
    18580:	bd650513          	addi	a0,a0,-1066 # 1bd6 <.Lline_table_start1+0x19ab>
    18584:	4621                	li	a2,8
    18586:	ffff9097          	auipc	ra,0xffff9
-   1858a:	116080e7          	jalr	278(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   1858a:	116080e7          	jalr	278(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    1858e:	8905                	andi	a0,a0,1
    18590:	c501                	beqz	a0,18598 <_start+0x6eee>
    18592:	8b2e                	mv	s6,a1
@@ -9508,7 +9508,7 @@ Disassembly of section .text:
    186a4:	27350513          	addi	a0,a0,627 # 1273 <.Lline_table_start1+0x1048>
    186a8:	4625                	li	a2,9
    186aa:	ffff9097          	auipc	ra,0xffff9
-   186ae:	ff2080e7          	jalr	-14(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   186ae:	ff2080e7          	jalr	-14(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    186b2:	8905                	andi	a0,a0,1
    186b4:	c501                	beqz	a0,186bc <_start+0x7012>
    186b6:	8b2e                	mv	s6,a1
@@ -9604,7 +9604,7 @@ Disassembly of section .text:
    187d8:	4609                	li	a2,2
    187da:	4409                	li	s0,2
    187dc:	ffff9097          	auipc	ra,0xffff9
-   187e0:	ec0080e7          	jalr	-320(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   187e0:	ec0080e7          	jalr	-320(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    187e4:	8905                	andi	a0,a0,1
    187e6:	c501                	beqz	a0,187ee <_start+0x7144>
    187e8:	8b2e                	mv	s6,a1
@@ -9692,7 +9692,7 @@ Disassembly of section .text:
    188f6:	78a50513          	addi	a0,a0,1930 # 178a <.Lline_table_start1+0x155f>
    188fa:	460d                	li	a2,3
    188fc:	ffff9097          	auipc	ra,0xffff9
-   18900:	da0080e7          	jalr	-608(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   18900:	da0080e7          	jalr	-608(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    18904:	8905                	andi	a0,a0,1
    18906:	c501                	beqz	a0,1890e <_start+0x7264>
    18908:	8b2e                	mv	s6,a1
@@ -9768,14 +9768,14 @@ Disassembly of section .text:
    189e8:	05500593          	li	a1,85
    189ec:	4611                	li	a2,4
    189ee:	ffff9097          	auipc	ra,0xffff9
-   189f2:	a64080e7          	jalr	-1436(ra) # 11452 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17haf0565a91a1cf8aeE>
+   189f2:	97c080e7          	jalr	-1668(ra) # 1136a <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h5c470d8c4b0b9f28E>
    189f6:	8905                	andi	a0,a0,1
    189f8:	e51d                	bnez	a0,18a26 <_start+0x737c>
    189fa:	46410513          	addi	a0,sp,1124
    189fe:	45c5                	li	a1,17
    18a00:	460d                	li	a2,3
    18a02:	ffff9097          	auipc	ra,0xffff9
-   18a06:	a50080e7          	jalr	-1456(ra) # 11452 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17haf0565a91a1cf8aeE>
+   18a06:	968080e7          	jalr	-1688(ra) # 1136a <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h5c470d8c4b0b9f28E>
    18a0a:	8905                	andi	a0,a0,1
    18a0c:	ed09                	bnez	a0,18a26 <_start+0x737c>
    18a0e:	6505                	lui	a0,0x1
@@ -9784,7 +9784,7 @@ Disassembly of section .text:
    18a16:	4609                	li	a2,2
    18a18:	4a89                	li	s5,2
    18a1a:	ffff9097          	auipc	ra,0xffff9
-   18a1e:	c82080e7          	jalr	-894(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   18a1e:	c82080e7          	jalr	-894(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    18a22:	8905                	andi	a0,a0,1
    18a24:	c511                	beqz	a0,18a30 <_start+0x7386>
    18a26:	8b2e                	mv	s6,a1
@@ -9793,15 +9793,15 @@ Disassembly of section .text:
    18a2e:	a0e9                	j	18af8 <_start+0x744e>
    18a30:	56c10513          	addi	a0,sp,1388
    18a34:	ffff9097          	auipc	ra,0xffff9
-   18a38:	b92080e7          	jalr	-1134(ra) # 115c6 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h5f7482dd87f86bceE>
+   18a38:	bb6080e7          	jalr	-1098(ra) # 115ea <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h6a057eeb960328bdE>
    18a3c:	46410513          	addi	a0,sp,1124
    18a40:	ffff9097          	auipc	ra,0xffff9
-   18a44:	b86080e7          	jalr	-1146(ra) # 115c6 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h5f7482dd87f86bceE>
+   18a44:	baa080e7          	jalr	-1110(ra) # 115ea <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h6a057eeb960328bdE>
    18a48:	46414703          	lbu	a4,1124(sp)
    18a4c:	ffe70513          	addi	a0,a4,-2
    18a50:	00a035b3          	snez	a1,a0
    18a54:	00010837          	lui	a6,0x10
-   18a58:	18880813          	addi	a6,a6,392 # 10188 <.Lanon.49c9f8067fe4468184af16d7576940c9.2>
+   18a58:	15580813          	addi	a6,a6,341 # 10155 <.Lanon.49c9f8067fe4468184af16d7576940c9.2>
    18a5c:	01570363          	beq	a4,s5,18a62 <_start+0x73b8>
    18a60:	8942                	mv	s2,a6
    18a62:	00194603          	lbu	a2,1(s2)
@@ -9915,7 +9915,7 @@ Disassembly of section .text:
    18bba:	aa950513          	addi	a0,a0,-1367 # 1aa9 <.Lline_table_start1+0x187e>
    18bbe:	4615                	li	a2,5
    18bc0:	ffff9097          	auipc	ra,0xffff9
-   18bc4:	adc080e7          	jalr	-1316(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   18bc4:	adc080e7          	jalr	-1316(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    18bc8:	8905                	andi	a0,a0,1
    18bca:	c501                	beqz	a0,18bd2 <_start+0x7528>
    18bcc:	8b2e                	mv	s6,a1
@@ -10018,7 +10018,7 @@ Disassembly of section .text:
    18cfa:	4609                	li	a2,2
    18cfc:	4489                	li	s1,2
    18cfe:	ffff9097          	auipc	ra,0xffff9
-   18d02:	99e080e7          	jalr	-1634(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   18d02:	99e080e7          	jalr	-1634(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    18d06:	8905                	andi	a0,a0,1
    18d08:	c119                	beqz	a0,18d0e <_start+0x7664>
    18d0a:	8b2e                	mv	s6,a1
@@ -10090,14 +10090,14 @@ Disassembly of section .text:
    18de0:	45ed                	li	a1,27
    18de2:	4611                	li	a2,4
    18de4:	ffff8097          	auipc	ra,0xffff8
-   18de8:	586080e7          	jalr	1414(ra) # 1136a <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h3a5e801415c5edc3E>
+   18de8:	5fa080e7          	jalr	1530(ra) # 113de <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hb263d64b6a8a2d08E>
    18dec:	8905                	andi	a0,a0,1
    18dee:	e51d                	bnez	a0,18e1c <_start+0x7772>
    18df0:	56c10513          	addi	a0,sp,1388
    18df4:	06300593          	li	a1,99
    18df8:	460d                	li	a2,3
    18dfa:	ffff8097          	auipc	ra,0xffff8
-   18dfe:	570080e7          	jalr	1392(ra) # 1136a <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17h3a5e801415c5edc3E>
+   18dfe:	5e4080e7          	jalr	1508(ra) # 113de <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$5allow17hb263d64b6a8a2d08E>
    18e02:	8905                	andi	a0,a0,1
    18e04:	ed01                	bnez	a0,18e1c <_start+0x7772>
    18e06:	6509                	lui	a0,0x2
@@ -10105,7 +10105,7 @@ Disassembly of section .text:
    18e0a:	54850513          	addi	a0,a0,1352 # 2548 <.Lline_table_start1+0x231d>
    18e0e:	460d                	li	a2,3
    18e10:	ffff9097          	auipc	ra,0xffff9
-   18e14:	88c080e7          	jalr	-1908(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   18e14:	88c080e7          	jalr	-1908(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    18e18:	8905                	andi	a0,a0,1
    18e1a:	c511                	beqz	a0,18e26 <_start+0x777c>
    18e1c:	8b2e                	mv	s6,a1
@@ -10113,17 +10113,17 @@ Disassembly of section .text:
    18e22:	4785                	li	a5,1
    18e24:	a071                	j	18eb0 <_start+0x7806>
    18e26:	0488                	addi	a0,sp,576
-   18e28:	ffff9097          	auipc	ra,0xffff9
-   18e2c:	850080e7          	jalr	-1968(ra) # 11678 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17hdb5e7205b953f800E>
+   18e28:	ffff8097          	auipc	ra,0xffff8
+   18e2c:	77a080e7          	jalr	1914(ra) # 115a2 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h26dc0a28a99a5eb3E>
    18e30:	56c10513          	addi	a0,sp,1388
-   18e34:	ffff9097          	auipc	ra,0xffff9
-   18e38:	844080e7          	jalr	-1980(ra) # 11678 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17hdb5e7205b953f800E>
+   18e34:	ffff8097          	auipc	ra,0xffff8
+   18e38:	76e080e7          	jalr	1902(ra) # 115a2 <_ZN9allow_pin12dynamic_type23Buffer$LT$B$C$_$C$_$GT$7unallow17h26dc0a28a99a5eb3E>
    18e3c:	56c14483          	lbu	s1,1388(sp)
    18e40:	4809                	li	a6,2
    18e42:	ffe48593          	addi	a1,s1,-2
    18e46:	00b03633          	snez	a2,a1
    18e4a:	000108b7          	lui	a7,0x10
-   18e4e:	0d488893          	addi	a7,a7,212 # 100d4 <.Lanon.49c9f8067fe4468184af16d7576940c9.0>
+   18e4e:	0f288893          	addi	a7,a7,242 # 100f2 <.Lanon.49c9f8067fe4468184af16d7576940c9.1>
    18e52:	01048363          	beq	s1,a6,18e58 <_start+0x77ae>
    18e56:	8a46                	mv	s4,a7
    18e58:	001a4683          	lbu	a3,1(s4)
@@ -10213,7 +10213,7 @@ Disassembly of section .text:
    18f66:	4595                	li	a1,5
    18f68:	460d                	li	a2,3
    18f6a:	ffff8097          	auipc	ra,0xffff8
-   18f6e:	732080e7          	jalr	1842(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   18f6e:	732080e7          	jalr	1842(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    18f72:	8905                	andi	a0,a0,1
    18f74:	c501                	beqz	a0,18f7c <_start+0x78d2>
    18f76:	8b2e                	mv	s6,a1
@@ -10313,7 +10313,7 @@ Disassembly of section .text:
    19094:	458d                	li	a1,3
    19096:	4601                	li	a2,0
    19098:	ffff8097          	auipc	ra,0xffff8
-   1909c:	604080e7          	jalr	1540(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   1909c:	604080e7          	jalr	1540(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    190a0:	8905                	andi	a0,a0,1
    190a2:	cd09                	beqz	a0,190bc <_start+0x7a12>
    190a4:	8b2e                	mv	s6,a1
@@ -10429,7 +10429,7 @@ Disassembly of section .text:
    191f2:	efa50513          	addi	a0,a0,-262 # 1efa <.Lline_table_start1+0x1ccf>
    191f6:	4621                	li	a2,8
    191f8:	ffff8097          	auipc	ra,0xffff8
-   191fc:	4a4080e7          	jalr	1188(ra) # 1169c <_ZN9allow_pin7command17h1eb46760111c3605E>
+   191fc:	4a4080e7          	jalr	1188(ra) # 1169c <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    19200:	8905                	andi	a0,a0,1
    19202:	cd09                	beqz	a0,1921c <_start+0x7b72>
    19204:	8b2e                	mv	s6,a1

@@ -7,18 +7,18 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
   1 .text         00000182  000200e4  000200e4  000000e4  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .comment      0000008b  00000000  00000000  00000266  2**0
+  2 .comment      00000099  00000000  00000000  00000266  2**0
                   CONTENTS, READONLY
-  3 .ARM.attributes 00000032  00000000  00000000  000002f1  2**0
+  3 .ARM.attributes 00000032  00000000  00000000  000002ff  2**0
                   CONTENTS, READONLY
 
 Disassembly of section .text:
 
-000200e4 <_ZN9allow_pin10no_dynamic27Buffer$LT$P$C$B$C$_$C$_$GT$5allow17hfb593e19310bc719E>:
+000200e4 <_ZN9allow_pin10no_dynamic27Buffer$LT$P$C$B$C$_$C$_$GT$5allow17h4ed917d3eb3bf8b2E>:
    200e4:	b580      	push	{r7, lr}
    200e6:	af00      	add	r7, sp, #0
    200e8:	4602      	mov	r2, r0
-   200ea:	4804      	ldr	r0, [pc, #16]	@ (200fc <_ZN9allow_pin10no_dynamic27Buffer$LT$P$C$B$C$_$C$_$GT$5allow17hfb593e19310bc719E+0x18>)
+   200ea:	4804      	ldr	r0, [pc, #16]	@ (200fc <_ZN9allow_pin10no_dynamic27Buffer$LT$P$C$B$C$_$C$_$GT$5allow17h4ed917d3eb3bf8b2E+0x18>)
    200ec:	2100      	movs	r1, #0
    200ee:	2308      	movs	r3, #8
    200f0:	df03      	svc	3
@@ -29,38 +29,38 @@ Disassembly of section .text:
    200fa:	46c0      	nop			@ (mov r8, r8)
    200fc:	00040001 	.word	0x00040001
 
-00020100 <_ZN15swap_no_dynamic38StreamingReceiveSlice$LT$_$C$_$C$_$GT$4next17h98f84bdd30b04245E>:
+00020100 <_ZN15swap_no_dynamic38StreamingReceiveSlice$LT$_$C$_$C$_$GT$4next17h112cf7489f4cbb26E>:
    20100:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
    20102:	af04      	add	r7, sp, #16
    20104:	7802      	ldrb	r2, [r0, #0]
    20106:	2401      	movs	r4, #1
    20108:	2a00      	cmp	r2, #0
-   2010a:	d008      	beq.n	2011e <_ZN15swap_no_dynamic38StreamingReceiveSlice$LT$_$C$_$C$_$GT$4next17h98f84bdd30b04245E+0x1e>
+   2010a:	d008      	beq.n	2011e <_ZN15swap_no_dynamic38StreamingReceiveSlice$LT$_$C$_$C$_$GT$4next17h112cf7489f4cbb26E+0x1e>
    2010c:	4605      	mov	r5, r0
    2010e:	3009      	adds	r0, #9
    20110:	1c69      	adds	r1, r5, #1
    20112:	2a01      	cmp	r2, #1
-   20114:	d105      	bne.n	20122 <_ZN15swap_no_dynamic38StreamingReceiveSlice$LT$_$C$_$C$_$GT$4next17h98f84bdd30b04245E+0x22>
+   20114:	d105      	bne.n	20122 <_ZN15swap_no_dynamic38StreamingReceiveSlice$LT$_$C$_$C$_$GT$4next17h112cf7489f4cbb26E+0x22>
    20116:	2202      	movs	r2, #2
    20118:	9200      	str	r2, [sp, #0]
    2011a:	460e      	mov	r6, r1
-   2011c:	e005      	b.n	2012a <_ZN15swap_no_dynamic38StreamingReceiveSlice$LT$_$C$_$C$_$GT$4next17h98f84bdd30b04245E+0x2a>
+   2011c:	e005      	b.n	2012a <_ZN15swap_no_dynamic38StreamingReceiveSlice$LT$_$C$_$C$_$GT$4next17h112cf7489f4cbb26E+0x2a>
    2011e:	2104      	movs	r1, #4
-   20120:	e00b      	b.n	2013a <_ZN15swap_no_dynamic38StreamingReceiveSlice$LT$_$C$_$C$_$GT$4next17h98f84bdd30b04245E+0x3a>
+   20120:	e00b      	b.n	2013a <_ZN15swap_no_dynamic38StreamingReceiveSlice$LT$_$C$_$C$_$GT$4next17h112cf7489f4cbb26E+0x3a>
    20122:	2201      	movs	r2, #1
    20124:	9200      	str	r2, [sp, #0]
    20126:	4606      	mov	r6, r0
    20128:	4608      	mov	r0, r1
-   2012a:	f7ff ffdb 	bl	200e4 <_ZN9allow_pin10no_dynamic27Buffer$LT$P$C$B$C$_$C$_$GT$5allow17hfb593e19310bc719E>
+   2012a:	f7ff ffdb 	bl	200e4 <_ZN9allow_pin10no_dynamic27Buffer$LT$P$C$B$C$_$C$_$GT$5allow17h4ed917d3eb3bf8b2E>
    2012e:	07c0      	lsls	r0, r0, #31
-   20130:	d103      	bne.n	2013a <_ZN15swap_no_dynamic38StreamingReceiveSlice$LT$_$C$_$C$_$GT$4next17h98f84bdd30b04245E+0x3a>
+   20130:	d103      	bne.n	2013a <_ZN15swap_no_dynamic38StreamingReceiveSlice$LT$_$C$_$C$_$GT$4next17h112cf7489f4cbb26E+0x3a>
    20132:	9800      	ldr	r0, [sp, #0]
    20134:	7028      	strb	r0, [r5, #0]
    20136:	2400      	movs	r4, #0
    20138:	4631      	mov	r1, r6
    2013a:	4620      	mov	r0, r4
    2013c:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
-   2013e:	d4d4      	bmi.n	200ea <_ZN9allow_pin10no_dynamic27Buffer$LT$P$C$B$C$_$C$_$GT$5allow17hfb593e19310bc719E+0x6>
+   2013e:	d4d4      	bmi.n	200ea <_ZN9allow_pin10no_dynamic27Buffer$LT$P$C$B$C$_$C$_$GT$5allow17h4ed917d3eb3bf8b2E+0x6>
 
 00020140 <_start>:
    20140:	b5f0      	push	{r4, r5, r6, r7, lr}
@@ -71,7 +71,7 @@ Disassembly of section .text:
    2014a:	4620      	mov	r0, r4
    2014c:	f000 f83e 	bl	201cc <__aeabi_memclr4>
    20150:	1c60      	adds	r0, r4, #1
-   20152:	f7ff ffc7 	bl	200e4 <_ZN9allow_pin10no_dynamic27Buffer$LT$P$C$B$C$_$C$_$GT$5allow17hfb593e19310bc719E>
+   20152:	f7ff ffc7 	bl	200e4 <_ZN9allow_pin10no_dynamic27Buffer$LT$P$C$B$C$_$C$_$GT$5allow17h4ed917d3eb3bf8b2E>
    20156:	07c0      	lsls	r0, r0, #31
    20158:	d002      	beq.n	20160 <_start+0x20>
    2015a:	9101      	str	r1, [sp, #4]
@@ -88,7 +88,7 @@ Disassembly of section .text:
    20170:	287f      	cmp	r0, #127	@ 0x7f
    20172:	d904      	bls.n	2017e <_start+0x3e>
    20174:	a802      	add	r0, sp, #8
-   20176:	f7ff ffc3 	bl	20100 <_ZN15swap_no_dynamic38StreamingReceiveSlice$LT$_$C$_$C$_$GT$4next17h98f84bdd30b04245E>
+   20176:	f7ff ffc3 	bl	20100 <_ZN15swap_no_dynamic38StreamingReceiveSlice$LT$_$C$_$C$_$GT$4next17h112cf7489f4cbb26E>
    2017a:	07c0      	lsls	r0, r0, #31
    2017c:	d010      	beq.n	201a0 <_start+0x60>
    2017e:	9101      	str	r1, [sp, #4]
@@ -120,7 +120,7 @@ Disassembly of section .text:
    201b2:	9101      	str	r1, [sp, #4]
    201b4:	e005      	b.n	201c2 <_start+0x82>
    201b6:	a802      	add	r0, sp, #8
-   201b8:	f7ff ffa2 	bl	20100 <_ZN15swap_no_dynamic38StreamingReceiveSlice$LT$_$C$_$C$_$GT$4next17h98f84bdd30b04245E>
+   201b8:	f7ff ffa2 	bl	20100 <_ZN15swap_no_dynamic38StreamingReceiveSlice$LT$_$C$_$C$_$GT$4next17h112cf7489f4cbb26E>
    201bc:	9101      	str	r1, [sp, #4]
    201be:	07c0      	lsls	r0, r0, #31
    201c0:	d0de      	beq.n	20180 <_start+0x40>

@@ -1,15 +1,15 @@
    text	   data	    bss	    dec	    hex	filename
   46464	      0	      0	  46464	   b580	target/thumbv6m-none-eabi/opt-1/examples/complex_dynamic_type
   45114	      0	      0	  45114	   b03a	target/thumbv6m-none-eabi/opt-2/examples/complex_dynamic_type
-  45118	      0	      0	  45118	   b03e	target/thumbv6m-none-eabi/opt-3/examples/complex_dynamic_type
-  42158	      0	      0	  42158	   a4ae	target/thumbv6m-none-eabi/opt-s/examples/complex_dynamic_type
+  45122	      0	      0	  45122	   b042	target/thumbv6m-none-eabi/opt-3/examples/complex_dynamic_type
+  42162	      0	      0	  42162	   a4b2	target/thumbv6m-none-eabi/opt-s/examples/complex_dynamic_type
   33299	      0	      0	  33299	   8213	target/thumbv6m-none-eabi/opt-z/examples/complex_dynamic_type
-  37956	      0	      0	  37956	   9444	target/thumbv6m-none-eabi/opt-1/examples/complex_full_dynamic
+  37952	      0	      0	  37952	   9440	target/thumbv6m-none-eabi/opt-1/examples/complex_full_dynamic
   29136	      0	      0	  29136	   71d0	target/thumbv6m-none-eabi/opt-2/examples/complex_full_dynamic
-  29136	      0	      0	  29136	   71d0	target/thumbv6m-none-eabi/opt-3/examples/complex_full_dynamic
-  27600	      0	      0	  27600	   6bd0	target/thumbv6m-none-eabi/opt-s/examples/complex_full_dynamic
+  29140	      0	      0	  29140	   71d4	target/thumbv6m-none-eabi/opt-3/examples/complex_full_dynamic
+  27596	      0	      0	  27596	   6bcc	target/thumbv6m-none-eabi/opt-s/examples/complex_full_dynamic
   29720	      0	      0	  29720	   7418	target/thumbv6m-none-eabi/opt-z/examples/complex_full_dynamic
-  31632	      0	      0	  31632	   7b90	target/thumbv6m-none-eabi/opt-1/examples/complex_no_dynamic
+  31628	      0	      0	  31628	   7b8c	target/thumbv6m-none-eabi/opt-1/examples/complex_no_dynamic
   28480	      0	      0	  28480	   6f40	target/thumbv6m-none-eabi/opt-2/examples/complex_no_dynamic
   28480	      0	      0	  28480	   6f40	target/thumbv6m-none-eabi/opt-3/examples/complex_no_dynamic
   28148	      0	      0	  28148	   6df4	target/thumbv6m-none-eabi/opt-s/examples/complex_no_dynamic
@@ -19,11 +19,21 @@
     144	      0	      0	    144	     90	target/thumbv6m-none-eabi/opt-3/examples/hello_world_dynamic_type
     128	      0	      0	    128	     80	target/thumbv6m-none-eabi/opt-s/examples/hello_world_dynamic_type
     124	      0	      0	    124	     7c	target/thumbv6m-none-eabi/opt-z/examples/hello_world_dynamic_type
+    208	      0	      0	    208	     d0	target/thumbv6m-none-eabi/opt-1/examples/hello_world_full_dynamic
+    140	      0	      0	    140	     8c	target/thumbv6m-none-eabi/opt-2/examples/hello_world_full_dynamic
+    140	      0	      0	    140	     8c	target/thumbv6m-none-eabi/opt-3/examples/hello_world_full_dynamic
+    140	      0	      0	    140	     8c	target/thumbv6m-none-eabi/opt-s/examples/hello_world_full_dynamic
+    140	      0	      0	    140	     8c	target/thumbv6m-none-eabi/opt-z/examples/hello_world_full_dynamic
      96	      0	      0	     96	     60	target/thumbv6m-none-eabi/opt-1/examples/hello_world_no_dynamic
      96	      0	      0	     96	     60	target/thumbv6m-none-eabi/opt-2/examples/hello_world_no_dynamic
     100	      0	      0	    100	     64	target/thumbv6m-none-eabi/opt-3/examples/hello_world_no_dynamic
      96	      0	      0	     96	     60	target/thumbv6m-none-eabi/opt-s/examples/hello_world_no_dynamic
      92	      0	      0	     92	     5c	target/thumbv6m-none-eabi/opt-z/examples/hello_world_no_dynamic
+    210	      0	      0	    210	     d2	target/thumbv6m-none-eabi/opt-1/examples/hello_world_static
+    150	      0	      0	    150	     96	target/thumbv6m-none-eabi/opt-2/examples/hello_world_static
+    150	      0	      0	    150	     96	target/thumbv6m-none-eabi/opt-3/examples/hello_world_static
+    150	      0	      0	    150	     96	target/thumbv6m-none-eabi/opt-s/examples/hello_world_static
+    146	      0	      0	    146	     92	target/thumbv6m-none-eabi/opt-z/examples/hello_world_static
     370	      0	      0	    370	    172	target/thumbv6m-none-eabi/opt-1/examples/print_rng_dynamic_type
     308	      0	      0	    308	    134	target/thumbv6m-none-eabi/opt-2/examples/print_rng_dynamic_type
     324	      0	      0	    324	    144	target/thumbv6m-none-eabi/opt-3/examples/print_rng_dynamic_type

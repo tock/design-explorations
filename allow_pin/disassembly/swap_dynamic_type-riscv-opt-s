@@ -5,14 +5,14 @@ Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .text         0000015c  000110d4  000110d4  000000d4  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .comment      0000008b  00000000  00000000  00000230  2**0
+  1 .comment      00000099  00000000  00000000  00000230  2**0
                   CONTENTS, READONLY
-  2 .riscv.attributes 0000002f  00000000  00000000  000002bb  2**0
+  2 .riscv.attributes 0000002f  00000000  00000000  000002c9  2**0
                   CONTENTS, READONLY
 
 Disassembly of section .text:
 
-000110d4 <_ZN17swap_dynamic_type38StreamingReceiveSlice$LT$_$C$_$C$_$GT$4next17hc3a77ae235f89e9aE>:
+000110d4 <_ZN17swap_dynamic_type38StreamingReceiveSlice$LT$_$C$_$C$_$GT$4next17h5f28a90f5a31a2d0E>:
    110d4:	87aa                	mv	a5,a0
    110d6:	00054283          	lbu	t0,0(a0)
    110da:	12f9                	addi	t0,t0,-2
@@ -22,10 +22,10 @@ Disassembly of section .text:
    110e4:	00a78333          	add	t1,a5,a0
    110e8:	00034703          	lbu	a4,0(t1)
    110ec:	4389                	li	t2,2
-   110ee:	00771563          	bne	a4,t2,110f8 <_ZN17swap_dynamic_type38StreamingReceiveSlice$LT$_$C$_$C$_$GT$4next17hc3a77ae235f89e9aE+0x24>
+   110ee:	00771563          	bne	a4,t2,110f8 <_ZN17swap_dynamic_type38StreamingReceiveSlice$LT$_$C$_$C$_$GT$4next17h5f28a90f5a31a2d0E+0x24>
    110f2:	4805                	li	a6,1
    110f4:	4899                	li	a7,6
-   110f6:	a02d                	j	11120 <_ZN17swap_dynamic_type38StreamingReceiveSlice$LT$_$C$_$C$_$GT$4next17hc3a77ae235f89e9aE+0x4c>
+   110f6:	a02d                	j	11120 <_ZN17swap_dynamic_type38StreamingReceiveSlice$LT$_$C$_$C$_$GT$4next17h5f28a90f5a31a2d0E+0x4c>
    110f8:	4581                	li	a1,0
    110fa:	4801                	li	a6,0
    110fc:	00130893          	addi	a7,t1,1
@@ -114,7 +114,7 @@ Disassembly of section .text:
    111ee:	8082                	ret
    111f0:	00a10513          	addi	a0,sp,10
    111f4:	00000097          	auipc	ra,0x0
-   111f8:	ee0080e7          	jalr	-288(ra) # 110d4 <_ZN17swap_dynamic_type38StreamingReceiveSlice$LT$_$C$_$C$_$GT$4next17hc3a77ae235f89e9aE>
+   111f8:	ee0080e7          	jalr	-288(ra) # 110d4 <_ZN17swap_dynamic_type38StreamingReceiveSlice$LT$_$C$_$C$_$GT$4next17h5f28a90f5a31a2d0E>
    111fc:	8905                	andi	a0,a0,1
    111fe:	f949                	bnez	a0,11190 <_start+0x6a>
    11200:	4681                	li	a3,0
@@ -129,7 +129,7 @@ Disassembly of section .text:
    11218:	f8a7fde3          	bgeu	a5,a0,111b2 <_start+0x8c>
    1121c:	00a10513          	addi	a0,sp,10
    11220:	00000097          	auipc	ra,0x0
-   11224:	eb4080e7          	jalr	-332(ra) # 110d4 <_ZN17swap_dynamic_type38StreamingReceiveSlice$LT$_$C$_$C$_$GT$4next17hc3a77ae235f89e9aE>
+   11224:	eb4080e7          	jalr	-332(ra) # 110d4 <_ZN17swap_dynamic_type38StreamingReceiveSlice$LT$_$C$_$C$_$GT$4next17h5f28a90f5a31a2d0E>
    11228:	8905                	andi	a0,a0,1
    1122a:	f13d                	bnez	a0,11190 <_start+0x6a>
    1122c:	4801                	li	a6,0
