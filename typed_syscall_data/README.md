@@ -591,3 +591,9 @@ we could improve on the ABI proposed above:
    still happen if a user runs an app on a kernel that was compiled for a
    different version of the syscall definition. We could mitigate that by having
    CI checks that prevent ABI-breaking changes to syscall interfaces.
+
+## Discussion
+
+The [PR that added this
+document](https://github.com/tock/design-explorations/pull/4) has good
+discussion on this topic.
