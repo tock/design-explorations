@@ -5,9 +5,9 @@ Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .text         0000007a  000110d4  000110d4  000000d4  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .comment      0000008b  00000000  00000000  0000014e  2**0
+  1 .comment      00000099  00000000  00000000  0000014e  2**0
                   CONTENTS, READONLY
-  2 .riscv.attributes 0000002f  00000000  00000000  000001d9  2**0
+  2 .riscv.attributes 0000002f  00000000  00000000  000001e7  2**0
                   CONTENTS, READONLY
 
 Disassembly of section .text:

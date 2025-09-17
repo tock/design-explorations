@@ -5,14 +5,14 @@ Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .text         000000d4  000110d4  000110d4  000000d4  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .comment      0000008b  00000000  00000000  000001a8  2**0
+  1 .comment      00000099  00000000  00000000  000001a8  2**0
                   CONTENTS, READONLY
-  2 .riscv.attributes 0000002f  00000000  00000000  00000233  2**0
+  2 .riscv.attributes 0000002f  00000000  00000000  00000241  2**0
                   CONTENTS, READONLY
 
 Disassembly of section .text:
 
-000110d4 <_ZN9allow_pin7command17h1eb46760111c3605E>:
+000110d4 <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>:
    110d4:	4585                	li	a1,1
    110d6:	4621                	li	a2,8
    110d8:	4709                	li	a4,2
@@ -38,7 +38,7 @@ Disassembly of section .text:
    11104:	01150963          	beq	a0,a7,11116 <_start+0x30>
    11108:	853e                	mv	a0,a5
    1110a:	00000097          	auipc	ra,0x0
-   1110e:	fca080e7          	jalr	-54(ra) # 110d4 <_ZN9allow_pin7command17h1eb46760111c3605E>
+   1110e:	fca080e7          	jalr	-54(ra) # 110d4 <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    11112:	8905                	andi	a0,a0,1
    11114:	c10d                	beqz	a0,11136 <_start+0x50>
    11116:	882e                	mv	a6,a1
@@ -76,7 +76,7 @@ Disassembly of section .text:
    11160:	00f50963          	beq	a0,a5,11172 <_start+0x8c>
    11164:	4505                	li	a0,1
    11166:	00000097          	auipc	ra,0x0
-   1116a:	f6e080e7          	jalr	-146(ra) # 110d4 <_ZN9allow_pin7command17h1eb46760111c3605E>
+   1116a:	f6e080e7          	jalr	-146(ra) # 110d4 <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    1116e:	8905                	andi	a0,a0,1
    11170:	c911                	beqz	a0,11184 <_start+0x9e>
    11172:	882e                	mv	a6,a1

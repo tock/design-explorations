@@ -5,9 +5,9 @@ Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .text         000001e6  000110d4  000110d4  000000d4  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .comment      0000008b  00000000  00000000  000002ba  2**0
+  1 .comment      00000099  00000000  00000000  000002ba  2**0
                   CONTENTS, READONLY
-  2 .riscv.attributes 0000002f  00000000  00000000  00000345  2**0
+  2 .riscv.attributes 0000002f  00000000  00000000  00000353  2**0
                   CONTENTS, READONLY
 
 Disassembly of section .text:
@@ -40,7 +40,7 @@ Disassembly of section .text:
    11126:	00f105a3          	sb	a5,11(sp)
    1112a:	00010623          	sb	zero,12(sp)
    1112e:	000106a3          	sb	zero,13(sp)
-   11132:	0505                	addi	a0,a0,1 # 40001 <_ZN9allow_pin12dynamic_type7unshare17h0269127f30dbe29bE+0x2ed53>
+   11132:	0505                	addi	a0,a0,1 # 40001 <_ZN9allow_pin12dynamic_type7unshare17hb27555f71d22f3b2E+0x2ed53>
    11134:	46a1                	li	a3,8
    11136:	470d                	li	a4,3
    11138:	8616                	mv	a2,t0
@@ -58,7 +58,7 @@ Disassembly of section .text:
    1115c:	4585                	li	a1,1
    1115e:	4621                	li	a2,8
    11160:	4709                	li	a4,2
-   11162:	0505                	addi	a0,a0,1 # 40001 <_ZN9allow_pin12dynamic_type7unshare17h0269127f30dbe29bE+0x2ed53>
+   11162:	0505                	addi	a0,a0,1 # 40001 <_ZN9allow_pin12dynamic_type7unshare17hb27555f71d22f3b2E+0x2ed53>
    11164:	07f00793          	li	a5,127
    11168:	00000073          	ecall
    1116c:	842e                	mv	s0,a1
@@ -83,7 +83,7 @@ Disassembly of section .text:
    111a8:	0070                	addi	a2,sp,12
    111aa:	4581                	li	a1,0
    111ac:	00040537          	lui	a0,0x40
-   111b0:	0505                	addi	a0,a0,1 # 40001 <_ZN9allow_pin12dynamic_type7unshare17h0269127f30dbe29bE+0x2ed53>
+   111b0:	0505                	addi	a0,a0,1 # 40001 <_ZN9allow_pin12dynamic_type7unshare17hb27555f71d22f3b2E+0x2ed53>
    111b2:	46a1                	li	a3,8
    111b4:	00000073          	ecall
    111b8:	00210513          	addi	a0,sp,2
@@ -99,7 +99,7 @@ Disassembly of section .text:
    111d6:	4585                	li	a1,1
    111d8:	4621                	li	a2,8
    111da:	4709                	li	a4,2
-   111dc:	0505                	addi	a0,a0,1 # 40001 <_ZN9allow_pin12dynamic_type7unshare17h0269127f30dbe29bE+0x2ed53>
+   111dc:	0505                	addi	a0,a0,1 # 40001 <_ZN9allow_pin12dynamic_type7unshare17hb27555f71d22f3b2E+0x2ed53>
    111de:	07f00793          	li	a5,127
    111e2:	00000073          	ecall
    111e6:	4609                	li	a2,2
@@ -118,20 +118,20 @@ Disassembly of section .text:
    1120e:	00214603          	lbu	a2,2(sp)
    11212:	01060a63          	beq	a2,a6,11226 <_start+0x152>
    11216:	00040537          	lui	a0,0x40
-   1121a:	0505                	addi	a0,a0,1 # 40001 <_ZN9allow_pin12dynamic_type7unshare17h0269127f30dbe29bE+0x2ed53>
+   1121a:	0505                	addi	a0,a0,1 # 40001 <_ZN9allow_pin12dynamic_type7unshare17hb27555f71d22f3b2E+0x2ed53>
    1121c:	4581                	li	a1,0
    1121e:	00000097          	auipc	ra,0x0
-   11222:	090080e7          	jalr	144(ra) # 112ae <_ZN9allow_pin12dynamic_type7unshare17h0269127f30dbe29bE>
+   11222:	090080e7          	jalr	144(ra) # 112ae <_ZN9allow_pin12dynamic_type7unshare17hb27555f71d22f3b2E>
    11226:	00b14603          	lbu	a2,11(sp)
    1122a:	4485                	li	s1,1
    1122c:	4589                	li	a1,2
    1122e:	4505                	li	a0,1
    11230:	00b60b63          	beq	a2,a1,11246 <_start+0x172>
    11234:	00040537          	lui	a0,0x40
-   11238:	0505                	addi	a0,a0,1 # 40001 <_ZN9allow_pin12dynamic_type7unshare17h0269127f30dbe29bE+0x2ed53>
+   11238:	0505                	addi	a0,a0,1 # 40001 <_ZN9allow_pin12dynamic_type7unshare17hb27555f71d22f3b2E+0x2ed53>
    1123a:	4581                	li	a1,0
    1123c:	00000097          	auipc	ra,0x0
-   11240:	072080e7          	jalr	114(ra) # 112ae <_ZN9allow_pin12dynamic_type7unshare17h0269127f30dbe29bE>
+   11240:	072080e7          	jalr	114(ra) # 112ae <_ZN9allow_pin12dynamic_type7unshare17hb27555f71d22f3b2E>
    11244:	8526                	mv	a0,s1
    11246:	85a2                	mv	a1,s0
    11248:	40f2                	lw	ra,28(sp)
@@ -150,7 +150,7 @@ Disassembly of section .text:
    1126a:	000407b7          	lui	a5,0x40
    1126e:	46a1                	li	a3,8
    11270:	00210413          	addi	s0,sp,2
-   11274:	0785                	addi	a5,a5,1 # 40001 <_ZN9allow_pin12dynamic_type7unshare17h0269127f30dbe29bE+0x2ed53>
+   11274:	0785                	addi	a5,a5,1 # 40001 <_ZN9allow_pin12dynamic_type7unshare17hb27555f71d22f3b2E+0x2ed53>
    11276:	00a404b3          	add	s1,s0,a0
    1127a:	98a2                	add	a7,a7,s0
    1127c:	853e                	mv	a0,a5
@@ -162,7 +162,7 @@ Disassembly of section .text:
    11292:	853e                	mv	a0,a5
    11294:	4581                	li	a1,0
    11296:	00000097          	auipc	ra,0x0
-   1129a:	018080e7          	jalr	24(ra) # 112ae <_ZN9allow_pin12dynamic_type7unshare17h0269127f30dbe29bE>
+   1129a:	018080e7          	jalr	24(ra) # 112ae <_ZN9allow_pin12dynamic_type7unshare17hb27555f71d22f3b2E>
    1129e:	4481                	li	s1,0
    112a0:	4501                	li	a0,0
    112a2:	00b14603          	lbu	a2,11(sp)
@@ -170,7 +170,7 @@ Disassembly of section .text:
    112a8:	f8b616e3          	bne	a2,a1,11234 <_start+0x160>
    112ac:	bf69                	j	11246 <_start+0x172>
 
-000112ae <_ZN9allow_pin12dynamic_type7unshare17h0269127f30dbe29bE>:
+000112ae <_ZN9allow_pin12dynamic_type7unshare17hb27555f71d22f3b2E>:
    112ae:	8732                	mv	a4,a2
    112b0:	4601                	li	a2,0
    112b2:	4681                	li	a3,0

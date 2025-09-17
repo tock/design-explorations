@@ -19,11 +19,21 @@
     132	      0	      0	    132	     84	target/riscv32imc-unknown-none-elf/opt-3/examples/hello_world_dynamic_type
     104	      0	      0	    104	     68	target/riscv32imc-unknown-none-elf/opt-s/examples/hello_world_dynamic_type
     104	      0	      0	    104	     68	target/riscv32imc-unknown-none-elf/opt-z/examples/hello_world_dynamic_type
+    148	      0	      0	    148	     94	target/riscv32imc-unknown-none-elf/opt-1/examples/hello_world_full_dynamic
+    134	      0	      0	    134	     86	target/riscv32imc-unknown-none-elf/opt-2/examples/hello_world_full_dynamic
+    134	      0	      0	    134	     86	target/riscv32imc-unknown-none-elf/opt-3/examples/hello_world_full_dynamic
+    132	      0	      0	    132	     84	target/riscv32imc-unknown-none-elf/opt-s/examples/hello_world_full_dynamic
+    132	      0	      0	    132	     84	target/riscv32imc-unknown-none-elf/opt-z/examples/hello_world_full_dynamic
     100	      0	      0	    100	     64	target/riscv32imc-unknown-none-elf/opt-1/examples/hello_world_no_dynamic
     100	      0	      0	    100	     64	target/riscv32imc-unknown-none-elf/opt-2/examples/hello_world_no_dynamic
     102	      0	      0	    102	     66	target/riscv32imc-unknown-none-elf/opt-3/examples/hello_world_no_dynamic
     100	      0	      0	    100	     64	target/riscv32imc-unknown-none-elf/opt-s/examples/hello_world_no_dynamic
     100	      0	      0	    100	     64	target/riscv32imc-unknown-none-elf/opt-z/examples/hello_world_no_dynamic
+    150	      0	      0	    150	     96	target/riscv32imc-unknown-none-elf/opt-1/examples/hello_world_static
+    142	      0	      0	    142	     8e	target/riscv32imc-unknown-none-elf/opt-2/examples/hello_world_static
+    142	      0	      0	    142	     8e	target/riscv32imc-unknown-none-elf/opt-3/examples/hello_world_static
+    140	      0	      0	    140	     8c	target/riscv32imc-unknown-none-elf/opt-s/examples/hello_world_static
+    140	      0	      0	    140	     8c	target/riscv32imc-unknown-none-elf/opt-z/examples/hello_world_static
     378	      0	      0	    378	    17a	target/riscv32imc-unknown-none-elf/opt-1/examples/print_rng_dynamic_type
     350	      0	      0	    350	    15e	target/riscv32imc-unknown-none-elf/opt-2/examples/print_rng_dynamic_type
     354	      0	      0	    354	    162	target/riscv32imc-unknown-none-elf/opt-3/examples/print_rng_dynamic_type

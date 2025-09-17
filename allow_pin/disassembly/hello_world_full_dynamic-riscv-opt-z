@@ -1,0 +1,69 @@
+
+target/riscv32imc-unknown-none-elf/opt-z/examples/hello_world_full_dynamic:     file format elf32-littleriscv
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000084  000110d4  000110d4  000000d4  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .comment      00000099  00000000  00000000  00000158  2**0
+                  CONTENTS, READONLY
+  2 .riscv.attributes 0000002f  00000000  00000000  000001f1  2**0
+                  CONTENTS, READONLY
+
+Disassembly of section .text:
+
+000110d4 <_start>:
+   110d4:	1101                	addi	sp,sp,-32
+   110d6:	ce06                	sw	ra,28(sp)
+   110d8:	cc22                	sw	s0,24(sp)
+   110da:	ca26                	sw	s1,20(sp)
+   110dc:	4789                	li	a5,2
+   110de:	0810                	addi	a2,sp,16
+   110e0:	671d                	lui	a4,0x7
+   110e2:	4405                	li	s0,1
+   110e4:	4811                	li	a6,4
+   110e6:	4505                	li	a0,1
+   110e8:	4585                	li	a1,1
+   110ea:	4689                	li	a3,2
+   110ec:	96870713          	addi	a4,a4,-1688 # 6968 <_start-0xa76c>
+   110f0:	00f10623          	sb	a5,12(sp)
+   110f4:	00e11823          	sh	a4,16(sp)
+   110f8:	4711                	li	a4,4
+   110fa:	00000073          	ecall
+   110fe:	00f51463          	bne	a0,a5,11106 <_start+0x32>
+   11102:	84ae                	mv	s1,a1
+   11104:	a839                	j	11122 <_start+0x4e>
+   11106:	c222                	sw	s0,4(sp)
+   11108:	c422                	sw	s0,8(sp)
+   1110a:	01010623          	sb	a6,12(sp)
+   1110e:	4505                	li	a0,1
+   11110:	4585                	li	a1,1
+   11112:	4639                	li	a2,14
+   11114:	4709                	li	a4,2
+   11116:	4681                	li	a3,0
+   11118:	00000073          	ecall
+   1111c:	84ae                	mv	s1,a1
+   1111e:	08053413          	sltiu	s0,a0,128
+   11122:	0048                	addi	a0,sp,4
+   11124:	00000097          	auipc	ra,0x0
+   11128:	016080e7          	jalr	22(ra) # 1113a <_ZN9allow_pin12full_dynamic17unshare_if_shared17ha9c848d8c301b74dE>
+   1112c:	8522                	mv	a0,s0
+   1112e:	85a6                	mv	a1,s1
+   11130:	40f2                	lw	ra,28(sp)
+   11132:	4462                	lw	s0,24(sp)
+   11134:	44d2                	lw	s1,20(sp)
+   11136:	6105                	addi	sp,sp,32
+   11138:	8082                	ret
+
+0001113a <_ZN9allow_pin12full_dynamic17unshare_if_shared17ha9c848d8c301b74dE>:
+   1113a:	00854703          	lbu	a4,8(a0)
+   1113e:	4809                	li	a6,2
+   11140:	01070b63          	beq	a4,a6,11156 <_ZN9allow_pin12full_dynamic17unshare_if_shared17ha9c848d8c301b74dE+0x1c>
+   11144:	87aa                	mv	a5,a0
+   11146:	4108                	lw	a0,0(a0)
+   11148:	43cc                	lw	a1,4(a5)
+   1114a:	4601                	li	a2,0
+   1114c:	4681                	li	a3,0
+   1114e:	00000073          	ecall
+   11152:	01078423          	sb	a6,8(a5)
+   11156:	8082                	ret

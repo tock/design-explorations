@@ -5,17 +5,17 @@ Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .text         00000170  000110d4  000110d4  000000d4  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .comment      0000008b  00000000  00000000  00000244  2**0
+  1 .comment      00000099  00000000  00000000  00000244  2**0
                   CONTENTS, READONLY
-  2 .riscv.attributes 0000002f  00000000  00000000  000002cf  2**0
+  2 .riscv.attributes 0000002f  00000000  00000000  000002dd  2**0
                   CONTENTS, READONLY
 
 Disassembly of section .text:
 
-000110d4 <_ZN4core3ptr99drop_in_place$LT$allow_pin..dynamic_type..Buffer$LT$$u5b$u8$u3b$$u20$8$u5d$$C$1_u32$C$1_u32$GT$$GT$17hf2913ed9c04a6814E>:
+000110d4 <_ZN4core3ptr99drop_in_place$LT$allow_pin..dynamic_type..Buffer$LT$$u5b$u8$u3b$$u20$8$u5d$$C$1_u32$C$1_u32$GT$$GT$17h165528f79519f987E>:
    110d4:	0ff57713          	zext.b	a4,a0
    110d8:	4509                	li	a0,2
-   110da:	00a70863          	beq	a4,a0,110ea <_ZN4core3ptr99drop_in_place$LT$allow_pin..dynamic_type..Buffer$LT$$u5b$u8$u3b$$u20$8$u5d$$C$1_u32$C$1_u32$GT$$GT$17hf2913ed9c04a6814E+0x16>
+   110da:	00a70863          	beq	a4,a0,110ea <_ZN4core3ptr99drop_in_place$LT$allow_pin..dynamic_type..Buffer$LT$$u5b$u8$u3b$$u20$8$u5d$$C$1_u32$C$1_u32$GT$$GT$17h165528f79519f987E+0x16>
    110de:	4505                	li	a0,1
    110e0:	4585                	li	a1,1
    110e2:	4601                	li	a2,0
@@ -23,7 +23,7 @@ Disassembly of section .text:
    110e6:	00000073          	ecall
    110ea:	8082                	ret
 
-000110ec <_ZN9allow_pin12dynamic_type11allow_inner17h3a6a47aa9dcb8aceE>:
+000110ec <_ZN9allow_pin12dynamic_type11allow_inner17h4f9b317fd8fa6c9cE>:
    110ec:	8736                	mv	a4,a3
    110ee:	46a1                	li	a3,8
    110f0:	00000073          	ecall
@@ -31,7 +31,7 @@ Disassembly of section .text:
    110f6:	00153513          	seqz	a0,a0
    110fa:	8082                	ret
 
-000110fc <_ZN9allow_pin7command17h1eb46760111c3605E>:
+000110fc <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>:
    110fc:	4585                	li	a1,1
    110fe:	4621                	li	a2,8
    11100:	4709                	li	a4,2
@@ -64,13 +64,13 @@ Disassembly of section .text:
    1114c:	8526                	mv	a0,s1
    1114e:	4581                	li	a1,0
    11150:	00000097          	auipc	ra,0x0
-   11154:	f9c080e7          	jalr	-100(ra) # 110ec <_ZN9allow_pin12dynamic_type11allow_inner17h3a6a47aa9dcb8aceE>
+   11154:	f9c080e7          	jalr	-100(ra) # 110ec <_ZN9allow_pin12dynamic_type11allow_inner17h4f9b317fd8fa6c9cE>
    11158:	8905                	andi	a0,a0,1
    1115a:	e911                	bnez	a0,1116e <_start+0x60>
    1115c:	01210723          	sb	s2,14(sp)
    11160:	8526                	mv	a0,s1
    11162:	00000097          	auipc	ra,0x0
-   11166:	f9a080e7          	jalr	-102(ra) # 110fc <_ZN9allow_pin7command17h1eb46760111c3605E>
+   11166:	f9a080e7          	jalr	-102(ra) # 110fc <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    1116a:	8905                	andi	a0,a0,1
    1116c:	c905                	beqz	a0,1119c <_start+0x8e>
    1116e:	842e                	mv	s0,a1
@@ -124,7 +124,7 @@ Disassembly of section .text:
    111fe:	4691                	li	a3,4
    11200:	4491                	li	s1,4
    11202:	00000097          	auipc	ra,0x0
-   11206:	eea080e7          	jalr	-278(ra) # 110ec <_ZN9allow_pin12dynamic_type11allow_inner17h3a6a47aa9dcb8aceE>
+   11206:	eea080e7          	jalr	-278(ra) # 110ec <_ZN9allow_pin12dynamic_type11allow_inner17h4f9b317fd8fa6c9cE>
    1120a:	8905                	andi	a0,a0,1
    1120c:	c509                	beqz	a0,11216 <_start+0x108>
    1120e:	842e                	mv	s0,a1
@@ -133,16 +133,16 @@ Disassembly of section .text:
    11216:	00910ba3          	sb	s1,23(sp)
    1121a:	4505                	li	a0,1
    1121c:	00000097          	auipc	ra,0x0
-   11220:	ee0080e7          	jalr	-288(ra) # 110fc <_ZN9allow_pin7command17h1eb46760111c3605E>
+   11220:	ee0080e7          	jalr	-288(ra) # 110fc <_ZN9allow_pin7command17hdfcb5c5f4a3821c8E>
    11224:	8905                	andi	a0,a0,1
    11226:	c901                	beqz	a0,11236 <_start+0x128>
    11228:	842e                	mv	s0,a1
    1122a:	8526                	mv	a0,s1
    1122c:	00000097          	auipc	ra,0x0
-   11230:	ea8080e7          	jalr	-344(ra) # 110d4 <_ZN4core3ptr99drop_in_place$LT$allow_pin..dynamic_type..Buffer$LT$$u5b$u8$u3b$$u20$8$u5d$$C$1_u32$C$1_u32$GT$$GT$17hf2913ed9c04a6814E>
+   11230:	ea8080e7          	jalr	-344(ra) # 110d4 <_ZN4core3ptr99drop_in_place$LT$allow_pin..dynamic_type..Buffer$LT$$u5b$u8$u3b$$u20$8$u5d$$C$1_u32$C$1_u32$GT$$GT$17h165528f79519f987E>
    11234:	bf35                	j	11170 <_start+0x62>
    11236:	4511                	li	a0,4
    11238:	00000097          	auipc	ra,0x0
-   1123c:	e9c080e7          	jalr	-356(ra) # 110d4 <_ZN4core3ptr99drop_in_place$LT$allow_pin..dynamic_type..Buffer$LT$$u5b$u8$u3b$$u20$8$u5d$$C$1_u32$C$1_u32$GT$$GT$17hf2913ed9c04a6814E>
+   1123c:	e9c080e7          	jalr	-356(ra) # 110d4 <_ZN4core3ptr99drop_in_place$LT$allow_pin..dynamic_type..Buffer$LT$$u5b$u8$u3b$$u20$8$u5d$$C$1_u32$C$1_u32$GT$$GT$17h165528f79519f987E>
    11240:	4781                	li	a5,0
    11242:	bf05                	j	11172 <_start+0x64>
