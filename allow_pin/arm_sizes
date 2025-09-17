@@ -1,15 +1,15 @@
    text	   data	    bss	    dec	    hex	filename
   46464	      0	      0	  46464	   b580	target/thumbv6m-none-eabi/opt-1/examples/complex_dynamic_type
   45114	      0	      0	  45114	   b03a	target/thumbv6m-none-eabi/opt-2/examples/complex_dynamic_type
-  45122	      0	      0	  45122	   b042	target/thumbv6m-none-eabi/opt-3/examples/complex_dynamic_type
-  42162	      0	      0	  42162	   a4b2	target/thumbv6m-none-eabi/opt-s/examples/complex_dynamic_type
+  45118	      0	      0	  45118	   b03e	target/thumbv6m-none-eabi/opt-3/examples/complex_dynamic_type
+  42158	      0	      0	  42158	   a4ae	target/thumbv6m-none-eabi/opt-s/examples/complex_dynamic_type
   33299	      0	      0	  33299	   8213	target/thumbv6m-none-eabi/opt-z/examples/complex_dynamic_type
-  37952	      0	      0	  37952	   9440	target/thumbv6m-none-eabi/opt-1/examples/complex_full_dynamic
+  37956	      0	      0	  37956	   9444	target/thumbv6m-none-eabi/opt-1/examples/complex_full_dynamic
   29136	      0	      0	  29136	   71d0	target/thumbv6m-none-eabi/opt-2/examples/complex_full_dynamic
-  29140	      0	      0	  29140	   71d4	target/thumbv6m-none-eabi/opt-3/examples/complex_full_dynamic
-  27596	      0	      0	  27596	   6bcc	target/thumbv6m-none-eabi/opt-s/examples/complex_full_dynamic
+  29136	      0	      0	  29136	   71d0	target/thumbv6m-none-eabi/opt-3/examples/complex_full_dynamic
+  27600	      0	      0	  27600	   6bd0	target/thumbv6m-none-eabi/opt-s/examples/complex_full_dynamic
   29720	      0	      0	  29720	   7418	target/thumbv6m-none-eabi/opt-z/examples/complex_full_dynamic
-  31628	      0	      0	  31628	   7b8c	target/thumbv6m-none-eabi/opt-1/examples/complex_no_dynamic
+  31632	      0	      0	  31632	   7b90	target/thumbv6m-none-eabi/opt-1/examples/complex_no_dynamic
   28480	      0	      0	  28480	   6f40	target/thumbv6m-none-eabi/opt-2/examples/complex_no_dynamic
   28480	      0	      0	  28480	   6f40	target/thumbv6m-none-eabi/opt-3/examples/complex_no_dynamic
   28148	      0	      0	  28148	   6df4	target/thumbv6m-none-eabi/opt-s/examples/complex_no_dynamic
