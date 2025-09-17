@@ -1,0 +1,7 @@
+[toolchain]
+channel = "1.89.0"
+components = ["rustfmt"]
+targets = [
+    "thumbv6m-none-eabi",
+    "riscv32imc-unknown-none-elf",
+]

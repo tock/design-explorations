@@ -1,2 +1,4 @@
 Cargo.lock
 target/
+
+/allow_pin/disassembly/
