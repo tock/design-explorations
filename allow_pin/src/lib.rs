@@ -6,6 +6,7 @@ use core::pin::Pin;
 use core::ptr::null_mut;
 use zerocopy::{FromBytes, IntoBytes};
 
+pub mod allow_ref;
 pub mod dynamic_type;
 pub mod full_dynamic;
 pub mod no_dynamic;
